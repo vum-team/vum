@@ -1,8 +1,34 @@
 import Vue from 'vue'
-import App from './App'
+import Router from 'vue-router'
 
-/* eslint-disable no-new */
-new Vue({
-  el: 'body',
-  components: { App }
+// VUI
+import { Base } from './components/'
+
+// demos
+import Buttons from './demos/Buttons'
+import Home from './demos/Home'
+import Toast from './demos/Toast'
+
+Vue.use(Router)
+
+let App = Vue.extend({
+  components: {
+    Base
+  }
 })
+
+let router = new Router()
+
+router.map({
+  '/': {
+    component: Home
+  },
+  '/buttons': {
+    component: Buttons
+  },
+  '/toast': {
+    component: Toast
+  }
+})
+
+router.start(App, '#app')
