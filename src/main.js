@@ -10,6 +10,7 @@ import Buttons from './demos/Buttons'
 import Column from './demos/Column'
 import Grid from './demos/Grid'
 import Modal from './demos/Modal'
+import Alert from './demos/Alert'
 
 Vue.use(Router)
 
@@ -36,6 +37,9 @@ router.map({
   },
   '/modal': {
     component: Modal
+  },
+  '/alert': {
+    component: Alert
   }
 })
 

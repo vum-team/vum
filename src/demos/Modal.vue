@@ -6,16 +6,17 @@
   <div class='demos-content-padded'>
     <p><a href="javascript:;" class="button" v-on:click="showAlert()">Show Alert</a></p>
     <p><a href="javascript:;" class="button" v-on:click="showConfirm()">Show Confirm</a></p>
+    <p><a href="javascript:;" class="button" v-on:click="showModal()">Show Custom Modal</a></p>
   </div>
 
-  <modal :show.sync="alert" :ok="ok" :ok-text="'You are welcome!'">
-    <span slot="title">Hello</span>
-    <span>Thank you very much!<span>
-  </modal>
-
-  <modal :type="'confirm'" :show.sync="confirm" :ok="ok" :cancel="cancel" :ok-text="'YES'" :cancel-text="'NO'">
-    <span slot="title">Hello</span>
-    <span>Give me your hand!<span>
+  <modal :show.sync="show">
+    <div slot="title">Payment</div>
+    <div slot="content">Choose your payment!</div>
+    <div slot="buttons" class="modal-buttons">
+      <span class="modal-button" v-on:click="onClick(1)">Cancel</span>
+      <span class="modal-button" v-on:click="onClick(1)">Paypay</span>
+      <span class="modal-button modal-button-bold" v-on:click="onClick(2)">Bankcard</span>
+    </div>
   </modal>
 </template>
 
@@ -28,22 +29,16 @@ export default {
   },
   data () {
     return {
-      alert: false,
-      confirm: false
+      show: false
     }
   },
   methods: {
-    showAlert () {
-      this.alert = true
+    showModal () {
+      this.show = true
     },
-    showConfirm () {
-      this.confirm = true
-    },
-    ok () {
-      window.console.log('OK')
-    },
-    cancel () {
-      window.console.log('Cancel')
+    onClick (t) {
+      window.console.log(t)
+      this.modal = false
     }
   }
 }

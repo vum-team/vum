@@ -37,12 +37,12 @@
         Modal
       </p>
     </a>
-    <a href="dialog.html" class="grid" data-id="dialog">
+    <a v-link="{ path: 'alert' }" class="grid" data-id="alert">
       <div class="grid_icon">
         <img src="../assets/images/icon_nav_dialog.png" alt="">
       </div>
       <p class="grid_label">
-        Dialog
+        Alert
       </p>
     </a>
     <a href="progress.html" class="grid" data-id="progress">

@@ -6,56 +6,26 @@
         <slot name="title">Confirm</slot>
       </div>
       <div class="modal-text">
-        <slot></slot>
+        <slot name="content"></slot>
       </div>
     </div>
-    <div class="modal-buttons ">
-      <span class="modal-button" v-if="type === 'confirm'" v-on:click="onCancel">{{cancelText}}</span>
-      <span class="modal-button modal-button-bold" v-on:click="onOK">{{okText}}</span>
-    </div>
+    <slot name="buttons">
+    </slot>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    type: {
-      type: String,
-      require: false,
-      default: 'alert'
-    },
     show: {
       type: Boolean,
       required: true,
       twoWay: true
-    },
-    ok: {
-      type: Function,
-      required: false
-    },
-    cancel: {
-      type: Function,
-      required: false
-    },
-    okText: {
-      type: String,
-      required: false,
-      default: 'OK'
-    },
-    cancelText: {
-      type: String,
-      required: false,
-      default: 'Cancel'
     }
   },
   methods: {
     onOK () {
       this.show = false
-      if (this.ok) this.ok()
-    },
-    onCancel () {
-      this.show = false
-      if (this.cancel) this.cancel()
     }
   }
 }
