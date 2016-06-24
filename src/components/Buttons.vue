@@ -1,0 +1,200 @@
+<style lang="less">
+@import 'variables.less';
+@import 'mixins.less';
+//Buttons
+.button {
+    @btn-height: 1.35rem;
+    @btn-big-height: 2.4rem;
+    border: 1px solid @color-primary;
+    color: @color-primary;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    border-radius: 0.25rem;
+    line-height: (@btn-height - 0.1rem);
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: none;
+    padding: 0 0.5rem;
+    margin: 0;
+    height: @btn-height;
+    white-space: nowrap;
+    position: relative;
+    text-overflow:ellipsis;
+    font-size: 0.7rem;
+    font-family: inherit;
+    cursor: pointer;
+    input[type="submit"]&, input[type="button"]&{
+        width: 100%;
+    }
+
+    &:active {
+      color: @color-primary-active;
+      border-color: @color-primary-active;
+    }
+    &.button-round {
+        border-radius: (@btn-height - 0.1rem);
+    }
+    &.active {
+      &, &:active {
+        color: @color-primary-active;
+        border-color: @color-primary-active;
+      }
+    }
+    &.button-big {
+        font-size: 0.85rem;
+        height: @btn-big-height;
+        line-height: (@btn-big-height - 0.1rem);
+    }
+    &.button-fill {
+        color:#fff;
+        background: @color-primary;
+        border: none;
+        line-height: @btn-height;
+        &.active, &:active {
+            background: @color-primary-active;
+        }
+        &.button-big {
+          line-height: @btn-big-height;
+        }
+    }
+    .button-link {
+      padding-top: 0.3rem;
+      padding-bottom: 0.3rem;
+      color: @color-primary;
+      background-color: transparent;
+      border: 0;
+    }
+    i.icon {
+        &:first-child {
+            margin-right: 0.5rem;
+        }
+        &:last-child {
+            margin-left: 0.5rem;
+        }
+        &:first-child:last-child {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+
+.button-variant(@color, @color-active) {
+    border-color: @color;
+    color: @color;
+    &:active {
+        border-color: @color-active;
+        color: @color-active;
+    }
+    &.button-fill {
+      color: white;
+      background-color: @color;
+      &:active {
+        background-color: @color-active;
+      }
+    }
+}
+.button-themes() {
+  &.button-light {
+    .button-variant(@color-text-gray-light, @color-primary-active);
+    color: @color-text-secondary;
+  }
+  &.button-dark {
+    .button-variant(#6e727b, @color-primary-active);
+    color: @color-text-secondary;
+  }
+  &.button-success {
+    .button-variant(@color-success, @color-success-active);
+  }
+  &.button-danger {
+    .button-variant(@color-danger, @color-danger-active);
+  }
+  &.button-warning {
+    .button-variant(@color-warning, @color-warning-active);
+  }
+}
+.button-themes();
+
+.button {
+  &,
+  &.button-primary,
+  &.button-success,
+  &.button-danger,
+  &.button-warning {
+    &.disabled {
+      .button-variant(#c8c9cb, #c8c9cb);
+      cursor: not-allowed;
+    }
+  }
+}
+
+.buttons-row,
+.buttons-tab {
+    z-index: 10;
+    .align-self(center);
+    .flexbox();
+    .flex-wrap(nowrap);
+}
+
+.buttons-row {
+    .button {
+        border-radius: 0 0 0 0;
+        margin-left: -1px;
+        width: 100%;
+        -webkit-box-flex:1;
+        -ms-flex:1;
+        border-color: @color-primary;
+        color: @color-primary;
+        &.active {
+          background-color: @color-primary;
+          color: white;
+          z-index: 100;
+        }
+        &:active {
+        }
+    }
+    .button:first-child {
+        border-radius: 0.25rem 0 0 0.25rem;
+        margin-left: 0;
+        border-left-width: 1px;
+        border-left-style: solid;
+    }
+    .button:last-child {
+        border-radius: 0 0.25rem 0.25rem 0;
+    }
+    .button.button-round:first-child {
+        border-radius: 1.35rem 0 0 1.35rem;
+    }
+    .button.button-round:last-child {
+        border-radius: 0 1.35rem 1.35rem 0;
+    }
+}
+
+.buttons-tab {
+  background: white;
+  position: relative;
+  .hairline(bottom, #d0d0d0);
+  .button {
+    color: @color-text-secondary;
+    font-size: 0.8rem;
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    -webkit-box-flex:1;
+    -ms-flex:1;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    bottom: -1px;
+
+    &.active {
+      color: @color-primary;
+      border-color: @color-primary;
+      z-index: 100;
+    }
+  }
+}
+</style>

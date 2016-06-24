@@ -5,9 +5,11 @@ import Router from 'vue-router'
 import { Base } from './components/'
 
 // demos
-import Buttons from './demos/Buttons'
 import Home from './demos/Home'
-import Toast from './demos/Toast'
+import Buttons from './demos/Buttons'
+import Column from './demos/Column'
+import Grid from './demos/Grid'
+import Modal from './demos/Modal'
 
 Vue.use(Router)
 
@@ -26,8 +28,14 @@ router.map({
   '/buttons': {
     component: Buttons
   },
-  '/toast': {
-    component: Toast
+  '/column': {
+    component: Column
+  },
+  '/grid': {
+    component: Grid
+  },
+  '/modal': {
+    component: Modal
   }
 })
 

@@ -1,7 +1,7 @@
 import Base from './Base'
-import Toast from './Toast'
+import Modal from './Modal'
 
 module.exports = {
   Base,
-  Toast
+  Modal
 }
