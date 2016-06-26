@@ -1,65 +1,48 @@
 <style lang="less">
 @import 'variables.less';
 @import 'mixins.less';
+
 //Buttons
+@btn-height: 2rem;
+@btn-big-height: 2.5rem;
 .button {
-    @btn-height: 1.35rem;
-    @btn-big-height: 2.4rem;
-    border: 1px solid @color-primary;
-    color: @color-primary;
+    color: white;
+    border: 0;
+    background-color: @color-primary;
     text-decoration: none;
     text-align: center;
     display: block;
     border-radius: 0.25rem;
     line-height: (@btn-height - 0.1rem);
     box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
     appearance: none;
-    background: none;
     padding: 0 0.5rem;
     margin: 0;
     height: @btn-height;
     white-space: nowrap;
     position: relative;
     text-overflow:ellipsis;
-    font-size: 0.7rem;
-    font-family: inherit;
+    font-size: 0.8rem;
     cursor: pointer;
     input[type="submit"]&, input[type="button"]&{
         width: 100%;
     }
 
     &:active {
-      color: @color-primary-active;
-      border-color: @color-primary-active;
+      background-color: @color-primary-active;
     }
     &.button-round {
         border-radius: (@btn-height - 0.1rem);
     }
     &.active {
       &, &:active {
-        color: @color-primary-active;
-        border-color: @color-primary-active;
+        background-color: @color-primary-active;
       }
     }
     &.button-big {
         font-size: 0.85rem;
         height: @btn-big-height;
         line-height: (@btn-big-height - 0.1rem);
-    }
-    &.button-fill {
-        color:#fff;
-        background: @color-primary;
-        border: none;
-        line-height: @btn-height;
-        &.active, &:active {
-            background: @color-primary-active;
-        }
-        &.button-big {
-          line-height: @btn-big-height;
-        }
     }
     .button-link {
       padding-top: 0.3rem;
@@ -83,18 +66,9 @@
 }
 
 .button-variant(@color, @color-active) {
-    border-color: @color;
-    color: @color;
+    background: @color;
     &:active {
-        border-color: @color-active;
-        color: @color-active;
-    }
-    &.button-fill {
-      color: white;
-      background-color: @color;
-      &:active {
-        background-color: @color-active;
-      }
+        background: @color-active;
     }
 }
 .button-themes() {
@@ -146,10 +120,9 @@
         width: 100%;
         -webkit-box-flex:1;
         -ms-flex:1;
-        border-color: @color-primary;
-        color: @color-primary;
+        .hairline(left, @color-primary-active);
         &.active {
-          background-color: @color-primary;
+          background-color: @color-primary-active;
           color: white;
           z-index: 100;
         }
@@ -157,10 +130,8 @@
         }
     }
     .button:first-child {
-        border-radius: 0.25rem 0 0 0.25rem;
-        margin-left: 0;
-        border-left-width: 1px;
-        border-left-style: solid;
+      border-radius: 0.25rem 0 0 0.25rem;
+      .hairline-remove(left);
     }
     .button:last-child {
         border-radius: 0 0.25rem 0.25rem 0;

@@ -243,6 +243,8 @@
   z-index: 20; // Position the buttons on top of .title
   margin-top: 0;
   font-weight: @font-weight-light;
+  background: transparent;
+  color: @color-primary;
 
   // Give buttons that are floated left and right side margin
   &.pull-right {

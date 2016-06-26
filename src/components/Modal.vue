@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import 'variables.less';
 @import 'mixins.less';
 
