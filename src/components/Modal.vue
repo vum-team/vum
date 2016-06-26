@@ -22,16 +22,11 @@ export default {
       required: true,
       twoWay: true
     }
-  },
-  methods: {
-    onOK () {
-      this.show = false
-    }
   }
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import 'variables.less';
 @import 'mixins.less';
 
@@ -42,7 +37,7 @@ export default {
 @modalDuration: 400ms;
 
 .modal-overlay {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -61,11 +56,11 @@ export default {
     }
 }
 .popup-overlay {
-    z-index: 10200;
+    z-index: 99999;
 }
 .modal {
     width: 13.5rem;
-    position: absolute;
+    position: fixed;
     z-index: 11000;
     left: 50%;
     margin-left: -6.75rem;
@@ -146,6 +141,12 @@ export default {
     }
     &.modal-button-bold {
         font-weight: 500;
+    }
+    &.modal-button-cancel {
+      color: @color-text-secondary;
+    }
+    &.modal-button-disabled {
+      color: @color-text-gray;
     }
     html:not(.watch-active-state) &:active, &.active-state {
         background: @modalButonActiveBg;

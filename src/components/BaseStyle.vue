@@ -1,6 +1,8 @@
 <style lang="less">
 @import 'variables.less';
 
+// font size
+
 @baseWidth: 375px;
 @baseFont: 20px;
 
@@ -21,4 +23,12 @@ html {
   .loop((@i + 1));
 };
 .loop;
+
+// style
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
 </style>

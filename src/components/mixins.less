@@ -95,7 +95,7 @@
         clear: both;
     }
 }
-/*.hairline(@position, @color) when (@position = top) {
+.hairline(@position, @color) when (@position = top) {
     &:before {
         content: '';
         position: absolute;
@@ -206,8 +206,9 @@
     &:before {
         background-color: @color;
     }
-}*/
+}
 
+/*
 .hairline(@position, @color) when (@position = top) {
   border-top: 1px solid @color;
 }
@@ -239,7 +240,7 @@
 .hairline-color(@position, @color) when not (@position = right) and not (@position = bottom) {
   border-left-color: @color;
   border-top-color: @color;
-}
+}*/
 
 // Encoded SVG Background
 .encoded-svg-background(@svg) {
