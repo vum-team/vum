@@ -246,6 +246,10 @@
   background: transparent;
   color: @color-primary;
 
+  &:active {
+    background: transparent;
+  }
+
   // Give buttons that are floated left and right side margin
   &.pull-right {
     margin-left: @bar-side-spacing;
