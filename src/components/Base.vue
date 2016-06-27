@@ -5,6 +5,7 @@ import Icons from './Icons'
 import Column from './Column'
 import Buttons from './Buttons'
 import Grid from './Grid'
+import List from './List'
 
 export default {
   components: {
@@ -13,7 +14,8 @@ export default {
     Column,
     Buttons,
     Grid,
-    Pages
+    Pages,
+    List
   }
 }
 </script>

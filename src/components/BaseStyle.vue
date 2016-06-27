@@ -10,6 +10,29 @@ html {
   font-size: @baseFont;
 }
 
+* {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: .85rem;
+  line-height: 1.5;
+  color: #3d4145;
+  background: #eee;
+}
+
+// rem
 @bps: 400px, 414px, 480px; 
 
 .loop(@i: 1) when (@i <= length(@bps)) {
@@ -30,5 +53,16 @@ html {
 }
 .pull-left {
   float: left;
+}
+
+
+.badge {
+  display: inline-block;
+  padding: .1rem .45rem .15rem;
+  font-size: .6rem;
+  line-height: 1;
+  color: #3d4145;
+  background-color: rgba(0, 0, 0, .15);
+  border-radius: 5rem;
 }
 </style>

@@ -10,6 +10,7 @@ import Buttons from './demos/Buttons'
 import Column from './demos/Column'
 import Grid from './demos/Grid'
 import Modal from './demos/Modal'
+import List from './demos/List'
 
 Vue.use(Router)
 
@@ -37,6 +38,9 @@ router.map({
   },
   '/modal': {
     component: Modal
+  },
+  '/list': {
+    component: List
   }
 })
 
