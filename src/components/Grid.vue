@@ -39,6 +39,10 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+.grids-small .grid {
+  width: 25%;
+  padding: 15px 8px;
+}
 .grid:before {
   content: " ";
   position: absolute;

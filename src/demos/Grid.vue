@@ -85,6 +85,84 @@
 
         </div>
       </div>
+      <div class="grid-demo">
+        <h1 class="demos-title">Small</h1>
+        <div class="grids grids-small">
+          <a href="javascript:;" class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/icon_nav_button.png" alt="">
+            </div>
+            <p class="grid_label">
+              Button
+            </p>
+          </a>
+          <a href="javascript:;" class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/icon_nav_button.png" alt="">
+            </div>
+            <p class="grid_label">
+              Button
+            </p>
+          </a>
+          <a href="javascript:;" class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/icon_nav_button.png" alt="">
+            </div>
+            <p class="grid_label">
+              Button
+            </p>
+          </a>
+          <a href="javascript:;" class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/icon_nav_button.png" alt="">
+            </div>
+            <p class="grid_label">
+              Button
+            </p>
+          </a>
+          <a href="javascript:;" class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/icon_nav_button.png" alt="">
+            </div>
+            <p class="grid_label">
+              Button
+            </p>
+          </a>
+          <a href="javascript:;" class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/icon_nav_button.png" alt="">
+            </div>
+            <p class="grid_label">
+              Button
+            </p>
+          </a>
+          <a href="javascript:;" class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/icon_nav_button.png" alt="">
+            </div>
+            <p class="grid_label">
+              Button
+            </p>
+          </a>
+          <a href="javascript:;" class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/icon_nav_button.png" alt="">
+            </div>
+            <p class="grid_label">
+              Button
+            </p>
+          </a>
+          <a href="javascript:;" class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/icon_nav_button.png" alt="">
+            </div>
+            <p class="grid_label">
+              Button
+            </p>
+          </a>
+
+        </div>
+      </div>
     </div>
   </div>
 </template>
