@@ -3,7 +3,6 @@
 @import 'mixins.less';
 
 //page
-
 .page {
   box-sizing: border-box;
   position: absolute;
@@ -48,6 +47,12 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+
+
+@bar-base-height:  2.2rem;
+@bar-tab-height:   3.0rem;
+@bar-side-spacing: 0.5rem;
+
 
 .bar-nav ~ .page-content {
   top: @bar-base-height;
@@ -197,11 +202,11 @@
       top: .1rem;
       left: 50%;
       z-index: 100;
-      height: .8rem;
-      min-width: .8rem;
+      height: .9rem;
+      min-width: .9rem;
       padding: 0 .2rem;
       font-size: .6rem;
-      line-height: .8rem;
+      line-height: .9rem;
       color: white;
       vertical-align: top;
       background: red;
@@ -211,18 +216,18 @@
 
     // Tab icon
     .icon {
-      top: 0.15rem;
-      width: 1.2rem;
-      height: 1.2rem;
-      font-size: 1.2rem;
-      line-height: 1.2rem;
+      top: .1rem;
+      width: 1.3rem;
+      height: 1.3rem;
+      font-size: 1.3rem;
+      line-height: 1.3rem;
       padding-top: 0;
       padding-bottom: 0;
 
       // Make the text smaller if it's used with an icon '
       ~ .tab-label {
         display: block;
-        font-size: 0.55rem;
+        font-size: 0.65rem;
         position: relative;
         top: 0.15rem;
       }

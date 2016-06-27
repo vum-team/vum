@@ -29,7 +29,6 @@ body {
   font-size: .85rem;
   line-height: 1.5;
   color: #3d4145;
-  background: #eee;
 }
 
 // rem
@@ -47,7 +46,12 @@ body {
 };
 .loop;
 
+
 // style
+a {
+  text-decoration: none;
+}
+
 .pull-right {
   float: right;
 }

@@ -11,7 +11,7 @@
       <header class='demos-header'>
         <h1 class="demos-title">CSS</h1>
       </header>
-      <div class="grids">
+      <div class="grids grids-small">
         <a v-link="{ path: 'buttons' }" class="grid">
           <div class="grid_icon">
             <img src="../assets/images/icon_nav_button.png" alt="">
@@ -62,5 +62,43 @@
         </a>
       </div>
     </div>
+    <nav class="bar bar-tab">
+      <a class="tab-item active">
+        <span class="icon demo-icon-home"></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab-item">
+        <span class="icon demo-icon-search"></span>
+        <span class="tab-label">Search</span>
+      </a>
+      <a class="tab-item">
+        <span class="icon demo-icon-noti"></span>
+        <span class="badge">2</span>
+        <span class="tab-label">Noti</span>
+      </a>
+      <a class="tab-item">
+        <span class="icon demo-icon-me"></span>
+        <span class="tab-label">Me</span>
+      </a>
+    </nav>
   </div>
 </template>
+
+<style type="less">
+.demo-icon-home {
+  background-image: url("../assets/images/icon_nav_cell.png");
+  background-size: 100%;
+}
+.demo-icon-search {
+  background-image: url("../assets/images/icon_nav_search_bar.png");
+  background-size: 100%;
+}
+.demo-icon-noti {
+  background-image: url("../assets/images/icon_nav_button.png");
+  background-size: 100%;
+}
+.demo-icon-me {
+  background-image: url("../assets/images/icon_nav_panel.png");
+  background-size: 100%;
+}
+</style>
