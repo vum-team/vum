@@ -125,11 +125,16 @@
     }
     .item-after {
         white-space: nowrap;
-        color: @color-text-secondary;
+        color: @color-text-gray;
         .flex-shrink(0);
         margin-left: 0.25rem;
         .flexbox();
         max-height: 1.4rem;
+
+        .button {
+          height: 1.4rem;
+          line-height: 1.4rem;
+        }
     }
     .smart-select .item-after {
         max-width: 70%;

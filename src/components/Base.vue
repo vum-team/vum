@@ -6,6 +6,7 @@ import Column from './Column'
 import Buttons from './Buttons'
 import Grid from './Grid'
 import List from './List'
+import Form from './Form'
 
 export default {
   components: {
@@ -15,7 +16,8 @@ export default {
     Buttons,
     Grid,
     Pages,
-    List
+    List,
+    Form
   }
 }
 </script>

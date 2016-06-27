@@ -44,6 +44,14 @@
             List
           </p>
         </a>
+        <a v-link="{ path: '/form' }" class="grid">
+          <div class="grid_icon">
+            <img src="../assets/images/icon_nav_cell.png" alt="">
+          </div>
+          <p class="grid_label">
+            Form
+          </p>
+        </a>
         <a v-link="{ path: 'modal' }" class="grid">
           <div class="grid_icon">
             <img src="../assets/images/icon_nav_toast.png" alt="">
