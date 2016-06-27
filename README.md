@@ -1,6 +1,8 @@
-# VUI
+# VUI - In Development
 
 > An UI Framework build with Vue.js
+
+VUI is in development now, `V0.1.0` version will be released before `2016-8-31`.
 
 ## What is VUI?
 
