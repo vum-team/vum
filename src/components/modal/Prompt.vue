@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "variables.less";
+@import "../variables.less";
 p {
   margin: .5rem 0;
 }

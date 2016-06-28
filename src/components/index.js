@@ -1,13 +1,7 @@
 import Base from './Base'
-import Modal from './Modal'
-import Alert from './Alert'
-import Confirm from './Confirm'
-import Prompt from './Prompt'
+import Modal from './modal'
 
 module.exports = {
   Base,
-  Modal,
-  Alert,
-  Confirm,
-  Prompt
+  Modal
 }

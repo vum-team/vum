@@ -158,6 +158,70 @@
           </li>
         </ul>
       </div>
+      <div class="list-block media-list">
+        <ul>
+          <li>
+            <label class="item-content label-radio">
+              <input type="radio" name="my-radio" checked>
+              <i class="icon icon-form-radio"></i>
+              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Title</div>
+                  <div class="item-after">After</div>
+                </div>
+                <div class="item-subtitle">Subtitle</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="item-content label-radio">
+              <input type="radio" name="my-radio">
+              <i class="icon icon-form-radio"></i>
+              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Title</div>
+                  <div class="item-after">After</div>
+                </div>
+                <div class="item-subtitle">Subtitle</div>
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="list-block media-list">
+        <ul>
+          <li>
+            <label class="item-content label-checkbox">
+              <input type="checkbox" name="my-checkbox" checked>
+              <i class="icon icon-form-checkbox"></i>
+              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Title</div>
+                  <div class="item-after">After</div>
+                </div>
+                <div class="item-subtitle">Subtitle</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="item-content label-checkbox">
+              <input type="checkbox" name="my-checkbox">
+              <i class="icon icon-form-checkbox"></i>
+              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Title</div>
+                  <div class="item-after">After</div>
+                </div>
+                <div class="item-subtitle">Subtitle</div>
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

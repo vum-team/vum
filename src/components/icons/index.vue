@@ -1,6 +1,6 @@
 <style lang="less">
-@import 'variables.less';
-@import 'mixins.less';
+@import '../variables.less';
+@import '../mixins.less';
 
 .icon {
   display: inline-block;

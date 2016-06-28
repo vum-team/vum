@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { Alert, Confirm, Prompt, Modal } from '../components'
+import { Alert, Confirm, Prompt, Modal } from '../components/modal'
 
 export default {
   components: {
