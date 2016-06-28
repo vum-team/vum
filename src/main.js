@@ -11,6 +11,7 @@ import Column from './demos/Column'
 import Grid from './demos/Grid'
 import Modal from './demos/Modal'
 import List from './demos/List'
+import Contacts from './demos/Contacts'
 import Form from './demos/Form'
 
 Vue.use(Router)
@@ -42,6 +43,9 @@ router.map({
   },
   '/list': {
     component: List
+  },
+  '/contacts': {
+    component: Contacts
   },
   '/form': {
     component: Form

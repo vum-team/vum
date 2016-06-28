@@ -44,6 +44,14 @@
             List
           </p>
         </a>
+        <a v-link="{ path: '/contacts' }" class="grid">
+          <div class="grid_icon">
+            <img src="../assets/images/icon_nav_cell.png" alt="">
+          </div>
+          <p class="grid_label">
+            Contacts
+          </p>
+        </a>
         <a v-link="{ path: '/form' }" class="grid">
           <div class="grid_icon">
             <img src="../assets/images/icon_nav_cell.png" alt="">
