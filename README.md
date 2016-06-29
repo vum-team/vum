@@ -50,6 +50,7 @@ The css style of components comes from:
 - [WeUI](http://weui.io/)
 - [MSUI](http://m.sui.taobao.org/)
 - [Ratchet](http://goratchet.com/)
+- [vue-strap](https://yuche.github.io/vue-strap/)
 
 And VUI could never be completed without these:
 

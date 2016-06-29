@@ -68,6 +68,14 @@
             Modal
           </p>
         </a>
+        <a v-link="{ path: 'tab' }" class="grid">
+          <div class="grid_icon">
+            <img src="../assets/images/icon_nav_toast.png" alt="">
+          </div>
+          <p class="grid_label">
+            Tab
+          </p>
+        </a>
       </div>
     </div>
     <nav class="bar bar-tab">

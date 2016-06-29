@@ -115,7 +115,7 @@
         </li>
       </ul>
     </div>
-    <div class="content-block">
+    <div class="content-block content-padded">
       <div class="row">
         <div class="col-50"><a class="button button-big button-fill button-danger">Cancel</a></div>
         <div class="col-50"><a class="button button-big button-fill">Submit</a></div>

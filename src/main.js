@@ -13,6 +13,7 @@ import Modal from './demos/Modal'
 import List from './demos/List'
 import Contacts from './demos/Contacts'
 import Form from './demos/Form'
+import Tab from './demos/Tab'
 
 Vue.use(Router)
 
@@ -49,6 +50,9 @@ router.map({
   },
   '/form': {
     component: Form
+  },
+  '/tab': {
+    component: Tab
   }
 })
 
