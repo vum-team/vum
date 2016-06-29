@@ -19,3 +19,4 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+exclude: [node_modules]
