@@ -1,6 +1,6 @@
 <template>
-  <div class="modal-overlay" v-show="show" transition="modal-overlay"></div>
-  <div class="modal" v-show="show" transition="modal">
+  <div class="modal-overlay" v-if="show" transition="modal-overlay"></div>
+  <div class="modal" v-if="show" transition="modal">
     <div class="modal-inner">
       <div class="modal-title">
         <slot name="title">Confirm</slot>
