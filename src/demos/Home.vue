@@ -62,7 +62,7 @@
         </a>
         <a v-link="{ path: 'modal' }" class="grid">
           <div class="grid_icon">
-            <img src="../assets/images/icon_nav_toast.png" alt="">
+            <img src="../assets/images/icon_nav_dialog.png" alt="">
           </div>
           <p class="grid_label">
             Modal
@@ -70,7 +70,7 @@
         </a>
         <a v-link="{ path: 'tab' }" class="grid">
           <div class="grid_icon">
-            <img src="../assets/images/icon_nav_toast.png" alt="">
+            <img src="../assets/images/icon_nav_tab.png" alt="">
           </div>
           <p class="grid_label">
             Tab
