@@ -5,7 +5,7 @@ import Column from './column'
 import Buttons from './buttons'
 import Grid from './grid'
 import List from './list'
-import Form from './form'
+import IForm from './form'
 
 export default {
   components: {
@@ -15,7 +15,7 @@ export default {
     Buttons,
     Grid,
     List,
-    Form
+    IForm
   }
 }
 </script>

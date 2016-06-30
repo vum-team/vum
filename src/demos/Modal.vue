@@ -15,10 +15,10 @@
         <p><a href="javascript:;" class="button" v-on:click="showModal()">Show Custom Modal</a></p>
       </div>
 
-      <Alert :show.sync="alert" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></Alert>
-      <Confirm :show.sync="confirm" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></Confirm>
-      <Prompt :show.sync="prompt" :title="'Name'" :content="'Enter your name please!'" :input.sync="input" :on-ok="onPrompt"></Prompt>
-      <Modal :show.sync="modal">
+      <alert :show.sync="alert" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></alert>
+      <confirm :show.sync="confirm" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></confirm>
+      <prompt :show.sync="prompt" :title="'Name'" :content="'Enter your name please!'" :input.sync="input" :on-ok="onPrompt"></prompt>
+      <modal :show.sync="modal">
         <div slot="title">Payment</div>
         <div slot="content">Choose your payment!</div>
         <div slot="buttons" class="modal-buttons">
@@ -26,7 +26,7 @@
           <span class="modal-button" v-on:click="onClick(1)">Paypay</span>
           <span class="modal-button modal-button-bold" v-on:click="onClick(2)">Bankcard</span>
         </div>
-      </Modal>
+      </modal>
     </div>
   </div>
 </template>

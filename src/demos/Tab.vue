@@ -18,7 +18,7 @@
         <tab-item title="Girls">
           <h1 class="demos-title">Girls</h1>
         </tab-item>
-      </Tab>
+      </tab>
     </div>
   </div>
 </template>
