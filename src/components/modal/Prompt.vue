@@ -85,9 +85,10 @@ p {
   margin: .5rem 0;
 }
 .modal-input {
-  height: 1.2rem;
-  line-height: 1.2rem;
-  width: 8rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  width: 9rem;
   font-size: @font-size-default;
+  border: 0;
 }
 </style>
