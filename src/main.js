@@ -14,7 +14,7 @@ import List from './demos/List'
 import Contacts from './demos/Contacts'
 import Form from './demos/Form'
 import Tab from './demos/Tab'
-import PullToRefresh from './demos/PullToRefresh'
+import Scroll from './demos/Scroll'
 
 Vue.use(Router)
 
@@ -55,8 +55,8 @@ router.map({
   '/tab': {
     component: Tab
   },
-  '/ptr': {
-    component: PullToRefresh
+  '/scroll': {
+    component: Scroll
   }
 })
 

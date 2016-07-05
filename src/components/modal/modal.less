@@ -118,8 +118,11 @@
     }
     &.modal-button-disabled {
       color: @color-text-gray;
+      &:active {
+        background: @modalBgColor;
+      }
     }
-    html:not(.watch-active-state) &:active, &.active-state {
+    &:not(.modal-button-disabled):active {
         background: @modalButonActiveBg;
     }
     .modal-buttons-vertical & {

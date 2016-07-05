@@ -27,7 +27,7 @@
     }
     
 }
-.pull-to-refresh {
+.scroll {
     position: absolute;
     top: 0;
     right: 0;
@@ -40,7 +40,7 @@
       position: absolute;
     }
 
-    &.touching .pull-to-refresh-inner {
+    &.touching .scroll-inner {
       transition-duration: 0ms;
     }
     &:not(.refreshing) {
@@ -64,7 +64,7 @@
     }
     
 }
-.pull-to-refresh-inner {
+.scroll-inner {
   position: absolute;
   top: -@layerHeight;
   width: 100%;
@@ -92,4 +92,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.infinite-preloader {
+  .preloader;
 }

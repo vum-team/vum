@@ -1,19 +1,20 @@
 <template>
-  <div class="pull-to-refresh"
-       v-bind:class="{
+  <div class="scroll"
+       :class="{
          'pull-down': (state === 0),
          'pull-up': (state === 1),
          refreshing: (state === 2),
          touching: touching
        }"
-      @touchstart="touchStart($event)"
-      @touchmove="touchMove($event)"
-      @touchend="touchEnd($event)"
+      @touchstart="onRefresh ? touchStart($event) : undefined"
+      @touchmove="onRefresh ? touchMove($event) : undefined"
+      @touchend="onRefresh ? touchEnd($event) : undefined"
+      @scroll="onInfinite ? onScroll($event) : undefined"
        >
-    <div class="pull-to-refresh-inner"
+    <div class="scroll-inner"
       :style="{ transform: 'translate3d(0, ' + top + 'px, 0)' }"
       >
-      <div class="pull-to-refresh-layer">
+      <div class="pull-to-refresh-layer" v-if="!!onRefresh">
         <div class="preloader"></div>
         <div class="pull-to-refresh-arrow"></div>
         <span class="label-down">Pull Down to Refresh</span>
@@ -21,6 +22,9 @@
         <span class="label-refresh">Refreshing...</span>
       </div>
       <slot></slot>
+      <div class="infinite-layer" v-if="onInfinite">
+        <div class="infinite-preloader"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +39,12 @@ export default {
     onRefresh: {
       type: Function,
       default: undefined,
-      required: true
+      required: false
+    },
+    onInfinite: {
+      type: Function,
+      default: undefined,
+      require: false
     }
   },
   data () {
@@ -52,10 +61,11 @@ export default {
       this.touching = true
     },
     touchMove (e) {
-      if (this.$el.scrollTop > 0) {
+      if (this.$el.scrollTop > 0 || !this.touching) {
         return
       }
       let diff = e.targetTouches[0].pageY - this.startY
+      if (diff > 0) e.preventDefault()
       this.top = Math.pow(diff, 0.8) + (this.state === 2 ? this.offset : 0)
 
       if (this.state === 2) { // in refreshing
@@ -84,11 +94,34 @@ export default {
     refresh () {
       this.state = 2
       this.top = this.offset
-      this.onRefresh(this.done)
+      this.onRefresh(this.refreshDone)
     },
-    done () {
+    refreshDone () {
       this.state = 0
       this.top = 0
+    },
+
+    infinite () {
+      this.infiniteLoading = true
+      this.onInfinite(this.infiniteDone)
+    },
+
+    infiniteDone () {
+      this.infiniteLoading = false
+    },
+
+    onScroll (e) {
+      if (this.infiniteLoading) {
+        return
+      }
+      let outerHeight = this.$el.clientHeight
+      let innerHeight = this.$el.querySelector('.scroll-inner').clientHeight
+      let scrollTop = this.$el.scrollTop
+      let ptrHeight = this.onRefresh ? this.$el.querySelector('.pull-to-refresh-layer').clientHeight : 0
+      let infiniteHeight = this.$el.querySelector('.infinite-layer').clientHeight
+      let bottom = innerHeight - outerHeight - scrollTop - ptrHeight
+
+      if (bottom < infiniteHeight) this.infinite()
     }
   }
 }

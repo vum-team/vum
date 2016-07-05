@@ -68,12 +68,12 @@
           Tab
         </p>
       </a>
-      <a v-link="{ path: 'ptr' }" class="grid">
+      <a v-link="{ path: 'scroll' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_tab.png" alt="">
+          <img src="../assets/images/icon_nav_ptr.png" alt="">
         </div>
         <p class="grid_label">
-          PTR
+          Scroll
         </p>
       </a>
     </div>
