@@ -15,15 +15,20 @@
       :style="{ transform: 'translate3d(0, ' + top + 'px, 0)' }"
       >
       <div class="pull-to-refresh-layer" v-if="!!onRefresh">
-        <div class="preloader"></div>
-        <div class="pull-to-refresh-arrow"></div>
-        <span class="label-down">Pull Down to Refresh</span>
-        <span class="label-up">Release to Refresh</span>
-        <span class="label-refresh">Refreshing...</span>
+        <slot name="refresh">
+          <div class="preloader"></div>
+          <div class="pull-to-refresh-arrow"></div>
+          <span class="label-down">Pull Down to Refresh</span>
+          <span class="label-up">Release to Refresh</span>
+          <span class="label-refresh">Refreshing...</span>
+        </slot>
       </div>
       <slot></slot>
       <div class="infinite-layer" v-if="onInfinite">
-        <div class="infinite-preloader"></div>
+        <slot name="infinite">
+          <div class="infinite-preloader"></div>
+          <div>Loading...</div>
+        </slot>
       </div>
     </div>
   </div>
@@ -127,5 +132,5 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@import 'pull-to-refresh.less';
+@import './scroll.less';
 </style>

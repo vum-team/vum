@@ -5,11 +5,11 @@
 @layerHeight:  2.2rem;
 .pull-to-refresh-layer {
     position: relative;
-    // margin-top: -44px;
     left:0; 
     top:0; 
     width:100%; 
     height:@layerHeight; 
+    color: @color-text-gray;
     
     .preloader {
         visibility: hidden;
@@ -94,6 +94,15 @@
   justify-content: center;
 }
 
+.infinite-layer {
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: @color-text-gray;
+}
+
 .infinite-preloader {
   .preloader;
+  margin-right: .5rem;
 }
