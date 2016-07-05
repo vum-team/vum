@@ -9,7 +9,7 @@
       @touchstart="onRefresh ? touchStart($event) : undefined"
       @touchmove="onRefresh ? touchMove($event) : undefined"
       @touchend="onRefresh ? touchEnd($event) : undefined"
-      @scroll="onInfinite ? onScroll($event) : undefined"
+      @scroll="(onInfinite || infiniteLoading) ? onScroll($event) : undefined"
        >
     <div class="scroll-inner"
       :style="{ transform: 'translate3d(0, ' + top + 'px, 0)' }"
@@ -57,7 +57,9 @@ export default {
       top: 0,
       state: 0, // 0:down, 1: up, 2: refreshing
       startY: 0,
-      touching: false
+      touching: false,
+
+      infiniteLoading: false
     }
   },
   methods: {

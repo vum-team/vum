@@ -5,15 +5,13 @@
         <span class="icon icon-back"></span>
         Back
       </a>
-      <h1 class="title">Pull To Refresh</h1>
+      <h1 class="title">Scroll</h1>
     </header>
     <div class="page-content">
       <scroll :on-refresh="onRefresh" :on-infinite="onInfinite">
-        <header class='demos-header'>
-          <h1 class="demos-title">Pull To Refresh</h1>
-        </header>
         <div class='content-padded' id="list">
           <h2>current time: {{time}}</h2>
+          <h3>Pull to refresh and infinite scroll</h3>
           <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
           <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
           <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>

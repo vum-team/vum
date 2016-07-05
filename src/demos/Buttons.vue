@@ -8,9 +8,6 @@
       <h1 class="title">Buttons</h1>
     </header>
     <div class="page-content">
-      <header class='demos-header'>
-        <h1 class="demos-title">Buttons</h1>
-      </header>
       <div class='content-padded'>
         <div class="content-block-title">Default Buttons</div>
         <div class="content-block">

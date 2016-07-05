@@ -8,9 +8,6 @@
       <h1 class="title">Column</h1>
     </header>
     <div class="page-content">
-      <header class='demos-header'>
-        <h1 class="demos-title">Column</h1>
-      </header>
       <div class="content-padded">
         <div class="row">
           <div class="col-50">50%</div>
