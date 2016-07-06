@@ -52,6 +52,10 @@
           Form
         </p>
       </a>
+    </div>
+
+    <h2 class="demos-title">Components</h2>
+    <div class="grids grids-small">
       <a v-link="{ path: 'modal' }" class="grid">
         <div class="grid_icon">
           <img src="../assets/images/home/modal.png" alt="">
@@ -74,6 +78,22 @@
         </div>
         <p class="grid_label">
           Scroll
+        </p>
+      </a>
+      <a v-link="{ path: 'popup' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/window.png" alt="">
+        </div>
+        <p class="grid_label">
+          Popup
+        </p>
+      </a>
+      <a v-link="{ path: 'actions' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/menu.png" alt="">
+        </div>
+        <p class="grid_label">
+          Actions
         </p>
       </a>
     </div>

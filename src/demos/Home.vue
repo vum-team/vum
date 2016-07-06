@@ -58,7 +58,7 @@ export default {
 
 <style lang="less">
 .demo-icon-home {
-  background-image: url("../assets/images/home/column.png");
+  background-image: url("../assets/images/home/home.png");
   background-size: 100%;
 }
 .demo-icon-search {
@@ -70,7 +70,7 @@ export default {
   background-size: 100%;
 }
 .demo-icon-me {
-  background-image: url("../assets/images/icon_nav_panel.png");
+  background-image: url("../assets/images/home/person.png");
   background-size: 100%;
 }
 </style>

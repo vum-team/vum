@@ -15,6 +15,7 @@ import Contacts from './demos/Contacts'
 import Form from './demos/Form'
 import Tab from './demos/Tab'
 import Scroll from './demos/Scroll'
+import Popup from './demos/Popup'
 
 Vue.use(Router)
 
@@ -57,6 +58,9 @@ router.map({
   },
   '/scroll': {
     component: Scroll
+  },
+  '/popup': {
+    component: Popup
   }
 })
 

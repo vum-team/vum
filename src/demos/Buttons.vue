@@ -9,7 +9,7 @@
     </header>
     <div class="page-content">
       <div class='content-padded'>
-        <div class="content-block-title">Default Buttons</div>
+        <h1 class="demos-title">Default Buttons</h1>
         <div class="content-block">
           <p><a href="javascript:;" class="button">default button</a></p>
           <p><a href="javascript:;" class="button button-danger">danger button</a></p>
@@ -23,14 +23,14 @@
           <p><a href="javascript:;" class="button button-big">Big Button </a></p>
           <p><a href="javascript:;" class="button button-big button-round">Big Round Button </a></p>
         </div>
-        <div class="content-block-title">Buttons Group</div>
+        <h1 class="demos-title">Buttons Group</h1>
         <div class="content-block">
           <p class="buttons-row"><a href="javascript:;" class="button">Button 1</a><a href="javascript:;" class="button">Button 2</a><a href="javascript:;" class="button">Button 3</a></p>
           <p class="buttons-row"><a href="javascript:;" class="button active">Button 1</a><a href="javascript:;" class="button">Button 2</a><a href="javascript:;" class="button">Button 3</a></p>
           <p class="buttons-row"><a href="javascript:;" class="button button-round">Button 1</a><a href="javascript:;" class="button button-round">Button 2</a></p>
           <p class="buttons-row"><a href="javascript:;" class="button button-round">Button 1</a><a href="javascript:;" class="button button-round active">Button 2</a></p>
         </div>
-        <div class="content-block-title">List Button</div>
+        <h1 class="demos-title">List Buttons</h1>
         <div class="list-block">
           <ul>
             <li><a href="javascript:;" class="item-link list-button">List Button 1</a></li>
@@ -38,7 +38,7 @@
             <li><a href="javascript:;" class="item-link list-button">List Button 3</a></li>
           </ul>
         </div>
-        <div class="content-block-title">Inset List Button</div>
+        <h1 class="demos-title">Inset List Buttons</h1>
         <div class="list-block inset">
           <ul>
             <li><a href="javascript:;" class="item-link list-button">List Button 1</a></li>
@@ -46,7 +46,7 @@
             <li><a href="javascript:;" class="item-link list-button">List Button 3</a></li>
           </ul>
         </div>
-        <div class="content-block-title">Layout Buttons With Grid</div>
+        <h1 class="demos-title">Layout Buttons With Grid</h1>
         <div class="content-block">
           <div class="row">
             <div class="col-50"><a href="javascript:;" class="button button-big button-fill button-danger">Cancel</a></div>

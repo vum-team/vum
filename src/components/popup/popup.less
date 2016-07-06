@@ -1,0 +1,74 @@
+@import '../variables.less';
+
+.popup-modal {
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  border-radius: 0;
+  opacity: 0.6;
+  
+  color: @color-text;
+  transition-duration: .3s;
+  height: auto;
+  background: #EFEFF4;
+
+  transition-property: transform, opacity;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: none;
+
+  &.popup-modal-transition {
+    opacity: 1;
+    display: block;
+    transform: translate3d(0,0,0);
+  }
+
+  &.popup-modal-enter,
+  &.popup-modal-leave {
+    transform: translate3d(0, 100%, 0);
+  }
+
+
+  .toolbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .modal-content {
+    height: 100%;
+    padding-top: 2.2rem;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+}
+
+.popup-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, .6);
+  transition: opacity .3s;
+  display: none;
+
+  &.popup-overlay-transition {
+    display: block;
+    opacity: 1;
+  }
+
+  &.popup-overlay-enter,
+  &.popup-overlay-leave {
+    opacity: 0;
+  }
+
+}
