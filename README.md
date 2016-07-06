@@ -62,7 +62,7 @@ And VUI could never be completed without these:
 
 # Screenshot
 
-<img src="https://raw.githubusercontent.com/lihongxun945/vui/master/screenshot/home.png" width="320" />
+<img src="https://raw.githubusercontent.com/lihongxun945/vui/master/screenshot/grid.png" width="320" />
 <img src="https://raw.githubusercontent.com/lihongxun945/vui/master/screenshot/form.png" width="320" />
 <img src="https://raw.githubusercontent.com/lihongxun945/vui/master/screenshot/list.png" width="320" />
 <img src="https://raw.githubusercontent.com/lihongxun945/vui/master/screenshot/contacts.png" width="320" />
