@@ -7,7 +7,6 @@
       </a>
       <h1 class="title">VUI</h1>
     </header>
-    <component :is="currentView" keep-alive></component>
     <nav class="bar bar-tab">
       <a class="tab-item" v-bind:class="{ 'active' : currentView === 'index' }" v-on:click="changeView('index')">
         <span class="icon demo-icon-home"></span>
@@ -27,6 +26,7 @@
         <span class="tab-label">About</span>
       </a>
     </nav>
+    <component :is="currentView" keep-alive></component>
   </div>
 </template>
 
