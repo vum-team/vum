@@ -12,7 +12,7 @@
         <div class="grids">
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -20,7 +20,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -28,7 +28,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -36,7 +36,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -44,7 +44,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -52,7 +52,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -60,7 +60,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -68,7 +68,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -76,7 +76,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -90,7 +90,7 @@
         <div class="grids grids-small">
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -98,7 +98,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -106,7 +106,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -114,7 +114,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -122,7 +122,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -130,7 +130,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -138,7 +138,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -146,7 +146,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button
@@ -154,7 +154,7 @@
           </a>
           <a href="javascript:;" class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/icon_nav_button.png" alt="">
+              <img src="../assets/images/home/button.png" alt="">
             </div>
             <p class="grid_label">
               Button

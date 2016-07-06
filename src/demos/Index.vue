@@ -6,7 +6,7 @@
     <div class="grids grids-small">
       <a v-link="{ path: 'buttons' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_button.png" alt="">
+          <img src="../assets/images/home/button.png" alt="">
         </div>
         <p class="grid_label">
           Button
@@ -14,7 +14,7 @@
       </a>
       <a v-link="{ path: 'column' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_cell.png" alt="">
+          <img src="../assets/images/home/column.png" alt="">
         </div>
         <p class="grid_label">
           Column
@@ -22,7 +22,7 @@
       </a>
       <a v-link="{ path: 'grid' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_cell.png" alt="">
+          <img src="../assets/images/home/grid.png" alt="">
         </div>
         <p class="grid_label">
           Grid
@@ -30,7 +30,7 @@
       </a>
       <a v-link="{ path: '/list' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_cell.png" alt="">
+          <img src="../assets/images/home/list.png" alt="">
         </div>
         <p class="grid_label">
           List
@@ -38,7 +38,7 @@
       </a>
       <a v-link="{ path: '/contacts' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_cell.png" alt="">
+          <img src="../assets/images/home/contacts.png" alt="">
         </div>
         <p class="grid_label">
           Contacts
@@ -46,7 +46,7 @@
       </a>
       <a v-link="{ path: '/form' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_cell.png" alt="">
+          <img src="../assets/images/home/form.png" alt="">
         </div>
         <p class="grid_label">
           Form
@@ -54,7 +54,7 @@
       </a>
       <a v-link="{ path: 'modal' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_dialog.png" alt="">
+          <img src="../assets/images/home/modal.png" alt="">
         </div>
         <p class="grid_label">
           Modal
@@ -62,7 +62,7 @@
       </a>
       <a v-link="{ path: 'tab' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_tab.png" alt="">
+          <img src="../assets/images/home/tab.png" alt="">
         </div>
         <p class="grid_label">
           Tab
@@ -70,7 +70,7 @@
       </a>
       <a v-link="{ path: 'scroll' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/icon_nav_ptr.png" alt="">
+          <img src="../assets/images/home/scroll.png" alt="">
         </div>
         <p class="grid_label">
           Scroll

@@ -58,15 +58,15 @@ export default {
 
 <style lang="less">
 .demo-icon-home {
-  background-image: url("../assets/images/icon_nav_cell.png");
+  background-image: url("../assets/images/home/column.png");
   background-size: 100%;
 }
 .demo-icon-search {
-  background-image: url("../assets/images/icon_nav_search_bar.png");
+  background-image: url("../assets/images/home/search.png");
   background-size: 100%;
 }
 .demo-icon-noti {
-  background-image: url("../assets/images/icon_nav_button.png");
+  background-image: url("../assets/images/home/button.png");
   background-size: 100%;
 }
 .demo-icon-me {
