@@ -12,8 +12,8 @@
         <p><a href="javascript:;" class="button" v-on:click="showPreloader()">Show Preloader</a></p>
       </div>
 
-      <preloader :show.sync="show"></preloader>
     </div>
+    <preloader :show.sync="show"></preloader>
   </div>
 </template>
 

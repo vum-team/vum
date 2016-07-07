@@ -1,12 +1,15 @@
-<template>
-  <popup ="show">
-  </popup>
-</template>
-
 <script>
-import Popup from '../popup'
+import Actions from './Actions'
+import ActionButton from './ActionButton'
+import ActionGroup from './ActionGroup'
 
 export default {
-  pro
+  Actions,
+  ActionButton,
+  ActionGroup
 }
 </script>
+
+<style lang="less">
+@import 'actions.less';
+</style>
