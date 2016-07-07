@@ -1,4 +1,11 @@
 <template>
+  <header class="bar bar-nav bar-standard">
+    <a class="button button-link button-nav pull-right">
+      <span class="icon icon-left"></span>
+      About
+    </a>
+    <h1 class="title">VUI</h1>
+  </header>
   <div class="page-content">
     <header class='demos-header'>
       <h1 class="demos-title">CSS</h1>
@@ -62,6 +69,14 @@
         </div>
         <p class="grid_label">
           Modal
+        </p>
+      </a>
+      <a v-link="{ path: 'preloader' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/preloader.png" alt="">
+        </div>
+        <p class="grid_label">
+          Preloader
         </p>
       </a>
       <a v-link="{ path: 'tab' }" class="grid">

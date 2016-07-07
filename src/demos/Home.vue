@@ -1,13 +1,6 @@
 <template>
   <div class="page">
-    <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-right">
-        <span class="icon icon-left"></span>
-        About
-      </a>
-      <h1 class="title">VUI</h1>
-    </header>
-    <nav class="bar bar-tab">
+    <footer class="bar bar-tab">
       <a class="tab-item" v-bind:class="{ 'active' : currentView === 'index' }" v-on:click="changeView('index')">
         <span class="icon demo-icon-home"></span>
         <span class="tab-label">Home</span>
@@ -25,7 +18,7 @@
         <span class="icon demo-icon-me"></span>
         <span class="tab-label">About</span>
       </a>
-    </nav>
+    </footer>
     <component :is="currentView" keep-alive></component>
   </div>
 </template>

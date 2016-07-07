@@ -16,6 +16,7 @@ import Form from './demos/Form'
 import Tab from './demos/Tab'
 import Scroll from './demos/Scroll'
 import Popup from './demos/Popup'
+import Preloader from './demos/Preloader'
 
 Vue.use(Router)
 
@@ -61,6 +62,9 @@ router.map({
   },
   '/popup': {
     component: Popup
+  },
+  '/preloader': {
+    component: Preloader
   }
 })
 

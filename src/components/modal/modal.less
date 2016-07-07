@@ -42,11 +42,11 @@
     opacity: 0;
     transform: translate3d(0,0,0) scale(1.185);
     transition-property: transform, opacity;
+    transition-duration: @modalDuration;
     color: @color-text;
 
     &.modal-transition {
       opacity: 1;
-      transition-duration: @modalDuration;
       transform: translate3d(0,-50%,0) scale(1);
     }
     &.modal-enter,

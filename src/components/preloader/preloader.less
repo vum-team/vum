@@ -1,0 +1,53 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.preloader-overlay {
+  opacity: 0;
+  background: transparent;
+  transition: opacity .3s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  &.preloader-overlay-transition {
+    opacity: 1;
+  }
+  &.preloader-overlay-enter,
+  &.preloader-overlay-leave {
+    opacity: 0;
+  }
+}
+.preloader-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 0.4rem;
+  margin-left: -1.25rem;
+  margin-top: -1.25rem;
+  background: rgba(0,0,0,0.8);
+  z-index: 11000;
+  border-radius: 0.25rem;
+  transition: opacity .3s;
+  
+  &.preloader-modal-transition {
+    opacity: 1;
+  }
+
+  &.preloader-modal-enter,
+  &.preloader-modal-leave {
+    opacity: 0;
+  }
+
+  .preloader {
+    .preloader();
+    display: block;
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  .preloader-white {
+    .preloader-white();
+  }
+}
