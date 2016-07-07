@@ -23,6 +23,29 @@ Vue is the best View Layer Framework I have ever seen:
 - Easy to build large scale App
 - Wonderful Components Organization.
 
+## Progress
+
+- [x] Page
+- [x] Buttons
+- [x] Column
+- [x] Grid
+- [x] List
+- [ ] Cards
+- [x] Contacts
+- [x] Form
+
+- [x] Modal
+- [x] Preloader
+- [x] Tab
+- [x] Scroll
+- [x] Popup
+- [x] Action
+- [ ] Toast
+- [ ] Search Bar
+- [ ] Calendar
+- [ ] Photo Browser
+- [ ] Swiper
+
 ## Build Setup
 
 ``` bash
