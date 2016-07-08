@@ -4,6 +4,10 @@
 
 vue-mobile is in development now, `V0.1.0` version will be released before `2016-8-31`.
 
+Visit [http://vuem.io/vue-mobile/](http://vuem.io/vue-mobile/)  or scan vcode to see live demos:
+
+<img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/vcode"/>
+
 ## What is?
 
 vue-mobile is an UI Framework build with Vue.js for SPA:
