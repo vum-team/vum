@@ -1,12 +1,12 @@
-# VUI - In Development
+# vue-mobile - In Development
 
 > An UI Framework build with Vue.js
 
-VUI is in development now, `V0.1.0` version will be released before `2016-8-31`.
+vue-mobile is in development now, `V0.1.0` version will be released before `2016-8-31`.
 
-## What is VUI?
+## What is?
 
-VUI is an UI Framework build with Vue.js for SPA:
+vue-mobile is an UI Framework build with Vue.js for SPA:
 
 - Full Page Structure - header, content, footer
 - Page transition support by vue-router
@@ -85,7 +85,7 @@ And VUI could never be completed without these:
 
 # Screenshot
 
-<img src="https://raw.githubusercontent.com/lihongxun945/vui/master/screenshot/grid.png" width="320" />
-<img src="https://raw.githubusercontent.com/lihongxun945/vui/master/screenshot/form.png" width="320" />
-<img src="https://raw.githubusercontent.com/lihongxun945/vui/master/screenshot/list.png" width="320" />
-<img src="https://raw.githubusercontent.com/lihongxun945/vui/master/screenshot/contacts.png" width="320" />
+<img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/grid.png" width="320" />
+<img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/form.png" width="320" />
+<img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/list.png" width="320" />
+<img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/contacts.png" width="320" />
