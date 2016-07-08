@@ -27,7 +27,10 @@ let App = Vue.extend({
   }
 })
 
-let router = new Router()
+let router = new Router({
+  history: true,
+  root: '/vue-mobile'
+})
 
 router.map({
   '/': {
