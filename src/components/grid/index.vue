@@ -3,34 +3,22 @@
   position: relative;
   overflow: hidden;
 }
-.grids:before {
-  content: " ";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 1px;
-  border-top: 1px solid #D9D9D9;
-  color: #D9D9D9;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transform: scaleY(0.5);
-          transform: scaleY(0.5);
+.grids {
+  &:before {
+    content: " ";
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 200%;
+    border: 1px solid #D9D9D9;
+    color: #D9D9D9;
+    transform-origin: 0 0;
+    transform: scale(0.5);
+  }
 }
-.grids:after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1px;
-  height: 100%;
-  border-left: 1px solid #D9D9D9;
-  color: #D9D9D9;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transform: scaleX(0.5);
-          transform: scaleX(0.5);
-}
+
 .grid {
   position: relative;
   float: left;
@@ -52,10 +40,8 @@
   height: 100%;
   border-right: 1px solid #D9D9D9;
   color: #D9D9D9;
-  -webkit-transform-origin: 100% 0;
-          transform-origin: 100% 0;
-  -webkit-transform: scaleX(0.5);
-          transform: scaleX(0.5);
+  transform-origin: 100% 0;
+  transform: scaleX(0.5);
 }
 .grid:after {
   content: " ";
