@@ -1,6 +1,8 @@
 <template>
   <div class="popup-overlay" transition="popup-overlay" v-if="show" @click="close()"></div>
-  <div class="popup-modal {{className}}" transition="popup-modal" v-if="show">
+  <div transition="popup-modal"
+       v-if="show"
+       :class="{ 'popup-modal': true, 'full': full }">
     <header class="bar bar-nav bar-standard" v-if="showTitleBar">
       <a class="button button-link pull-right" @click="close()">{{closeButtonText}}</a>
       <h1 class="title">{{title}}</h1>
@@ -32,9 +34,9 @@ export default {
       type: String,
       default: 'Close'
     },
-    className: {
-      type: String,
-      default: ''
+    full: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

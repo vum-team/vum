@@ -31,8 +31,11 @@
     transform: translate3d(0, 100%, 0);
   }
 
+  &.full {
+    height: 100%;
+  }
 
-  .toolbar {
+  .bar {
     position: absolute;
     left: 0;
     top: 0;
@@ -44,6 +47,10 @@
     height: 100%;
     overflow: auto;
     box-sizing: border-box;
+  }
+
+  .bar ~ .modal-content {
+    padding-top: 2.2rem;
   }
 
   .toolbar .modal-content {
