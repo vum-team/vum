@@ -90,5 +90,6 @@ p {
   width: 9rem;
   font-size: @font-size-default;
   border: 0;
+  padding: 0 .5rem;
 }
 </style>

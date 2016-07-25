@@ -5,12 +5,35 @@
         <span class="icon icon-back"></span>
         Back
       </a>
-      <h1 class="title">Column</h1>
+      <h1 class="title">Tab</h1>
     </header>
     <div class="page-content">
-      <tab :active="1">
+      <tab :active="0">
         <tab-item title="All">
-          <h1 class="demos-title">All</h1>
+          <div class="content-padded">
+            <tab :active="1" style="button">
+              <tab-item title="ALL">
+                <h1 class="demos-title">ALL</h1>
+              </tab-item>
+              <tab-item title="TODO">
+                <h1 class="demos-title">TODO</h1>
+              </tab-item>
+              <tab-item title="DONE">
+                <h1 class="demos-title">DONE</h1>
+              </tab-item>
+            </tab>
+            <tab :active="1" style="button-bordered" size="small">
+              <tab-item title="ALL">
+                <h1 class="demos-title">ALL</h1>
+              </tab-item>
+              <tab-item title="TODO">
+                <h1 class="demos-title">TODO</h1>
+              </tab-item>
+              <tab-item title="DONE">
+                <h1 class="demos-title">DONE</h1>
+              </tab-item>
+            </tab>
+          </div>
         </tab-item>
         <tab-item title="Boys">
           <h1 class="demos-title">Boys</h1>

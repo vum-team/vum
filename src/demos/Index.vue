@@ -4,7 +4,7 @@
       <span class="icon icon-left"></span>
       About
     </a>
-    <h1 class="title">vui-mobile</h1>
+    <h1 class="title">vue-mobile</h1>
   </header>
   <div class="page-content">
     <header class='demos-header'>

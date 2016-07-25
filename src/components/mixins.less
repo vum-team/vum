@@ -315,3 +315,74 @@
     background-position: @offset 100%, @offset 0;
   background-repeat: no-repeat;
 }
+
+.hairline-border(@color, @radius) {
+  position: relative;
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200%;
+    width: 200%;
+    border: 1px solid @color;
+    border-radius: @radius;
+    transform-origin: 0 0;
+    transform: scale(.5);
+    z-index: 0;
+  }
+}
+
+.hairline-border(@color, @radius, @dir) when (@dir = vertical) {
+  .hairline-border(@color, @radius);
+  &:after {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+.hairline-border(@color, @radius, @dir) when (@dir = noright) {
+  .hairline-border(@color, @radius);
+  &:after {
+    border-right: 0;
+    border-radius: @radius 0 0 @radius;
+  }
+}
+
+.hairline-border(@color, @radius, @dir) when (@dir = noleft) {
+  .hairline-border(@color, @radius);
+  &:after {
+    border-left: 0;
+    border-radius: 0 @radius @radius 0;
+  }
+}
+
+.hairline-border-remove() {
+  &:after {
+    display: none;
+  }
+}
+
+.hairline-border-remove(@dir) when (@dir = left) {
+  &:after {
+    border-left: 0;
+  }
+}
+
+.hairline-border-remove(@dir) when (@dir = right) {
+  &:after {
+    border-right: 0;
+  }
+}
+
+.hairline-border-remove(@dir) when (@dir = top) {
+  &:after {
+    border-top: 0;
+  }
+}
+
+.hairline-border-remove(@dir) when (@dir = bottom) {
+  &:after {
+    border-bottom: 0;
+  }
+}

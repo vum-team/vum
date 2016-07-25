@@ -1,7 +1,13 @@
 <template>
   <div class="tab-container">
-    <div class="buttons-tab">
-      <a class="tab-link button" 
+    <div :class="{
+      'buttons-tab' : style === 'default',
+      'buttons-row' : style === 'button' || style === 'button-bordered',
+      'button-bordered' : style === 'button-bordered',
+      'button-small': size === 'small',
+      'button-large': size === 'large'
+      }">
+      <a class="button" 
          v-for="item in items" 
          v-bind:class="{ 'active' : ($index === active) }"
          v-on:click="onClick($index)"
@@ -19,6 +25,14 @@ export default {
     active: {
       type: Number,
       default: 0
+    },
+    style: {
+      type: String,
+      default: 'default' // default, button, button-bordered
+    },
+    size: {
+      type: String,
+      default: 'default'
     }
   },
   data () {
