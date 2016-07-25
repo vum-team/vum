@@ -6,3 +6,4 @@ test/unit/coverage
 test/e2e/reports
 .sass-cache/
 *.swp
+_site/
