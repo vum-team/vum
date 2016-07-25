@@ -162,7 +162,7 @@
             transform: scaleX(0.5);
         }
         @media only screen and (-webkit-min-device-pixel-ratio: 3) {
-            transform: scaleX(0.33);
+            transform: scaleX(0.3333);
         }
     }
 }
@@ -184,7 +184,7 @@
             transform: scaleY(0.5);
         }
         @media only screen and (-webkit-min-device-pixel-ratio: 3) {
-            transform: scaleY(0.33);
+            transform: scaleY(0.3333);
         }
     }
 }
@@ -206,7 +206,7 @@
             transform: scaleX(0.5);
         }
         @media only screen and (-webkit-min-device-pixel-ratio: 3) {
-            transform: scaleX(0.33);
+            transform: scaleX(0.3333);
         }
     }
 }
@@ -323,14 +323,25 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 200%;
-    width: 200%;
+    height: 100%;
+    width: 100%;
     border: 1px solid @color;
     border-radius: @radius;
     transform-origin: 0 0;
-    transform: scale(.5);
     z-index: 0;
     box-sizing: border-box;
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      height: 200%;
+      width: 200%;
+      transform: scale(0.5);
+      border-radius: (@radius * 2);
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+      height: 300%;
+      width: 300%;
+      border-radius: (@radius * 3);
+      transform: scale(0.3333);
+    }
   }
 }
 

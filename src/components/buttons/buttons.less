@@ -125,7 +125,7 @@
 .button.button-bordered,
 .button-bordered .button {
   background-color: transparent;
-  .hairline-border(@color-primary, .5rem);
+  .hairline-border(@color-primary, .25rem);
 
   .bordered-variant(@color-primary, @color-primary-active);
 
@@ -184,7 +184,6 @@
   margin: 1rem 0;
   .button {
     border-radius: 0 0 0 0;
-    margin-left: -1px;
     width: 100%;
     -webkit-box-flex:1;
     -ms-flex:1;
@@ -213,8 +212,8 @@
 }
 
 .buttons-row.button-bordered {
-  border-radius: .5rem;
-  .hairline-border(@color-primary, .5rem);
+  border-radius: .25rem;
+  .hairline-border(@color-primary, .25rem);
 
   .button {
     position: relative;
@@ -278,9 +277,8 @@
     -webkit-box-flex:1;
     -ms-flex:1;
     border: 0;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid transparent;
     border-radius: 0;
-    bottom: -1px;
     background-color: transparent;
 
     &.active {

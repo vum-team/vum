@@ -15,7 +15,8 @@ vue-mobile is an UI Framework build with Vue.js for SPA:
 - Full Page Structure - header, content, footer
 - Page transition support by vue-router
 - Bunch of Powerful Components, easy to use and extend
-- CSS3 Animation
+- high performance CSS3 Animation
+- 1px border for all components - as well as round border
 - Write with Vue - the most important
 
 ## Love Vue
