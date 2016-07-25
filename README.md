@@ -89,10 +89,9 @@ And vui-mobile could never be completed without these:
 
 # Screenshot
 
+<img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/buttons-group.png" width="320" />
 <img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/grid.png" width="320" />
 <img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/form.png" width="320" />
 <img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/list.png" width="320" />
 <img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/contacts.png" width="320" />
-<img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/buttons-group.png" width="320" />
-<img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/tab.png" width="320" />
 <img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/modal.png" width="320" />
