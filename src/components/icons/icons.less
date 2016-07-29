@@ -1,0 +1,30 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+@font-face {
+  font-family: 'iconfont-vuem';
+  src: url('//at.alicdn.com/t/font_1469779921_3799608.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1469779921_3799608.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1469779921_3799608.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1469779921_3799608.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1469779921_3799608.svg#iconfont-vuem') format('svg'); /* iOS 4.1- */
+}
+
+
+
+.icon {
+  font-style: normal;
+  font-family: 'iconfont-vuem';
+
+  &.icon-success:before {
+    content: "\e600";
+  }
+
+  &.icon-error:before {
+    content: "\e601";
+  }
+
+  &.icon-back:before {
+    content: "\e602";
+  }
+}

@@ -15,13 +15,15 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  padding: 0.4rem .8rem;
+  padding: .5rem 1.1rem;
   transform: translate3d(-50%, -50%, 0) scale(1.2);
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.6);
   z-index: 11000;
   border-radius: 0.25rem;
   transition: transform .3s, opacity .3s;
   color: white;
+  text-align: center;
+  min-width: 5.5rem;
   
   &.toast-modal-transition {
     opacity: 1;
@@ -36,4 +38,17 @@
     opacity: 0;
     transform: translate3d(-50%, -50%, 0) scale(1.2);
   }
+}
+
+.icon-wrap {
+  margin: .2rem 0;
+}
+
+.text {
+  margin: .2rem 0;
+  font-size: .8rem;
+}
+
+.icon {
+  font-size: 1.8rem;
 }

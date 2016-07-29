@@ -1,7 +1,8 @@
 <template>
   <div class="toast-overlay" v-if="show && overlay" transition="toast-overlay"></div>
   <div class="toast-modal" v-if="show" transition="toast-modal">
-    操作成功
+    <div class="icon-wrap"><i class="icon icon-{{type}}"></i></div>
+    <div class="text">{{text}}</div>
   </div>
 </template>
 
@@ -13,6 +14,14 @@ export default {
       default: false,
       twoWay: true,
       required: true
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    type: {
+      type: String,
+      default: 'success'  // success, error
     },
     duration: {
       type: Number,

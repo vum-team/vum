@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-left back" v-link="{ 'name' : 'home' }">
+      <a class="button button-link button-nav pull-left back" v-link="{ 'name' : 'index' }">
         <span class="icon icon-back"></span>
         Back
       </a>
@@ -9,11 +9,13 @@
     </header>
     <div class="page-content">
       <div class='demos-content-padded'>
-        <p><a href="javascript:;" class="button" v-on:click="showToast()">Show Toast</a></p>
+        <p><a href="javascript:;" class="button" v-on:click="showToast(1)">Show Toast Success</a></p>
+        <p><a href="javascript:;" class="button" v-on:click="showToast(2)">Show Toast Error</a></p>
       </div>
 
     </div>
-    <toast :show.sync="show"></toast>
+    <toast :show.sync="showSuccess" text="Done!"></toast>
+    <toast :show.sync="showError" text="Failed!" type="error"></toast>
   </div>
 </template>
 
@@ -26,12 +28,13 @@ export default {
   },
   data () {
     return {
-      show: false
+      showSuccess: false,
+      showError: false
     }
   },
   methods: {
-    showToast () {
-      this.show = true
+    showToast (type) {
+      type === 1 ? this.showSuccess = true : this.showError = true
     }
   }
 }

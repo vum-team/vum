@@ -1,69 +1,132 @@
 <template>
-  <div class="page">
-    <footer class="bar bar-tab">
-      <a class="tab-item" v-bind:class="{ 'active' : currentView === 'index' }" v-on:click="changeView('index')">
-        <span class="icon demo-icon-home"></span>
-        <span class="tab-label">Home</span>
+  <header class="bar bar-nav bar-standard">
+    <a class="button button-link button-nav pull-right">
+      <span class="icon icon-left"></span>
+      About
+    </a>
+    <h1 class="title">vue-mobile</h1>
+  </header>
+  <div class="page-content">
+    <header class='demos-header'>
+      <h1 class="demos-title">CSS</h1>
+    </header>
+    <div class="grids grids-small">
+      <a v-link="{ path: 'buttons' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/button.png" alt="">
+        </div>
+        <p class="grid_label">
+          Button
+        </p>
       </a>
-      <a class="tab-item" v-bind:class="{ 'active' : currentView === 'search' }" v-on:click="changeView('search')">
-        <span class="icon demo-icon-search"></span>
-        <span class="tab-label">Search</span>
+      <a v-link="{ path: 'column' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/column.png" alt="">
+        </div>
+        <p class="grid_label">
+          Column
+        </p>
       </a>
-      <a class="tab-item" v-bind:class="{ 'active' : currentView === 'noti' }" v-on:click="changeView('noti')">
-        <span class="icon demo-icon-noti"></span>
-        <span class="badge">2</span>
-        <span class="tab-label">Noti</span>
+      <a v-link="{ path: 'grid' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/grid.png" alt="">
+        </div>
+        <p class="grid_label">
+          Grid
+        </p>
       </a>
-      <a class="tab-item" v-bind:class="{ 'active' : currentView === 'about' }" v-on:click="changeView('about')">
-        <span class="icon demo-icon-me"></span>
-        <span class="tab-label">About</span>
+      <a v-link="{ path: '/list' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/list.png" alt="">
+        </div>
+        <p class="grid_label">
+          List
+        </p>
       </a>
-    </footer>
-    <component :is="currentView" keep-alive></component>
+      <a v-link="{ path: '/contacts' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/contacts.png" alt="">
+        </div>
+        <p class="grid_label">
+          Contacts
+        </p>
+      </a>
+      <a v-link="{ path: '/form' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/form.png" alt="">
+        </div>
+        <p class="grid_label">
+          Form
+        </p>
+      </a>
+      <a v-link="{ name: 'icons' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/form.png" alt="">
+        </div>
+        <p class="grid_label">
+          Icons
+        </p>
+      </a>
+    </div>
+
+    <h2 class="demos-title">Components</h2>
+    <div class="grids grids-small">
+      <a v-link="{ path: 'modal' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/modal.png" alt="">
+        </div>
+        <p class="grid_label">
+          Modal
+        </p>
+      </a>
+      <a v-link="{ path: 'preloader' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/preloader.png" alt="">
+        </div>
+        <p class="grid_label">
+          Preloader
+        </p>
+      </a>
+      <a v-link="{ name: 'toast' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/toast.png" alt="">
+        </div>
+        <p class="grid_label">
+          Toast
+        </p>
+      </a>
+      <a v-link="{ path: 'tab' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/tab.png" alt="">
+        </div>
+        <p class="grid_label">
+          Tab
+        </p>
+      </a>
+      <a v-link="{ path: 'scroll' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/scroll.png" alt="">
+        </div>
+        <p class="grid_label">
+          Scroll
+        </p>
+      </a>
+      <a v-link="{ path: 'popup' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/window.png" alt="">
+        </div>
+        <p class="grid_label">
+          Popup
+        </p>
+      </a>
+      <a v-link="{ path: 'actions' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/menu.png" alt="">
+        </div>
+        <p class="grid_label">
+          Actions
+        </p>
+      </a>
+    </div>
   </div>
 </template>
-
-<script>
-import Index from './Index'
-import Search from './Search'
-import Noti from './Noti'
-import About from './About'
-
-export default {
-  components: {
-    'index': Index,
-    'search': Search,
-    'noti': Noti,
-    'about': About
-  },
-  data () {
-    return {
-      currentView: 'index'
-    }
-  },
-  methods: {
-    changeView (view) {
-      this.currentView = view
-    }
-  }
-}
-</script>
-
-<style lang="less">
-.demo-icon-home {
-  background-image: url("../assets/images/home/home.png");
-  background-size: 100%;
-}
-.demo-icon-search {
-  background-image: url("../assets/images/home/search.png");
-  background-size: 100%;
-}
-.demo-icon-noti {
-  background-image: url("../assets/images/home/button.png");
-  background-size: 100%;
-}
-.demo-icon-me {
-  background-image: url("../assets/images/home/person.png");
-  background-size: 100%;
-}
-</style>

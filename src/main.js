@@ -5,7 +5,7 @@ import Router from 'vue-router'
 import { Base } from './components/'
 
 // demos
-import Home from './demos/Home'
+import Index from './demos/Index'
 import Buttons from './demos/Buttons'
 import Column from './demos/Column'
 import Grid from './demos/Grid'
@@ -13,6 +13,7 @@ import Modal from './demos/Modal'
 import List from './demos/List'
 import Contacts from './demos/Contacts'
 import Form from './demos/Form'
+import Icons from './demos/Icons'
 import Tab from './demos/Tab'
 import Scroll from './demos/Scroll'
 import Popup from './demos/Popup'
@@ -35,8 +36,8 @@ let router = new Router({
 
 router.map({
   '/': {
-    name: 'home',
-    component: Home
+    name: 'index',
+    component: Index
   },
   '/buttons': {
     component: Buttons
@@ -58,6 +59,10 @@ router.map({
   },
   '/form': {
     component: Form
+  },
+  '/icons': {
+    name: 'icons',
+    component: Icons
   },
   '/tab': {
     component: Tab
