@@ -1,0 +1,40 @@
+@import '../mixins.less';
+
+.toast-overlay {
+  .overlay();
+  &.toast-overlay-transition {
+    opacity: 1;
+  }
+  &.toast-overlay-enter,
+  &.toast-overlay-leave {
+    opacity: 0;
+  }
+}
+
+.toast-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 0.4rem .8rem;
+  margin-top: -1.25rem;
+  transform: translate3d(-50%, 0, 0) scale(1.2);
+  background: rgba(0,0,0,0.8);
+  z-index: 11000;
+  border-radius: 0.25rem;
+  transition: transform .3s, opacity .3s;
+  color: white;
+  
+  &.toast-modal-transition {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+
+  &.toast-modal-enter{
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0) scale(0.8);
+  }
+  &.toast-modal-leave {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0) scale(1.2);
+  }
+}

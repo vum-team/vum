@@ -11,6 +11,7 @@ export default {
     show: {
       type: Boolean,
       default: false,
+      twoWay: true,
       required: true
     }
   }

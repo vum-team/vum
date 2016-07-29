@@ -18,6 +18,7 @@ import Scroll from './demos/Scroll'
 import Popup from './demos/Popup'
 import Preloader from './demos/Preloader'
 import Actions from './demos/Actions'
+import Toast from './demos/Toast'
 
 Vue.use(Router)
 
@@ -69,6 +70,10 @@ router.map({
   },
   '/preloader': {
     component: Preloader
+  },
+  '/toast': {
+    name: 'toast',
+    component: Toast
   },
   '/actions': {
     component: Actions

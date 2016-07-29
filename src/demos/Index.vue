@@ -79,6 +79,14 @@
           Preloader
         </p>
       </a>
+      <a v-link="{ name: 'toast' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/preloader.png" alt="">
+        </div>
+        <p class="grid_label">
+          Toast
+        </p>
+      </a>
       <a v-link="{ path: 'tab' }" class="grid">
         <div class="grid_icon">
           <img src="../assets/images/home/tab.png" alt="">
