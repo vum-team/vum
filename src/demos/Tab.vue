@@ -12,7 +12,7 @@
         <tab-item title="All">
           <div class="content-padded">
             <tab :active="1" style="button">
-              <tab-item title="ALL">
+              <tab-item title="ALL" :on-show="onShow">
                 <h1 class="demos-title">ALL</h1>
               </tab-item>
               <tab-item title="TODO">
@@ -53,6 +53,11 @@ export default {
   components: {
     Tab,
     TabItem
+  },
+  methods: {
+    onShow () {
+      console.log(1)
+    }
   }
 }
 </script>

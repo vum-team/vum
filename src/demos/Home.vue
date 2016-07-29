@@ -61,7 +61,7 @@
       </a>
       <a v-link="{ name: 'icons' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/home/form.png" alt="">
+          <img src="../assets/images/home/toast.png" alt="">
         </div>
         <p class="grid_label">
           Icons

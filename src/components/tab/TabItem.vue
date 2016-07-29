@@ -10,6 +10,10 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    onShow: {
+      type: Function,
+      required: false
     }
   },
   data () {
@@ -28,6 +32,13 @@ export default {
   events: {
     'change': function (active) {
       this.show = this.$parent.active === this.index
+    }
+  },
+  watch: {
+    show (v, ov) {
+      if (v === true && this.onShow) {
+        this.onShow.call()
+      }
     }
   },
   beforeDestroy () {
