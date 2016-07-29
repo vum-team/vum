@@ -38,6 +38,7 @@ Vue is the best View Layer Framework I have ever seen:
 - [ ] Cards
 - [x] Contacts
 - [x] Form
+- [ ] Icons
 
 - [x] Modal
 - [x] Preloader
@@ -45,7 +46,7 @@ Vue is the best View Layer Framework I have ever seen:
 - [x] Scroll
 - [x] Popup
 - [x] Actions
-- [ ] Toast
+- [x] Toast
 - [ ] Search Bar
 - [ ] Calendar
 - [ ] Photo Browser
