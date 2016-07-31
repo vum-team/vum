@@ -27,6 +27,7 @@ import Popup from './demos/Popup'
 import Preloader from './demos/Preloader'
 import Actions from './demos/Actions'
 import Toast from './demos/Toast'
+import Searchbar from './demos/Searchbar'
 
 Vue.use(Router)
 
@@ -89,6 +90,9 @@ router.map({
   },
   '/actions': {
     component: Actions
+  },
+  '/searchbar': {
+    component: Searchbar
   }
 })
 
