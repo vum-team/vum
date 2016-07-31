@@ -129,7 +129,7 @@
       </a>
       <a v-link="{ path: 'searchbar' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/home/menu.png" alt="">
+          <img src="../assets/images/home/search.png" alt="">
         </div>
         <p class="grid_label">
           Searchbar
