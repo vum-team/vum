@@ -5,7 +5,7 @@
 export default class RouterConfig {
   constructor (router) {
     this.router = router
-    this.history = {}
+    this.history = window.sessionStorage
   }
   config () {
     const history = this.history
@@ -13,11 +13,11 @@ export default class RouterConfig {
     this.router.beforeEach(function (t) {
       const to = t.to.path
       const from = t.from.path
-      if (history[to]) {
+      if (history.getItem(to)) {
         router.app.$el.className = 'transition-reverse'
-        history[to] = null
+        history.removeItem(to)
       } else {
-        history[from] = true
+        history.setItem(from, 1)
         router.app.$el.className = ''
       }
       t.next()
