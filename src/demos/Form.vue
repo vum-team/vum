@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-left back" v-link="{ 'name' : 'index' }">
+      <a class="button button-link button-nav pull-left" v-back-link>
         <span class="icon icon-back"></span>
         Back
       </a>

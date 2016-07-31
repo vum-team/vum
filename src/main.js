@@ -5,6 +5,9 @@ import FastClick from 'fastclick'
 // Router config
 import RouterConfig from './router-config.js'
 
+// directives
+import BackLink from './directives/back-link'
+
 // Base
 import Base from './components/'
 
@@ -26,6 +29,8 @@ import Actions from './demos/Actions'
 import Toast from './demos/Toast'
 
 Vue.use(Router)
+
+Vue.directive('back-link', BackLink)
 
 let App = Vue.extend({
   components: {
