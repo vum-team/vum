@@ -30,6 +30,11 @@ body {
   color: #3d4145;
 }
 
+// fix fastclick bug: https://github.com/ftlabs/fastclick/issues/60
+label > * {
+  pointer-events: none;
+}
+
 // rem
 @bps: 400px, 414px, 480px; 
 

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import FastClick from 'fastclick'
 
 // Router config
 import RouterConfig from './router-config.js'
@@ -90,3 +91,5 @@ router.start(App, '#app')
 
 var rc = new RouterConfig(router)
 rc.config()
+
+FastClick.attach(document.body)
