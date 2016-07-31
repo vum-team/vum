@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// VUI
-import { Base } from './components/'
+// Router config
+import RouterConfig from './router-config.js'
+
+// Base
+import Base from './components/'
 
 // demos
 import Index from './demos/Index'
@@ -30,8 +33,6 @@ let App = Vue.extend({
 })
 
 let router = new Router({
-  history: true,
-  root: '/vue-mobile'
 })
 
 router.map({
@@ -86,3 +87,6 @@ router.map({
 })
 
 router.start(App, '#app')
+
+var rc = new RouterConfig(router)
+rc.config()

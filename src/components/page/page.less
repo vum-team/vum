@@ -28,12 +28,23 @@
   transition: all .3s;
 }
 .slide-enter {
-  opacity: .2;
-  transform: translate3d(100%, 0, 0);
+  opacity: 0;
+  transform: translate3d(50%, 0, 0);
 }
 .slide-leave {
   opacity: 0;
   transform: translate3d(-50%, 0, 0);
+}
+
+.transition-reverse {
+  .slide-enter {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0);
+  }
+  .slide-leave {
+    opacity: 0;
+    transform: translate3d(50%, 0, 0);
+  }
 }
 
 // page content
