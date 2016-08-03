@@ -1,9 +1,8 @@
 {
-  "name": "vue-mobile",
+  "name": "vum",
   "version": "0.0.1",
   "description": "A UI Framework build with Vue.js",
   "author": "lihongxun945 <lihongxun945@gmail.com>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
