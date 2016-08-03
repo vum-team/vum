@@ -1,12 +1,6 @@
 <template>
   <div class="page">
-    <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-left" v-back-link>
-        <span class="icon icon-back"></span>
-        Back
-      </a>
-      <h1 class="title">Actions</h1>
-    </header>
+    <simple-header title="Actions" :back-link="true"></simple-header>
     <div class="page-content">
       <div class='demos-content-padded'>
         <p><a href="javascript:;" class="button" v-on:click="showActions()">Show Actions</a></p>
@@ -23,10 +17,12 @@
 </template>
 
 <script>
+import { SimpleHeader } from '../components/header'
 import { Actions, ActionButton, ActionGroup } from '../components/actions'
 
 export default {
   components: {
+    SimpleHeader,
     Actions,
     ActionButton,
     ActionGroup
