@@ -1,29 +1,30 @@
 <template>
   <div class="page">
-    <footer class="bar bar-tab">
-      <a class="tab-item" v-bind:class="{ 'active' : currentView === 'home' }" v-on:click="changeView('home')">
+    <page-footer>
+      <footer-item v-bind:class="{ 'active' : currentView === 'home' }" v-on:click="changeView('home')">
         <span class="icon demo-icon-home"></span>
-        <span class="tab-label">Home</span>
-      </a>
-      <a class="tab-item" v-bind:class="{ 'active' : currentView === 'search' }" v-on:click="changeView('search')">
+        <label>Home</label>
+      </footer-item>
+      <footer-item v-bind:class="{ 'active' : currentView === 'search' }" v-on:click="changeView('search')">
         <span class="icon demo-icon-search"></span>
-        <span class="tab-label">Search</span>
-      </a>
-      <a class="tab-item" v-bind:class="{ 'active' : currentView === 'noti' }" v-on:click="changeView('noti')">
+        <label>Search</label>
+      </footer-item>
+      <footer-item v-bind:class="{ 'active' : currentView === 'noti' }" v-on:click="changeView('noti')">
         <span class="icon demo-icon-noti"></span>
         <span class="badge">2</span>
-        <span class="tab-label">Noti</span>
-      </a>
-      <a class="tab-item" v-bind:class="{ 'active' : currentView === 'about' }" v-on:click="changeView('about')">
+        <label>Noti</label>
+      </footer-item>
+      <footer-item v-bind:class="{ 'active' : currentView === 'about' }" v-on:click="changeView('about')">
         <span class="icon demo-icon-me"></span>
-        <span class="tab-label">About</span>
-      </a>
-    </footer>
+        <label>About</label>
+      </footer-item>
+    </page-footer>
     <component :is="currentView" keep-alive></component>
   </div>
 </template>
 
 <script>
+import { Footer, Item } from '../components/footer'
 import Home from './Home'
 import Search from './Search'
 import Noti from './Noti'
@@ -31,6 +32,8 @@ import About from './About'
 
 export default {
   components: {
+    'page-footer': Footer,
+    'footer-item': Item,
     'home': Home,
     'search': Search,
     'noti': Noti,

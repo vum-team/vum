@@ -1,13 +1,7 @@
 <template>
   <div class="page">
-    <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-left" v-back-link>
-        <span class="icon icon-back"></span>
-        Back
-      </a>
-      <h1 class="title">Tab</h1>
-    </header>
-    <div class="page-content">
+    <simple-header title="Tab" :back-link="true"></simple-header>
+    <content>
       <tab :active="0">
         <tab-item title="All">
           <div class="content-padded">
@@ -42,15 +36,19 @@
           <h1 class="demos-title">Girls</h1>
         </tab-item>
       </tab>
-    </div>
+    </content>
   </div>
 </template>
 
 <script>
+import { SimpleHeader } from '../components/header'
+import Content from '../components/content'
 import { Tab, TabItem } from '../components/tab'
 
 export default {
   components: {
+    SimpleHeader,
+    Content,
     Tab,
     TabItem
   },

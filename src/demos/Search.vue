@@ -1,7 +1,17 @@
 <template>
-  <header class="bar bar-nav bar-standard">
-    <h1 class="title">Search</h1>
-  </header>
-  <div class="page-content">
-  </div>
+  <simple-header title="Search"></simple-header>
+  <content>
+  </content>
 </template>
+
+<script>
+import { SimpleHeader } from '../components/header'
+import Content from '../components/content'
+
+export default {
+  components: {
+    SimpleHeader,
+    Content
+  }
+}
+</script>

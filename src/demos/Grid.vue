@@ -1,13 +1,7 @@
 <template>
   <div class="page">
-    <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-left" v-back-link>
-        <span class="icon icon-back"></span>
-        Back
-      </a>
-      <h1 class="title">Grid</h1>
-    </header>
-    <div class="page-content">
+    <simple-header title="Grid" :back-link="true"></simple-header>
+    <content>
       <div class="grid-demo">
         <div class="grids">
           <a href="javascript:;" class="grid">
@@ -163,6 +157,17 @@
 
         </div>
       </div>
-    </div>
+    </content>
   </div>
 </template>
+<script>
+import { SimpleHeader } from '../components/header'
+import Content from '../components/content'
+
+export default {
+  components: {
+    SimpleHeader,
+    Content
+  }
+}
+</script>

@@ -1,19 +1,13 @@
 <template>
   <div class="page">
-    <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-left" v-back-link>
-        <span class="icon icon-back"></span>
-        Back
-      </a>
-      <h1 class="title">Popup</h1>
-    </header>
-    <div class="page-content">
+    <simple-header title="Popup" :back-link="true"></simple-header>
+    <content>
       <div class='demos-content-padded'>
         <p><a href="javascript:;" class="button" v-on:click="showPopup()">Show Popup</a></p>
         <p><a href="javascript:;" class="button" v-on:click="showFullPopup()">Show Full Screen Popup</a></p>
         <p><a href="javascript:;" class="button" v-on:click="showCustomPopup()">Show Custom Popup</a></p>
       </div>
-    </div>
+    </content>
     <popup :show.sync="show">
       <h2 class="demos-sub-title">Popup Content</h2>
       <div class="content-padded">
@@ -71,10 +65,14 @@
 </template>
 
 <script>
+import { SimpleHeader } from '../components/header'
+import Content from '../components/content'
 import Popup from '../components/popup'
 
 export default {
   components: {
+    SimpleHeader,
+    Content,
     Popup
   },
   data () {

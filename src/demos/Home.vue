@@ -1,12 +1,9 @@
 <template>
-  <header class="bar bar-nav bar-standard">
-    <a class="button button-link button-nav pull-right">
-      <span class="icon icon-left"></span>
-      About
-    </a>
-    <h1 class="title">vue-mobile</h1>
-  </header>
-  <div class="page-content">
+  <page-header>
+    <header-link>About</header-link>
+    <header-title>VUM</header-title>
+  </page-header>
+  <content>
     <header class='demos-header'>
       <h1 class="demos-title">CSS</h1>
     </header>
@@ -136,5 +133,20 @@
         </p>
       </a>
     </div>
-  </div>
+  </content>
 </template>
+<script>
+import { Header, Link, Title } from '../components/header'
+import Content from '../components/content'
+
+export default {
+  components: {
+    'page-header': Header,
+    'header-title': Title,
+    'header-link': Link,
+    Content
+  }
+}
+</script>
+
+

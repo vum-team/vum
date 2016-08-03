@@ -1,20 +1,14 @@
 <template>
   <div class="page">
-    <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-left" v-back-link>
-        <span class="icon icon-back"></span>
-        Back
-      </a>
-      <h1 class="title">Modal</h1>
-    </header>
-    <div class="page-content">
+    <simple-header title="Modal" :back-link="true"></simple-header>
+    <content>
       <div class='demos-content-padded'>
         <p><a href="javascript:;" class="button" v-on:click="showAlert()">Show Alert</a></p>
         <p><a href="javascript:;" class="button" v-on:click="showConfirm()">Show Custom Confirm</a></p>
         <p><a href="javascript:;" class="button" v-on:click="showPrompt()">Show Prompt</a></p>
         <p><a href="javascript:;" class="button" v-on:click="showModal()">Show Custom Modal</a></p>
       </div>
-    </div>
+    </content>
 
     <alert :show.sync="alert" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></alert>
     <confirm :show.sync="confirm" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></confirm>
@@ -32,10 +26,14 @@
 </template>
 
 <script>
+import { SimpleHeader } from '../components/header'
+import Content from '../components/content'
 import { Alert, Confirm, Prompt, Modal } from '../components/modal'
 
 export default {
   components: {
+    SimpleHeader,
+    Content,
     Alert,
     Confirm,
     Modal,

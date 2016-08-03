@@ -1,13 +1,7 @@
 <template>
   <div class="page">
-    <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-left" v-back-link>
-        <span class="icon icon-back"></span>
-        Back
-      </a>
-      <h1 class="title">List</h1>
-    </header>
-    <div class="page-content">
+    <simple-header title="List" :back-link="true"></simple-header>
+    <content>
       <div class="list-block">
         <ul>
           <li>
@@ -222,6 +216,18 @@
           </li>
         </ul>
       </div>
-    </div>
+    </content>
   </div>
 </template>
+
+<script>
+import { SimpleHeader } from '../components/header'
+import Content from '../components/content'
+
+export default {
+  components: {
+    SimpleHeader,
+    Content
+  }
+}
+</script>

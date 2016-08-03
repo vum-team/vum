@@ -1,13 +1,7 @@
 <template>
   <div class="page">
-    <header class="bar bar-nav bar-standard">
-      <a class="button button-link button-nav pull-left" v-back-link>
-        <span class="icon icon-back"></span>
-        Back
-      </a>
-      <h1 class="title">Scroll</h1>
-    </header>
-    <div class="page-content">
+    <simple-header title="Scroll" :back-link="true"></simple-header>
+    <content>
       <scroll :on-refresh="onRefresh" :on-infinite="onInfinite">
         <div class='content-padded' id="list">
           <h2>current time: {{time}}</h2>
@@ -30,15 +24,19 @@
           <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
         </div>
       </scroll>
-    </div>
+    </content>
   </div>
 </template>
 
 <script>
+import { SimpleHeader } from '../components/header'
+import Content from '../components/content'
 import Scroll from '../components/scroll'
 
 export default {
   components: {
+    SimpleHeader,
+    Content,
     Scroll
   },
   data () {
