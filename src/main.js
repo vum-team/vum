@@ -28,6 +28,7 @@ import Preloader from './demos/Preloader'
 import Actions from './demos/Actions'
 import Toast from './demos/Toast'
 import Searchbar from './demos/Searchbar'
+import Calendar from './demos/Calendar'
 
 Vue.use(Router)
 
@@ -93,6 +94,9 @@ router.map({
   },
   '/searchbar': {
     component: Searchbar
+  },
+  '/calendar': {
+    component: Calendar
   }
 })
 

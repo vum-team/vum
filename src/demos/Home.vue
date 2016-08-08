@@ -132,6 +132,14 @@
           Searchbar
         </p>
       </a>
+      <a v-link="{ path: 'calendar' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/search.png" alt="">
+        </div>
+        <p class="grid_label">
+          Calendar
+        </p>
+      </a>
     </div>
   </content>
 </template>

@@ -1,0 +1,61 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.calendar {
+  text-align: center;
+}
+
+.toolbar {
+  display: flex;
+  font-size: .85rem;
+  line-height: 2.2rem;
+  height: 2.2rem;
+  background: #f7f7f8;
+}
+
+.weekdays {
+  position: relative;
+  .hairline(bottom, #ccc);
+}
+
+.year-picker,
+.month-picker {
+  flex: 1;
+  height: 100%;
+}
+
+.weekdays {
+  display: flex;
+  font-size: .6rem;
+  background: #f7f7f8;
+}
+
+.weekday {
+  flex: 1;
+}
+
+.month {
+  font-size: .75rem;
+}
+
+.date {
+  height: 2rem;
+  line-height: 2rem;
+  float: left;
+  width: 14.2857%;
+  position: relative;
+  .hairline(bottom, #ccc);
+
+  span {
+    display: inline-block;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    width: 1.5rem;
+    border-radius: .75rem;
+
+    &.current-date {
+      background-color: @color-primary;
+      color: white;
+    }
+  }
+}
