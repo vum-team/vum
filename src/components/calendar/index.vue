@@ -2,10 +2,14 @@
   <div class="calendar">
     <div class="toolbar">
       <div class="year-picker">
+        <div class="icon icon-prev"></div>
         <div class="year-value">{{y}}</div>
+        <div class="icon icon-next"></div>
       </div>
       <div class="month-picker">
+        <div class="icon icon-prev"></div>
         <div class="year-value">{{m}}</div>
+        <div class="icon icon-next"></div>
       </div>
     </div>
     <div class="weekdays">
