@@ -37,7 +37,7 @@ import moment from 'moment'
 
 export default {
   props: {
-    date: {
+    currentDate: {
       type: String,
       required: false,
       default: '2016-12-12'
@@ -57,6 +57,7 @@ export default {
       this.dates.push(i)
       i = (i > 31 ? 1 : i + 1)
     }
+    moment
   }
 }
 </script>
