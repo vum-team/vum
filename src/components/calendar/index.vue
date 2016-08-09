@@ -2,14 +2,14 @@
   <div class="calendar">
     <div class="toolbar">
       <div class="year-picker">
-        <div class="icon icon-prev"></div>
-        <div class="year-value">{{y}}</div>
-        <div class="icon icon-next"></div>
+        <div class="icon icon-prev" @click="prevYear()"></div>
+        <div class="year-value">{{year}}</div>
+        <div class="icon icon-next" @click="nextYear()"></div>
       </div>
       <div class="month-picker">
-        <div class="icon icon-prev"></div>
-        <div class="year-value">{{m}}</div>
-        <div class="icon icon-next"></div>
+        <div class="icon icon-prev" @click="prevMonth()"></div>
+        <div class="year-value">{{month+1}}</div>
+        <div class="icon icon-next" @click="nextMonth()"></div>
       </div>
     </div>
     <div class="weekdays">
@@ -24,8 +24,12 @@
 
     <div class="months">
       <div class="month">
-        <div class="date" v-for="d in dates" track-by="$index">
-          <span>{{d}}</span>
+        <div class="date" v-for="d in currentMonthDates" track-by="$index">
+          <span :class="{
+            selected: d.selected,
+            'prev-month': d.prevMonth,
+            'next-month': d.nextMonth
+            }">{{d.date}}</span>
         </div>
       </div>
     </div>
@@ -33,31 +37,34 @@
 </template>
 
 <script>
-import moment from 'moment'
+import Store from './store'
+
+const store = new Store()
 
 export default {
   props: {
-    currentDate: {
+    selectedDate: {
       type: String,
       required: false,
       default: '2016-12-12'
     }
   },
   data () {
-    return {
-      y: 2016,
-      m: 12,
-      d: 12,
-      dates: []
-    }
+    return store
   },
-  ready () {
-    let i = 1
-    while (this.dates.length < 35) {
-      this.dates.push(i)
-      i = (i > 31 ? 1 : i + 1)
+  methods: {
+    nextMonth () {
+      store.nextMonth()
+    },
+    prevMonth () {
+      store.prevMonth()
+    },
+    nextYear () {
+      store.nextYear()
+    },
+    prevYear () {
+      store.prevYear()
     }
-    moment
   }
 }
 </script>
