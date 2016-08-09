@@ -2,7 +2,7 @@ import moment from 'moment'
 
 const Store = class {
   constructor () {
-    this.currentDate = moment()
+    this.today = moment()
     this.currentMonthDates = []
     this.prevMonthDates = []
     this.nextMonthDates = []
@@ -12,49 +12,50 @@ const Store = class {
   }
 
   select (d) {
-    d = moment(d || this.currentDate)
+    d = moment(d || this.today)
     this.selectedDates = [d]
-    this.year = d.year()
-    this.month = d.month()
-    this.date = d.date()
-    this.genDates()
+    this.currentMonth = d
+    this.update()
   }
 
-  getSelectedDates (f) {
-    f = f || 'YYYY-MM-DD'
-    return this.selectedDates.map(d => {
-      moment(d).format(f)
-    })
+  update () {
+    this.year = this.currentMonth.year()
+    this.month = this.currentMonth.month()
+    this.genDates(this.year, this.month)
   }
 
-  genDates () {
+  genDates (year, month) {
     const dates = []
-    for (var i = 1; i <= this.selectedDates[0].endOf('month').date(); i++) {
+    const selected = this.selectedDates[0].clone()
+    const today = this.today.clone()
+    const current = this.currentMonth
+    for (var i = 1; i <= current.endOf('month').date(); i++) {
+      const date = moment().year(year).month(month).date(i)
       dates.push({
-        date: i,
+        date: date,
         currentMonth: true,
-        currentDate: this.currentDate.date() === i,
-        selected: this.selectedDates[0].date() === i
+        today: this.sameDate(today, date),
+        selected: this.sameDate(selected, date)
       })
     }
 
-    if (this.currentDate.startOf('month').day() !== 1) {
-      var start = this.currentDate.startOf('month').day() || 7  // sunday is 0, change to 7 to make it easy to caculate
-      let prev = this.currentDate.clone().subtract(1, 'months').endOf('month')
+    if (current.clone().startOf('month').day() !== 1) {
+      var start = current.clone().startOf('month').day() || 7  // sunday is 0, change to 7 to make it easy to caculate
+      let prev = current.clone().subtract(1, 'months').endOf('month')
       for (var j = start - 1; j >= 1; j--) {
         dates.unshift({
-          date: prev.date(),
+          date: prev.clone(),
           prevMonth: true
         })
         prev.subtract(1, 'days')
       }
     }
 
-    if (this.currentDate.endOf('month').day() !== 0) {
-      let next = this.currentDate.clone().add(1, 'months').startOf('month')
-      for (var k = this.currentDate.endOf('month').day() + 1; ; k++) {
+    if (current.clone().endOf('month').day() !== 0) {
+      let next = current.clone().add(1, 'months').startOf('month')
+      for (var k = current.clone().endOf('month').day() + 1; ; k++) {
         dates.push({
-          date: next.date(),
+          date: next.clone(),
           nextMonth: true
         })
         if (next.day() === 0) {
@@ -67,21 +68,25 @@ const Store = class {
     this.currentMonthDates = dates
   }
 
+  sameDate (a, b) {
+    return a.clone().startOf('date').isSame(b.clone().startOf('date'))
+  }
+
   nextMonth () {
-    this.currentDate.add(1, 'months')
-    this.select()
+    this.currentMonth.add(1, 'months')
+    this.update()
   }
   prevMonth () {
-    this.currentDate.subtract(1, 'months')
-    this.select()
+    this.currentMonth.subtract(1, 'months')
+    this.update()
   }
   nextYear () {
-    this.currentDate.add(1, 'years')
-    this.select()
+    this.currentMonth.add(1, 'years')
+    this.update()
   }
   prevYear () {
-    this.currentDate.subtract(1, 'years')
-    this.select()
+    this.currentMonth.subtract(1, 'years')
+    this.update()
   }
 }
 

@@ -24,12 +24,14 @@
 
     <div class="months">
       <div class="month">
-        <div class="date" v-for="d in currentMonthDates" track-by="$index">
+        <div class="date" v-for="d in currentMonthDates" track-by="$index" @click="select(d.date)">
           <span :class="{
             selected: d.selected,
+            'today': d.today,
+            'current-month': d.currentMonth,
             'prev-month': d.prevMonth,
             'next-month': d.nextMonth
-            }">{{d.date}}</span>
+            }">{{d.date.date()}}</span>
         </div>
       </div>
     </div>
@@ -64,6 +66,9 @@ export default {
     },
     prevYear () {
       store.prevYear()
+    },
+    select (d) {
+      store.select(d)
     }
   }
 }

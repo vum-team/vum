@@ -32,10 +32,11 @@
   background-repeat: no-repeat;
   font-style: normal;
   position: relative;
+  width: 2.5rem;
+  height: 100%;
 
   &.icon-next, &.icon-prev {
-    width: 0.75rem;
-    height: 0.75rem;
+    background-size: 0.75rem 0.75rem;
   }
 
   &.icon-next {
@@ -88,8 +89,10 @@
     line-height: 1.5rem;
     width: 1.5rem;
     border-radius: .75rem;
-
-    &.current-date {
+    &.today {
+      background-color: #e3e3e3;
+    }
+    &.selected {
       background-color: @color-primary;
       color: white;
     }
