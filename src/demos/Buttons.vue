@@ -6,6 +6,7 @@
         <h1 class="demos-title">Default Buttons</h1>
         <div class="content-block">
           <p><a href="javascript:;" class="button">default button</a></p>
+          <p><a href="javascript:;" class="button button-light">light button</a></p>
           <p><a href="javascript:;" class="button button-danger">danger button</a></p>
           <p><a href="javascript:;" class="button button-warning">warning button</a></p>
           <p><a href="javascript:;" class="button button-warning disabled">disabled button</a></p>

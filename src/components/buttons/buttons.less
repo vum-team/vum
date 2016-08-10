@@ -35,7 +35,13 @@
   }
   &.button-round,
   .button-round & {
-    border-radius: (@btn-height - 0.1rem);
+    &, &:after {
+      border-radius: (@btn-height - 0.1rem);
+    }
+
+    &.button-large:after {
+      border-radius: (@btn-large-height - 0.1rem);
+    }
   }
   &.active {
     &, &:active {
@@ -77,7 +83,8 @@
 }
 
 .button-light {
-  .button-variant(@color-text-gray-light, @color-primary-active);
+  .button-variant(#f7f7f7, #dedede);
+  .hairline-border(rgba(0,0,0,.2), .25rem);
   color: @color-text-secondary;
 }
 .button-dark {
@@ -96,12 +103,15 @@
 
 .button {
   &,
+  &.button-light,
   &.button-primary,
   &.button-success,
   &.button-danger,
   &.button-warning {
     &.disabled {
+      .hairline-border-remove();
       .button-variant(#c8c9cb, #c8c9cb);
+      color: white;
       cursor: not-allowed;
     }
   }
