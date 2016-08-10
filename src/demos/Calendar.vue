@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <simple-header title="Actions" :back-link="true"></simple-header>
+    <simple-header title="Calendar" :back-link="true"></simple-header>
     <content>
       <calendar :date.sync="date" min="1990-12-12" max="2020-12-01"></calendar>
       <p>Inline Calendar：{{date}}</p>

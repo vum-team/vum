@@ -29,6 +29,7 @@ import Actions from './demos/Actions'
 import Toast from './demos/Toast'
 import Searchbar from './demos/Searchbar'
 import Calendar from './demos/Calendar'
+import Result from './demos/result'
 
 Vue.config.debug = true
 
@@ -99,6 +100,10 @@ router.map({
   },
   '/calendar': {
     component: Calendar
+  },
+  '/result': {
+    name: 'result',
+    component: Result
   }
 })
 

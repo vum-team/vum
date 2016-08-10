@@ -64,6 +64,14 @@
           Icons
         </p>
       </a>
+      <a v-link="{ name: 'result' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/toast.png" alt="">
+        </div>
+        <p class="grid_label">
+          Result
+        </p>
+      </a>
     </div>
 
     <h2 class="demos-title">Components</h2>

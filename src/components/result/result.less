@@ -1,0 +1,32 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.result {
+  padding: .75rem;
+  text-align: center;
+  height: 100%;
+  position: relative;
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+p {
+  color: @color-text-gray;
+  font-size: .75rem;
+}
+
+.buttons {
+  .button + .button {
+    margin-top: .75rem;
+  }
+}
+.bottom {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  font-size: .7rem;
+}
