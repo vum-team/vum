@@ -117,7 +117,7 @@ const Store = class {
     if (!this._isInRange(date)) return false
 
     // check disabled
-    var disableDates = conf.disableDates
+    var disableDates = conf.disableDates || []
 
     for (let i = 0; i < disableDates.length; i++) {
       if (this.sameDate(disableDates[i], date)) return false
@@ -138,7 +138,7 @@ const Store = class {
   _isInRange (date) {
     date = moment(date).clone().startOf('date')
     const conf = this.conf
-    if (date.isBefore(conf.min) || date.isAfter(conf.max)) return false
+    if (conf.min && date.isBefore(conf.min) || conf.max && date.isAfter(conf.max)) return false
     return true
   }
 

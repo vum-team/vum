@@ -53,8 +53,27 @@ export default {
     },
     format: {
       type: String,
-      required: false,
       default: 'YYYY-MM-DD'
+    },
+    max: {
+      type: String,
+      default: undefined
+    },
+    min: {
+      type: String,
+      default: undefined
+    },
+    disableDates: {
+      type: Array,
+      default: undefined
+    },
+    disableWeekend: {
+      type: Boolean,
+      default: undefined
+    },
+    disable: {
+      type: Function,
+      default: undefined
     }
   },
   data () {
@@ -78,9 +97,19 @@ export default {
     }
   },
   ready () {
+    store.config({
+      min: this.min,
+      max: this.max,
+      disable: this.disable,
+      disableDates: this.disableDates,
+      disableWeekend: this.disableWeekend,
+      format: this.format
+    })
     if (this.date) {
       store.select(this.date)
     }
+
+    this.date = store.data.selectedDate.format(this.format)
   },
   watch: {
     selectedDate (v, ov) {
