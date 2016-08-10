@@ -3,12 +3,12 @@
     <div class="toolbar">
       <div class="year-picker">
         <div class="icon icon-prev" @click="prevYear()"></div>
-        <div class="year-value">{{year}}</div>
+        <div class="year-value">{{currentYear}}</div>
         <div class="icon icon-next" @click="nextYear()"></div>
       </div>
       <div class="month-picker">
         <div class="icon icon-prev" @click="prevMonth()"></div>
-        <div class="year-value">{{month+1}}</div>
+        <div class="year-value">{{currentMonth+1}}</div>
         <div class="icon icon-next" @click="nextMonth()"></div>
       </div>
     </div>
@@ -28,6 +28,7 @@
           <span :class="{
             selected: d.selected,
             'today': d.today,
+            'disabled': d.disabled,
             'current-month': d.currentMonth,
             'prev-month': d.prevMonth,
             'next-month': d.nextMonth
@@ -45,14 +46,19 @@ const store = new Store()
 
 export default {
   props: {
-    selectedDate: {
+    date: {
+      type: String,
+      required: true,
+      twoWay: true
+    },
+    format: {
       type: String,
       required: false,
-      default: '2016-12-12'
+      default: 'YYYY-MM-DD'
     }
   },
   data () {
-    return store
+    return store.data
   },
   methods: {
     nextMonth () {
@@ -69,6 +75,16 @@ export default {
     },
     select (d) {
       store.select(d)
+    }
+  },
+  ready () {
+    if (this.date) {
+      store.select(this.date)
+    }
+  },
+  watch: {
+    selectedDate (v, ov) {
+      this.date = v.format(this.format)
     }
   }
 }

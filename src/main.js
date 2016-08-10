@@ -30,6 +30,8 @@ import Toast from './demos/Toast'
 import Searchbar from './demos/Searchbar'
 import Calendar from './demos/Calendar'
 
+Vue.config.debug = true
+
 Vue.use(Router)
 
 Vue.directive('back-link', BackLink)

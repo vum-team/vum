@@ -2,7 +2,8 @@
   <div class="page">
     <simple-header title="Actions" :back-link="true"></simple-header>
     <content>
-      <calendar></calendar>
+      <calendar :date.sync='date'></calendar>
+      <p>选择日期：{{date}}</p>
     </content>
   </div>
 </template>
@@ -17,6 +18,11 @@ export default {
     Content,
     SimpleHeader,
     Calendar
+  },
+  data () {
+    return {
+      date: '2016-12-12'
+    }
   }
 }
 </script>
