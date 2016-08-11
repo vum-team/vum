@@ -42,3 +42,8 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+// not scoped
+@import './button.less';
+</style>

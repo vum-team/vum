@@ -7,8 +7,3 @@ export default {
   ButtonGroup
 }
 </script>
-
-<style lang="less">
-// not scoped
-@import 'buttons.less';
-</style>

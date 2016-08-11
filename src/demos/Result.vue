@@ -8,8 +8,8 @@
           Your commit have been recieved!
         </div>
         <div slot="buttons">
-          <a class="button" href="javascript:;">OK</a>
-          <a class="button button-light" href="javascript:;">BACK</a>
+          <m-button>OK</m-button>
+          <m-button type="light">BACK</m-button>
         </div>
         <div slot="bottom">
           <a>About This Page</a>
@@ -22,13 +22,15 @@
 <script>
 import { SimpleHeader } from '../components/header'
 import Content from '../components/content'
+import { Button } from '../components/buttons'
 import Result from '../components/result'
 
 export default {
   components: {
     SimpleHeader,
     Content,
-    Result
+    Result,
+    'm-button': Button
   }
 }
 </script>

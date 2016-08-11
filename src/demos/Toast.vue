@@ -3,8 +3,8 @@
     <simple-header title="Toast" :back-link="true"></simple-header>
     <content>
       <div class='demos-content-padded'>
-        <p><a href="javascript:;" class="button" v-on:click="showToast(1)">Show Toast Success</a></p>
-        <p><a href="javascript:;" class="button" v-on:click="showToast(2)">Show Toast Error</a></p>
+        <p><m-button v-on:click="showToast(1)">Show Toast Success</m-button></p>
+        <p><m-button v-on:click="showToast(2)">Show Toast Error</m-button></p>
       </div>
 
     </content>
@@ -16,13 +16,15 @@
 <script>
 import { SimpleHeader } from '../components/header'
 import Content from '../components/content'
+import { Button } from '../components/buttons'
 import Toast from '../components/toast'
 
 export default {
   components: {
     SimpleHeader,
     Content,
-    Toast
+    Toast,
+    'm-button': Button
   },
   data () {
     return {

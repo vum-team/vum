@@ -29,7 +29,7 @@
                   <input type="email" placeholder="E-mail">
                 </div>
                 <div class="item-after">
-                  <a class="button">验证</a>
+                  <m-button>验证</m-button>
                 </div>
               </div>
             </div>
@@ -111,8 +111,8 @@
       </div>
       <div class="content-block content-padded">
         <div class="row">
-          <div class="col-50"><a class="button button-large button-fill button-danger">Cancel</a></div>
-          <div class="col-50"><a class="button button-large button-fill">Submit</a></div>
+          <div class="col-50"><m-button type="danger" size="large">Cancel</m-button></div>
+          <div class="col-50"><m-button size="large">Submit</m-button></div>
         </div>
       </div>
     </content>
@@ -121,12 +121,14 @@
 
 <script>
 import { SimpleHeader } from '../components/header'
+import { Button } from '../components/buttons'
 import Content from '../components/content'
 
 export default {
   components: {
     SimpleHeader,
-    Content
+    Content,
+    'm-button': Button
   }
 }
 </script>

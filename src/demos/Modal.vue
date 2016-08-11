@@ -3,10 +3,10 @@
     <simple-header title="Modal" :back-link="true"></simple-header>
     <content>
       <div class='demos-content-padded'>
-        <p><a href="javascript:;" class="button" v-on:click="showAlert()">Show Alert</a></p>
-        <p><a href="javascript:;" class="button" v-on:click="showConfirm()">Show Custom Confirm</a></p>
-        <p><a href="javascript:;" class="button" v-on:click="showPrompt()">Show Prompt</a></p>
-        <p><a href="javascript:;" class="button" v-on:click="showModal()">Show Custom Modal</a></p>
+        <p><m-button v-on:click="showAlert()">Show Alert</m-button></p>
+        <p><m-button v-on:click="showConfirm()">Show Custom Confirm</m-button></p>
+        <p><m-button v-on:click="showPrompt()">Show Prompt</m-button></p>
+        <p><m-button v-on:click="showModal()">Show Custom Modal</m-button></p>
       </div>
     </content>
 
@@ -27,6 +27,7 @@
 
 <script>
 import { SimpleHeader } from '../components/header'
+import { Button } from '../components/buttons'
 import Content from '../components/content'
 import { Alert, Confirm, Prompt, Modal } from '../components/modal'
 
@@ -37,7 +38,8 @@ export default {
     Alert,
     Confirm,
     Modal,
-    Prompt
+    Prompt,
+    'm-button': Button
   },
   data () {
     return {

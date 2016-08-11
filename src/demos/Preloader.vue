@@ -3,7 +3,7 @@
     <simple-header title="Preloader" :back-link="true"></simple-header>
     <content>
       <div class='demos-content-padded'>
-        <p><a href="javascript:;" class="button" v-on:click="showPreloader()">Show Preloader</a></p>
+        <p><m-button v-on:click="showPreloader()">Show Preloader</m-button></p>
       </div>
 
     </content>
@@ -14,13 +14,15 @@
 <script>
 import { SimpleHeader } from '../components/header'
 import Content from '../components/content'
+import { Button } from '../components/buttons'
 import Preloader from '../components/preloader'
 
 export default {
   components: {
     SimpleHeader,
     Content,
-    Preloader
+    Preloader,
+    'm-button': Button
   },
   data () {
     return {

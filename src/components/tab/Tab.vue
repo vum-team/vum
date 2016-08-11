@@ -2,16 +2,16 @@
   <div class="tab-container">
     <div :class="{
       'buttons-tab' : style === 'default',
-      'buttons-row' : style === 'button' || style === 'button-bordered',
+      'buttons-group' : style === 'button' || style === 'button-bordered',
       'button-bordered' : style === 'button-bordered',
       'button-small': size === 'small',
       'button-large': size === 'large'
       }">
-      <a class="button" 
+      <m-button 
          v-for="item in items" 
-         v-bind:class="{ 'active' : ($index === active) }"
+         :active="$index === active"
          v-on:click="onClick($index)"
-         >{{item.title}}</a>
+         >{{item.title}}</m-button>
     </div>
     <div class="tabs">
       <slot></slot>
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import { Button } from '../buttons'
+
 export default {
   props: {
     active: {
@@ -34,6 +36,9 @@ export default {
       type: String,
       default: 'default'
     }
+  },
+  components: {
+    'm-button': Button
   },
   data () {
     return {

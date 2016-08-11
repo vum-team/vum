@@ -36,3 +36,8 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+// not scoped
+@import './button-group.less';
+</style>

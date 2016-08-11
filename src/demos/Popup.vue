@@ -3,9 +3,9 @@
     <simple-header title="Popup" :back-link="true"></simple-header>
     <content>
       <div class='demos-content-padded'>
-        <p><a href="javascript:;" class="button" v-on:click="showPopup()">Show Popup</a></p>
-        <p><a href="javascript:;" class="button" v-on:click="showFullPopup()">Show Full Screen Popup</a></p>
-        <p><a href="javascript:;" class="button" v-on:click="showCustomPopup()">Show Custom Popup</a></p>
+        <p><m-button v-on:click="showPopup()">Show Popup</m-button></p>
+        <p><m-button v-on:click="showFullPopup()">Show Full Screen Popup</m-button></p>
+        <p><m-button v-on:click="showCustomPopup()">Show Custom Popup</m-button></p>
       </div>
     </content>
     <popup :show.sync="show">
@@ -66,6 +66,7 @@
 
 <script>
 import { SimpleHeader } from '../components/header'
+import { Button } from '../components/buttons'
 import Content from '../components/content'
 import Popup from '../components/popup'
 
@@ -73,7 +74,8 @@ export default {
   components: {
     SimpleHeader,
     Content,
-    Popup
+    Popup,
+    'm-button': Button
   },
   data () {
     return {
