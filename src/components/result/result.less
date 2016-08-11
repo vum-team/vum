@@ -6,27 +6,46 @@
   text-align: center;
   height: 100%;
   position: relative;
-}
 
-h1 {
-  font-size: 1rem;
-  font-weight: normal;
-}
+  .brand-icon {
+    font-size: 5.5rem;
+    color: @color-primary;
+    line-height: 1;
+    margin: 1rem 0 .5rem 0;
 
-p {
-  color: @color-text-gray;
-  font-size: .75rem;
-}
-
-.buttons {
-  .button + .button {
-    margin-top: .75rem;
   }
-}
-.bottom {
-  position: absolute;
-  bottom: 1rem;
-  left: 0;
-  width: 100%;
-  font-size: .7rem;
+
+  .result-error,
+  .result-forbidden {
+    .brand-icon {
+      color: @color-danger;
+    }
+  }
+
+  h1 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0 0 .5rem 0;
+  }
+
+  .text {
+    margin: .2rem 0 0 0;
+    color: @color-text-gray;
+    font-size: .75rem;
+  }
+
+  .buttons {
+    margin-top: 1.5rem;
+    .button + .button {
+      margin-top: .75rem;
+    }
+  }
+  .bottom {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    width: 100%;
+    font-size: .7rem;
+    color: #61749b;
+  }
 }
