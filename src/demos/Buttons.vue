@@ -99,7 +99,7 @@
         <div class="content-block">
           <div class="row">
             <div class="col-50"><m-button size="large" type="danger">Cancel</m-button></div>
-            <div class="col-50"><a href="javascript:;" class="button button-large">Submit</a></div>
+            <div class="col-50"><m-button size="large">Submit</m-button></div>
           </div>
         </div>
       </div>

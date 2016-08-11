@@ -1,18 +1,20 @@
 <template>
   <simple-header title="About"></simple-header>
-  <div class="page-content">
+  <content>
     <div class="content-padded">
       @2016/06/30 by 言川
     </div>
-  </div>
+  </content>
 </template>
 
 <script>
+import Content from '../components/content'
 import { SimpleHeader } from '../components/header'
 
 export default {
   components: {
-    SimpleHeader
+    SimpleHeader,
+    Content
   }
 }
 </script>
