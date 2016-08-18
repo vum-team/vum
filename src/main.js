@@ -30,6 +30,7 @@ import Toast from './demos/Toast'
 import Searchbar from './demos/Searchbar'
 import Calendar from './demos/Calendar'
 import Result from './demos/result'
+import Slide from './demos/slide'
 
 Vue.config.debug = true
 
@@ -104,6 +105,10 @@ router.map({
   '/result': {
     name: 'result',
     component: Result
+  },
+  '/slide': {
+    name: 'slide',
+    component: Slide
   }
 })
 

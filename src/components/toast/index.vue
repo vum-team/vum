@@ -25,12 +25,11 @@ export default {
     },
     duration: {
       type: Number,
-      default: 3000,
-      required: false
+      default: 3000
     },
     overlay: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   watch: {

@@ -148,6 +148,14 @@
           Calendar
         </p>
       </a>
+      <a v-link="{ path: 'slide' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/calendar.png" alt="">
+        </div>
+        <p class="grid_label">
+          Slide
+        </p>
+      </a>
     </div>
   </content>
 </template>
