@@ -10,9 +10,6 @@ export default {
     if (this.arg === 'end') this.swipeEnd = v
   },
   unbind () {
-    this.el.removeEventListener('touchstart')
-    this.el.removeEventListener('touchmove')
-    this.el.removeEventListener('touchend')
   },
   _point (e) {
     return {

@@ -16,6 +16,11 @@ export default {
       type: Number,
       default: 0,
       twoWay: true
+    },
+    autoPlay: {
+      type: Number,
+      default: 3000,
+      twoWay: true
     }
   },
   data () {
@@ -58,9 +63,30 @@ export default {
       this.diff = 0
     }
   },
+  watch: {
+    activeIndex (v, ov) {
+      if (v < 0) this.activeIndex = this.amount - 1
+      else if (v > this.amount - 1) this.activeIndex = 0
+      else this.activeIndex = v
+    },
+    autoPlay (v, ov) {
+      clearInterval(this.interval)
+      this.interval = setInterval(() => {
+        if (this.touching) return
+        this.activeIndex ++
+      }, this.autoPlay)
+    }
+  },
   ready () {
     this.width = this.$el.getBoundingClientRect().width
     this.amount = this.$children.length
+
+    if (this.autoPlay > 0) {
+      this.interval = setInterval(() => {
+        if (this.touching) return
+        this.activeIndex ++
+      }, this.autoPlay)
+    }
   }
 }
 </script>
