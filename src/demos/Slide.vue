@@ -4,10 +4,9 @@
     <content>
       <slide-wrapper>
         <slide><img src="../assets/images/slide/0.jpg" /></slide>
-        <slide><img src="../assets/images/slide/0.jpg" /></slide>
-        <slide><img src="../assets/images/slide/0.jpg" /></slide>
-        <slide><img src="../assets/images/slide/0.jpg" /></slide>
-        <slide><img src="../assets/images/slide/0.jpg" /></slide>
+        <slide><img src="../assets/images/slide/1.jpg" /></slide>
+        <slide><img src="../assets/images/slide/2.jpg" /></slide>
+        <slide><img src="../assets/images/slide/3.jpg" /></slide>
       </slide-wrapper>
     </content>
   </div>

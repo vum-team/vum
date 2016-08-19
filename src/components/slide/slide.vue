@@ -9,8 +9,14 @@
 </style>
 
 <style lang="less">
+.slide {
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .slide img {
   display: block;
-  width: 100%;
+  max-width: 100%;
 }
 </style>

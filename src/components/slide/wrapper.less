@@ -1,5 +1,39 @@
+@import '../variables.less';
+
+.slide-wrap {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
 .slide-inner {
   display: flex;
+  transition: transform .3s;
+}
+
+.touching .slide-inner {
+  transition: none;
+}
+
+.bullets {
+  position: absolute;
+  left: 0;
+  bottom: .3rem;
   width: 100%;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: white;
+  margin: 0 4px;
+  opacity: .6;
+
+  &.active {
+    background-color: @color-primary;
+    opacity: .9;
+  }
 }

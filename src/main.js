@@ -2,11 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import FastClick from 'fastclick'
 
-// Router config
-import RouterConfig from './router-config.js'
-
-// directives
-import BackLink from './directives/back-link'
+import Vum from './vum.js'
 
 // Base
 import Base from './components/'
@@ -35,8 +31,7 @@ import Slide from './demos/slide'
 Vue.config.debug = true
 
 Vue.use(Router)
-
-Vue.directive('back-link', BackLink)
+Vue.use(Vum)
 
 let App = Vue.extend({
   components: {
@@ -44,8 +39,7 @@ let App = Vue.extend({
   }
 })
 
-let router = new Router({
-})
+let router = new Router()
 
 router.map({
   '/': {
@@ -114,7 +108,6 @@ router.map({
 
 router.start(App, '#app')
 
-var rc = new RouterConfig(router)
-rc.config()
+Vum.router(router)
 
 FastClick.attach(document.body)

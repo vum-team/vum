@@ -1,8 +1,11 @@
+import BackLink from './directives/back-link'
+import Swipe from './directives/swipe'
+
 /**
  * vue-router does not support reverse transition
  */
 
-export default class RouterConfig {
+class RouterConfig {
   constructor (router) {
     this.router = router
     this.history = window.sessionStorage
@@ -22,5 +25,16 @@ export default class RouterConfig {
       }
       t.next()
     })
+  }
+}
+
+export default {
+  install (Vue) {
+    Vue.directive('back-link', BackLink)
+    Vue.directive('swipe', Swipe)
+  },
+  router (router) {
+    const rc = new RouterConfig(router)
+    rc.config()
   }
 }
