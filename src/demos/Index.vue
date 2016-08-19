@@ -19,7 +19,7 @@
         <label>About</label>
       </footer-item>
     </page-footer>
-    <component :is="currentView" keep-alive></component>
+    <component :is="currentView"></component>
   </div>
 </template>
 

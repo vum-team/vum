@@ -26,7 +26,8 @@ import Toast from './demos/Toast'
 import Searchbar from './demos/Searchbar'
 import Calendar from './demos/Calendar'
 import Result from './demos/result'
-import Slide from './demos/slide'
+import Slide from './demos/Slide'
+import SidePanel from './demos/SidePanel'
 
 Vue.config.debug = true
 
@@ -103,6 +104,10 @@ router.map({
   '/slide': {
     name: 'slide',
     component: Slide
+  },
+  '/side-panel': {
+    name: 'side-panel',
+    component: SidePanel
   }
 })
 

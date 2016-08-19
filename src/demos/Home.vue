@@ -156,6 +156,14 @@
           Slide
         </p>
       </a>
+      <a v-link="{ path: 'side-panel' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/slide.png" alt="">
+        </div>
+        <p class="grid_label">
+          SidePanel
+        </p>
+      </a>
     </div>
   </content>
 </template>
