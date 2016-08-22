@@ -41,7 +41,7 @@ export default {
       amount: 0,
       diff: 0,
       touching: false,
-      transition: true
+      transition: false
     }
   },
   components: {
@@ -73,8 +73,8 @@ export default {
       if (Math.abs(diff.x) >= this.width / 2 || // move long
         (Math.abs(diff.x) > 20 && time < 150) // or move shot but fast
         ) {
-        if (diff.x < 0 && this.activeIndex < this.amount - 1) this.activeIndex ++
-        if (diff.x > 0 && this.activeIndex > 0) this.activeIndex --
+        if (diff.x < 0 && this.activeIndex < this.amount - 1) this.next()
+        if (diff.x > 0 && this.activeIndex > 0) this.prev()
       }
       this.diff = 0
       this._setAutoPlay()
@@ -89,18 +89,23 @@ export default {
       if (this.autoPlay <= 0) return
       clearInterval(this.interval)
       this.interval = setInterval(() => {
-        this.activeIndex ++
+        this.next()
       }, this.autoPlay)
     },
     end () {
+      this.transition = false
       this._updateChildren()
       if (this.activeIndex === this.amount - 1 || this.activeIndex === 0) {
-        this.transition = false
         this.activeIndex = this.activeIndex === 0 ? this.amount - 2 : 1
-        setTimeout(() => {  // nexttick does not work
-          this.transition = true
-        }, 100)
       }
+    },
+    next () {
+      this.transition = true
+      this.activeIndex++
+    },
+    prev () {
+      this.transition = true
+      this.activeIndex--
     }
   },
   watch: {

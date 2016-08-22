@@ -18,12 +18,14 @@ export default {
     }
   },
   start (e) {
+    e.preventDefault()
     const point = this._point(e)
     this.startPoint = point
     this.startTime = +new Date()
     if (this.swipeStart) this.swipeStart(this.startPoint)
   },
   move (e) {
+    e.preventDefault()
     const point = this._point(e)
     this.movePoint = point
     this.diff = {
@@ -32,7 +34,8 @@ export default {
     }
     if (this.swipeMove) this.swipeMove(point, this.diff, +new Date() - this.startTime)
   },
-  end () {
+  end (e) {
+    e.preventDefault()
     if (this.swipeEnd) this.swipeEnd(this.movePoint, this.diff, +new Date() - this.startTime)
   }
 }
