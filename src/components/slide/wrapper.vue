@@ -1,6 +1,6 @@
 <template>
   <div class="slide-wrap {{ touching ? 'touching' : '' }}" v-swipe:move="_swipeMove" v-swipe:end="_swipeEnd">
-    <div class="slide-inner" v-bind:style="{ transform: 'translate3d('+x+'px, 0, 0)' }">
+    <div class="slide-inner" v-bind:style="{ transform: 'translate3d('+x+'px, 0, 0)' }" v-transitionend="end">
       <slot></slot>
     </div>
     <div class="bullets">
@@ -21,6 +21,10 @@ export default {
       type: Number,
       default: 3000,
       twoWay: true
+    },
+    lazy: { // lazy load content
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -61,6 +65,23 @@ export default {
         if (diff.x > 0 && this.activeIndex > 0) this.activeIndex --
       }
       this.diff = 0
+    },
+    _updateChildren () {
+      this.$children.forEach((c, i) => {
+        const a = this.activeIndex
+        c.show = !this.lazy || c.show || (a === i || a === i - 1 || a === i + 1)
+      })
+    },
+    _setAutoPlay () {
+      if (this.autoPay <= 0) return
+      clearInterval(this.interval)
+      this.interval = setInterval(() => {
+        if (this.touching) return
+        this.activeIndex ++
+      }, this.autoPlay)
+    },
+    end () {
+      this._updateChildren()
     }
   },
   watch: {
@@ -70,23 +91,14 @@ export default {
       else this.activeIndex = v
     },
     autoPlay (v, ov) {
-      clearInterval(this.interval)
-      this.interval = setInterval(() => {
-        if (this.touching) return
-        this.activeIndex ++
-      }, this.autoPlay)
+      this._setAutoPlay()
     }
   },
   ready () {
     this.width = this.$el.getBoundingClientRect().width
     this.amount = this.$children.length
-
-    if (this.autoPlay > 0) {
-      this.interval = setInterval(() => {
-        if (this.touching) return
-        this.activeIndex ++
-      }, this.autoPlay)
-    }
+    this._setAutoPlay()
+    this._updateChildren()
   }
 }
 </script>

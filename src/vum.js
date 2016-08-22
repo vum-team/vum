@@ -1,5 +1,6 @@
 import BackLink from './directives/back-link'
 import Swipe from './directives/swipe'
+import Transitionend from './directives/transitionend'
 
 /**
  * vue-router does not support reverse transition
@@ -32,6 +33,7 @@ export default {
   install (Vue) {
     Vue.directive('back-link', BackLink)
     Vue.directive('swipe', Swipe)
+    Vue.directive('transitionend', Transitionend)
   },
   router (router) {
     const rc = new RouterConfig(router)

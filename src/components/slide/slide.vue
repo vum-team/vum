@@ -1,8 +1,20 @@
 <template>
   <div class="slide">
-    <slot></slot>
+    <slot v-if="show"></slot>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    show: {
+      type: Boolean,
+      default: false,
+      twoWay: true
+    }
+  }
+}
+</script>
 
 <style lang="less" scoped>
 @import './slide.less';
