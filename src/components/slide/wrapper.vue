@@ -1,20 +1,28 @@
 <template>
-  <div class="slide-wrap {{ touching ? 'touching' : '' }}" v-swipe:move="_swipeMove" v-swipe:end="_swipeEnd">
-    <div class="slide-inner" v-bind:style="{ transform: 'translate3d('+x+'px, 0, 0)' }" v-transitionend="end">
+  <div class="slide-wrap {{ transition && !touching ? 'transition' : '' }}" v-swipe:start="_swipeStart" v-swipe:move="_swipeMove" v-swipe:end="_swipeEnd">
+    <div class="slide-inner" v-bind:style="{ transform: 'translate3d('+(-this.activeIndex*100+diff/width*100)+'%, 0, 0)' }" v-transitionend="end">
+      <slide class="shadow-slide-first" :show.sync="true">
+        <img src="../../assets/images/slide/3.jpg" alt="">
+      </slide>
       <slot></slot>
+      <slide class="shadow-slide-last" :show.sync="true">
+        <img src="../../assets/images/slide/0.jpg" alt="">
+      </slide>
     </div>
     <div class="bullets">
-      <div class="bullet {{ activeIndex === i ? 'active' : ''}}" v-for="i in bullets"></div>
+      <div class="bullet {{ activeIndex === i || (activeIndex === amount - 1 && i === 1) || (activeIndex === 0 && i === amount - 2) ? 'active' : ''}}" v-for="i in bullets"></div>
     </div>
   </div>
 </template>
 
 <script>
+import Slide from './slide'
+
 export default {
   props: {
-    activeIndex: {
+    activeIndex: {  // the activeindex of real slide index from 1, because of shadow slide
       type: Number,
-      default: 0,
+      default: 1,
       twoWay: true
     },
     autoPlay: {
@@ -32,22 +40,26 @@ export default {
       width: 0,
       amount: 0,
       diff: 0,
-      touching: false
+      touching: false,
+      transition: true
     }
   },
+  components: {
+    Slide
+  },
   computed: {
-    x () {
-      return this.diff - this.activeIndex * this.width
-    },
     bullets () {
       const r = []
-      for (let i = 0; i < this.amount; i++) {
+      for (let i = 1; i < this.amount - 1; i++) {
         r.push(i)
       }
       return r
     }
   },
   methods: {
+    _swipeStart (point, diff) {
+      clearInterval(this.interval)
+    },
     _swipeMove (point, diff, time) {
       if ((this.activeIndex === 0 && diff.x > 0) || (this.activeIndex === this.amount - 1 && diff.x < 0)) {
         this.diff = Math.pow(Math.abs(diff.x), 0.8) * (diff.x > 0 ? 1 : -1)
@@ -65,6 +77,7 @@ export default {
         if (diff.x > 0 && this.activeIndex > 0) this.activeIndex --
       }
       this.diff = 0
+      this._setAutoPlay()
     },
     _updateChildren () {
       this.$children.forEach((c, i) => {
@@ -73,15 +86,21 @@ export default {
       })
     },
     _setAutoPlay () {
-      if (this.autoPay <= 0) return
+      if (this.autoPlay <= 0) return
       clearInterval(this.interval)
       this.interval = setInterval(() => {
-        if (this.touching) return
         this.activeIndex ++
       }, this.autoPlay)
     },
     end () {
       this._updateChildren()
+      if (this.activeIndex === this.amount - 1 || this.activeIndex === 0) {
+        this.transition = false
+        this.activeIndex = this.activeIndex === 0 ? this.amount - 2 : 1
+        setTimeout(() => {  // nexttick does not work
+          this.transition = true
+        }, 100)
+      }
     }
   },
   watch: {
