@@ -60,6 +60,10 @@ const Store = class {
     d.nextMonthDates = this.nextMonthDates
     d.prevYearDates = this.prevYearDates
     d.nextYearDates = this.nextYearDates
+    d.reachMax = this.reachMax()
+    d.reachMin = this.reachMin()
+    d.reachMaxYear = this.reachMaxYear()
+    d.reachMinYear = this.reachMinYear()
   }
 
   genDates (year, month) {
@@ -147,6 +151,22 @@ const Store = class {
     const conf = this.conf
     if (conf.min && date.isBefore(conf.min) || conf.max && date.isAfter(conf.max)) return false
     return true
+  }
+
+  reachMax () {
+    return this.currentMonth.clone().add(1, 'months').startOf('month').isAfter(this.conf.max)
+  }
+
+  reachMin () {
+    return this.currentMonth.clone().subtract(1, 'months').startOf('month').isBefore(this.conf.min)
+  }
+
+  reachMaxYear () {
+    return this.currentMonth.clone().add(1, 'years').startOf('month').isAfter(this.conf.max)
+  }
+
+  reachMinYear () {
+    return this.currentMonth.clone().subtract(1, 'years').startOf('month').isBefore(this.conf.min)
   }
 
   nextMonth () {

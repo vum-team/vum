@@ -2,14 +2,14 @@
   <div class="calendar">
     <div class="toolbar">
       <div class="year-picker">
-        <div class="icon icon-prev" @click="prevYear()"></div>
+        <div class="icon icon-prev {{ reachMinYear ? 'disabled' : '' }}" @click="prevYear()"></div>
         <div class="year-value">{{currentYear}}</div>
-        <div class="icon icon-next" @click="nextYear()"></div>
+        <div class="icon icon-next {{ reachMaxYear ? 'disabled' : '' }}" @click="nextYear()"></div>
       </div>
       <div class="month-picker">
-        <div class="icon icon-prev" @click="prevMonth()"></div>
+        <div class="icon icon-prev {{ reachMin ? 'disabled' : '' }}" @click="prevMonth()"></div>
         <div class="month-value">{{currentMonth+1}}</div>
-        <div class="icon icon-next" @click="nextMonth()"></div>
+        <div class="icon icon-next {{ reachMax ? 'disabled' : '' }}" @click="nextMonth()"></div>
       </div>
     </div>
     <div class="weekdays">
@@ -141,19 +141,23 @@ export default {
   },
   methods: {
     nextMonth () {
+      if (this.reachMax) return false
       this.transition = true
       this.diff = -this.width
     },
     prevMonth () {
+      if (this.reachMin) return false
       this.transition = true
       this.diff = this.width
     },
     nextYear () {
+      if (this.reachMaxYear) return false
       this.transition = true
       this.changeyear = true // add a tag
       this.diff = -this.width
     },
     prevYear () {
+      if (this.reachMinYear) return false
       this.transition = true
       this.changeyear = true // add a tag
       this.diff = this.width
@@ -173,10 +177,22 @@ export default {
     _start (point) {
     },
     _move (point, diff, time) {
-      this.diff = diff.x
+      const x = diff.x
+      if (this.reachMax && x < 0) {
+        this.diff = -Math.pow(-x, 0.7)
+      } else if (this.reachMin && x > 0) {
+        this.diff = Math.pow(x, 0.7)
+      } else {
+        this.diff = x
+      }
     },
     _end (point, diff, time) {
-      if (!diff) return
+      if (!diff) return false
+      if (this.reachMax || this.reachMin) {
+        this.transition = true
+        this.diff = 0
+        return false
+      }
       const x = diff.x
       if (x > 100 || (x > 30 && time < 150)) {
         this.prevMonth()
