@@ -188,12 +188,12 @@ export default {
     },
     _end (point, diff, time) {
       if (!diff) return false
-      if (this.reachMax || this.reachMin) {
+      const x = diff.x
+      if ((this.reachMax && x < 0) || (this.reachMin && x > 0)) {
         this.transition = true
         this.diff = 0
         return false
       }
-      const x = diff.x
       if (x > 100 || (x > 30 && time < 150)) {
         this.prevMonth()
       } else if (x < -100 || (x < -30 && time < 150)) {
