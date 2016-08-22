@@ -37,7 +37,14 @@ const Store = class {
   update () {
     this.currentMonthDates = this.genDates(this.currentMonth.year(), this.currentMonth.month())
     const nextMonth = this.currentMonth.clone().add(1, 'months')
-    this.nextMonthDates = this.genDates(nextMonth.year(), nextMonth.date())
+    this.nextMonthDates = this.genDates(nextMonth.year(), nextMonth.month())
+    const prevMonth = this.currentMonth.clone().subtract(1, 'months')
+    this.prevMonthDates = this.genDates(prevMonth.year(), prevMonth.month())
+
+    const nextYear = this.currentMonth.clone().add(1, 'years')
+    this.nextYearDates = this.genDates(nextYear.year(), nextYear.month())
+    const prevYear = this.currentMonth.clone().subtract(1, 'years')
+    this.prevYearDates = this.genDates(prevYear.year(), prevYear.month())
 
     this.updateData()
   }
@@ -51,6 +58,8 @@ const Store = class {
     d.currentMonthDates = this.currentMonthDates
     d.prevMonthDates = this.prevMonthDates
     d.nextMonthDates = this.nextMonthDates
+    d.prevYearDates = this.prevYearDates
+    d.nextYearDates = this.nextYearDates
   }
 
   genDates (year, month) {
@@ -68,7 +77,7 @@ const Store = class {
       dates[unshift ? 'unshift' : 'push'](d)
     }
 
-    for (i = 1; i <= current.endOf('month').date(); i++) {
+    for (i = 1; i <= current.clone().endOf('month').date(); i++) {
       const date = moment().year(year).month(month).date(i)
       add({
         date: date,
@@ -88,18 +97,16 @@ const Store = class {
       }
     }
 
-    if (current.clone().endOf('month').day() !== 0) {
-      let next = current.clone().add(1, 'months').startOf('month')
-      for (i = current.clone().endOf('month').day() + 1; ; i++) {
-        add({
-          date: next.clone(),
-          nextMonth: true
-        })
-        if (next.day() === 0) {
-          break
-        }
-        next.add(1, 'days')
+    let next = current.clone().add(1, 'months').startOf('month')
+    for (i = current.clone().endOf('month').day() + 1; ; i++) {
+      add({
+        date: next.clone(),
+        nextMonth: true
+      })
+      if (next.day() === 0 && dates.length >= 42) {
+        break
       }
+      next.add(1, 'days')
     }
 
     return dates

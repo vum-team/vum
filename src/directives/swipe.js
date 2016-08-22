@@ -23,6 +23,10 @@ export default {
     this.startPoint = point
     this.startTime = +new Date()
     if (this.swipeStart) this.swipeStart(this.startPoint)
+    this.diff = {
+      x: 0,
+      y: 0
+    }
   },
   move (e) {
     e.preventDefault()

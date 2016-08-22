@@ -23,6 +23,10 @@
   background-repeat: no-repeat;
 }
 
+.year-value, .month-value {
+  width: 2rem;
+}
+
 
 .icon {
   display: inline-block;
@@ -75,8 +79,21 @@
   overflow: hidden;
 }
 
+.months-inner {
+  width: 100%;
+  display: flex;
+  position: relative;
+  left: -100%;
+}
+
+.transition .months-inner {
+  transition: transform .3s;
+}
+
 .month {
   font-size: .75rem;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .date {
@@ -93,16 +110,17 @@
     line-height: 1.5rem;
     width: 1.5rem;
     border-radius: .75rem;
-    &.today {
+    
+  }
+  &.today span {
       background-color: #e3e3e3;
-    }
-    &.selected {
-      background-color: @color-primary;
-      color: white;
-    }
+  }
+  &.selected span {
+    background-color: @color-primary;
+    color: white;
   }
 
-  .next-month, .prev-month, .disabled {
+  &.next-date, &.prev-date, &.disabled {
     color: @color-text-gray;
   }
 }
