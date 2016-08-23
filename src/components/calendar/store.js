@@ -1,6 +1,8 @@
 import moment from 'moment'
 import util from '../../util'
 
+const FORMAT = 'YYYY-MM-DD'
+
 const Store = class {
   constructor () {
     this.today = moment()
@@ -13,7 +15,7 @@ const Store = class {
     this.conf = {
       min: '1970-01-01',  // max date
       max: '2030-12-31',  // min date
-      format: 'YYYY-MM-DD', // format
+      format: FORMAT, // format
       disableDates: [], // disabled dates, eg: ['2012-12-12']
       disableWeekend: false, // disable weekend
       disable: undefined // function
@@ -35,18 +37,26 @@ const Store = class {
   }
 
   update () {
+    const startTime = +new Date()
     this.currentMonthDates = this.genDates(this.currentMonth.year(), this.currentMonth.month())
     const nextMonth = this.currentMonth.clone().add(1, 'months')
     this.nextMonthDates = this.genDates(nextMonth.year(), nextMonth.month())
     const prevMonth = this.currentMonth.clone().subtract(1, 'months')
     this.prevMonthDates = this.genDates(prevMonth.year(), prevMonth.month())
 
+    this.updateData()
+    console.log(+new Date() - startTime)
+  }
+
+  // for performance: generate year dates when need
+  genYearDates () {
     const nextYear = this.currentMonth.clone().add(1, 'years')
     this.nextYearDates = this.genDates(nextYear.year(), nextYear.month())
     const prevYear = this.currentMonth.clone().subtract(1, 'years')
     this.prevYearDates = this.genDates(prevYear.year(), prevYear.month())
-
-    this.updateData()
+    this.data.prevYearDates = this.prevYearDates
+    this.data.nextYearDates = this.nextYearDates
+    console.log(1)
   }
 
   updateData () {
@@ -58,8 +68,8 @@ const Store = class {
     d.currentMonthDates = this.currentMonthDates
     d.prevMonthDates = this.prevMonthDates
     d.nextMonthDates = this.nextMonthDates
-    d.prevYearDates = this.prevYearDates
-    d.nextYearDates = this.nextYearDates
+    d.prevYearDates = []
+    d.nextYearDates = []
     d.reachMax = this.reachMax()
     d.reachMin = this.reachMin()
     d.reachMaxYear = this.reachMaxYear()
@@ -78,6 +88,8 @@ const Store = class {
       d.today = self.sameDate(today, d.date)
       d.selected = self.sameDate(selected, d.date)
       d.disabled = !self._isValid(d.date)
+      d.d = d.date.date()
+      d.date = d.date.format(FORMAT) // for performance
       dates[unshift ? 'unshift' : 'push'](d)
     }
 
@@ -112,12 +124,11 @@ const Store = class {
       }
       next.add(1, 'days')
     }
-
     return dates
   }
 
   sameDate (a, b) {
-    return moment(a).clone().startOf('date').isSame(moment(b).clone().startOf('date'))
+    return a.format(FORMAT) === b.format(FORMAT)
   }
 
   _isValid (date) {

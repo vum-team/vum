@@ -1,8 +1,11 @@
 export default {
   bind () {
-    this.el.addEventListener('touchstart', (e) => this.start(e))
-    this.el.addEventListener('touchmove', (e) => this.move(e))
-    this.el.addEventListener('touchend', (e) => this.end(e))
+    this._start = (e) => this.start(e)
+    this._move = (e) => this.move(e)
+    this._end = (e) => this.end(e)
+    this.el.addEventListener('touchstart', this._start)
+    this.el.addEventListener('touchmove', this._move)
+    this.el.addEventListener('touchend', this._end)
   },
   update (v, ov) {
     if (this.arg === 'start') this.swipeStart = v
@@ -10,6 +13,9 @@ export default {
     if (this.arg === 'end') this.swipeEnd = v
   },
   unbind () {
+    this.el.removeEventListener('touchstart', this._start)
+    this.el.removeEventListener('touchmove', this._move)
+    this.el.removeEventListener('touchend', this._end)
   },
   _point (e) {
     return {

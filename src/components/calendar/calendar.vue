@@ -24,7 +24,7 @@
 
     <div class="months {{ transition ? 'transition' : ''}}" v-swipe:start="_start" v-swipe:move="_move" v-swipe:end="_end">
       <div class="months-inner" v-bind:style="{ transform: 'translate3d(' + diff + 'px, 0, 0)' }" v-transitionend="_transitionend">
-        <div class="month prev-year-month" v-show="changeyear">
+        <div class="month prev-year-month" v-if="changeyear">
           <div v-bind:class="{
             date: true,
             selected: d.selected,
@@ -34,7 +34,7 @@
             'prev-date': d.prevMonth,
             'next-date': d.nextMonth
             }" v-for="d in prevYearDates" track-by="$index">
-            <span>{{d.date.date()}}</span>
+            <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month prev-month" v-show="!changeyear">
@@ -47,7 +47,7 @@
             'prev-date': d.prevMonth,
             'next-date': d.nextMonth
             }" v-for="d in prevMonthDates" track-by="$index">
-            <span>{{d.date.date()}}</span>
+            <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month current-month">
@@ -60,7 +60,7 @@
             'prev-date': d.prevMonth,
             'next-date': d.nextMonth
             }" v-for="d in currentMonthDates" track-by="$index" @click="select(d)">
-            <span>{{d.date.date()}}</span>
+            <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month next-month" v-show="!changeyear">
@@ -73,10 +73,10 @@
             'prev-date': d.prevMonth,
             'next-date': d.nextMonth
             }" v-for="d in nextMonthDates" track-by="$index">
-            <span>{{d.date.date()}}</span>
+            <span>{{d.d}}</span>
           </div>
         </div>
-        <div class="month next-year-month" v-show="changeyear">
+        <div class="month next-year-month" v-if="changeyear">
           <div v-bind:class="{
             date: true,
             selected: d.selected,
@@ -86,7 +86,7 @@
             'prev-date': d.prevMonth,
             'next-date': d.nextMonth
             }" v-for="d in nextYearDates" track-by="$index">
-            <span>{{d.date.date()}}</span>
+            <span>{{d.d}}</span>
           </div>
         </div>
       </div>
@@ -152,12 +152,14 @@ export default {
     },
     nextYear () {
       if (this.reachMaxYear) return false
+      this.store.genYearDates()
       this.transition = true
       this.changeyear = true // add a tag
       this.diff = -this.width
     },
     prevYear () {
       if (this.reachMinYear) return false
+      this.store.genYearDates()
       this.transition = true
       this.changeyear = true // add a tag
       this.diff = this.width
@@ -194,11 +196,12 @@ export default {
         this.diff = 0
         return false
       }
-      if (x > 100 || (x > 30 && time < 150)) {
+      if (x > 150 || (x > 30 && time < 150)) {
         this.prevMonth()
-      } else if (x < -100 || (x < -30 && time < 150)) {
+      } else if (x < -150 || (x < -30 && time < 150)) {
         this.nextMonth()
       } else {
+        this.transition = true
         this.diff = 0
       }
     },
