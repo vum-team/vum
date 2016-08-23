@@ -196,9 +196,9 @@ export default {
         this.diff = 0
         return false
       }
-      if (x > 150 || (x > 30 && time < 150)) {
+      if (x > 100 || (x > 30 && time < 200)) {
         this.prevMonth()
-      } else if (x < -150 || (x < -30 && time < 150)) {
+      } else if (x < -100 || (x < -30 && time < 200)) {
         this.nextMonth()
       } else {
         this.transition = true
