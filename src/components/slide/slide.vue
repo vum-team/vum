@@ -12,6 +12,9 @@ export default {
       default: false,
       twoWay: true
     }
+  },
+  ready () {
+    console.log('child', this.$el)
   }
 }
 </script>

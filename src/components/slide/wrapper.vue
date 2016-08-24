@@ -2,11 +2,11 @@
   <div class="slide-wrap {{ transition && !touching ? 'transition' : '' }}" v-swipe:start="_swipeStart" v-swipe:move="_swipeMove" v-swipe:end="_swipeEnd">
     <div class="slide-inner" v-bind:style="{ transform: 'translate3d('+(-this.activeIndex*100+diff/width*100)+'%, 0, 0)' }" v-transitionend="end">
       <slide class="shadow-slide-first" :show.sync="true">
-        <img src="../../assets/images/slide/3.jpg" alt="">
+        {{{ shadowSlideFirst }}}
       </slide>
       <slot></slot>
       <slide class="shadow-slide-last" :show.sync="true">
-        <img src="../../assets/images/slide/0.jpg" alt="">
+        {{{ shadowSlideLast }}}
       </slide>
     </div>
     <div class="bullets">
@@ -27,7 +27,7 @@ export default {
     },
     autoPlay: {
       type: Number,
-      default: 3000,
+      default: 0,
       twoWay: true
     },
     lazy: { // lazy load content
@@ -41,7 +41,9 @@ export default {
       amount: 0,
       diff: 0,
       touching: false,
-      transition: false
+      transition: false,
+      shadowSlideFirst: '',
+      shadowSlideLast: ''
     }
   },
   components: {
@@ -71,11 +73,12 @@ export default {
     _swipeEnd (point, diff, time) {
       this.touching = false
       if (Math.abs(diff.x) >= this.width / 2 || // move long
-        (Math.abs(diff.x) > 20 && time < 150) // or move shot but fast
+        (Math.abs(diff.x) > 20 && time < 200) // or move shot but fast
         ) {
         if (diff.x < 0 && this.activeIndex < this.amount - 1) this.next()
         if (diff.x > 0 && this.activeIndex > 0) this.prev()
       }
+      this.transition = true
       this.diff = 0
       this._setAutoPlay()
     },
@@ -84,6 +87,9 @@ export default {
         const a = this.activeIndex
         c.show = !this.lazy || c.show || (a === i || a === i - 1 || a === i + 1)
       })
+      const children = this.$children
+      this.shadowSlideLast = children[0].$el.innerHTML
+      this.shadowSlideFirst = children[children.length - 3].$el.innerHTML
     },
     _setAutoPlay () {
       if (this.autoPlay <= 0) return
