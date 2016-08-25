@@ -17,7 +17,7 @@ class RouterConfig {
     this.router.beforeEach(function (t) {
       const to = t.to.path
       const from = t.from.path
-      if (history.getItem(to)) {
+      if (history.getItem(to) || from.startsWith(to)) {
         router.app.$el.className = 'transition-reverse'
         history.removeItem(to)
       } else {
