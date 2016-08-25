@@ -1,6 +1,6 @@
 @import '../variables.less';
 
-.popwindow-modal {
+.popup-modal {
   width: 100%;
   max-height: 100%;
   position: absolute;
@@ -21,14 +21,14 @@
 
   display: none;
 
-  &.popwindow-modal-transition {
+  &.popup-modal-transition {
     opacity: 1;
     display: block;
     transform: translate3d(0,0,0);
   }
 
-  &.popwindow-modal-enter,
-  &.popwindow-modal-leave {
+  &.popup-modal-enter,
+  &.popup-modal-leave {
     transform: translate3d(0, 100%, 0);
   }
 
@@ -59,7 +59,7 @@
   }
 }
 
-.popwindow-overlay {
+.popup-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -72,13 +72,13 @@
   transition: opacity .3s;
   display: none;
 
-  &.popwindow-overlay-transition {
+  &.popup-overlay-transition {
     display: block;
     opacity: 1;
   }
 
-  &.popwindow-overlay-enter,
-  &.popwindow-overlay-leave {
+  &.popup-overlay-enter,
+  &.popup-overlay-leave {
     opacity: 0;
   }
 
