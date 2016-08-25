@@ -124,6 +124,14 @@
           Popup
         </p>
       </a>
+      <a v-link="{ path: 'popwindow' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/window.png" alt="">
+        </div>
+        <p class="grid_label">
+          PopWindow
+        </p>
+      </a>
       <a v-link="{ path: 'actions' }" class="grid">
         <div class="grid_icon">
           <img src="../assets/images/home/menu.png" alt="">

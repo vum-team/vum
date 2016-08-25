@@ -20,6 +20,7 @@ import Icons from './demos/Icons'
 import Tab from './demos/Tab'
 import Scroll from './demos/Scroll'
 import Popup from './demos/Popup'
+import PopWindow from './demos/PopWindow'
 import Preloader from './demos/Preloader'
 import Actions from './demos/Actions'
 import Toast from './demos/Toast'
@@ -80,6 +81,9 @@ router.map({
   },
   '/popup': {
     component: Popup
+  },
+  '/popwindow': {
+    component: PopWindow
   },
   '/preloader': {
     component: Preloader
