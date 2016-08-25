@@ -25,67 +25,27 @@
     <div class="months {{ transition ? 'transition' : ''}}" v-swipe:start="_start" v-swipe:move="_move" v-swipe:end="_end">
       <div class="months-inner" v-bind:style="{ transform: 'translate3d(' + diff + 'px, 0, 0)' }" v-transitionend="_transitionend">
         <div class="month prev-year-month" v-if="changeyear">
-          <div v-bind:class="{
-            date: true,
-            selected: d.selected,
-            'today': d.today,
-            'disabled': d.disabled,
-            'current-date': d.currentMonth,
-            'prev-date': d.prevMonth,
-            'next-date': d.nextMonth
-            }" v-for="d in prevYearDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="d in prevYearDates" track-by="$index">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month prev-month" v-show="!changeyear">
-          <div v-bind:class="{
-            date: true,
-            selected: d.selected,
-            'today': d.today,
-            'disabled': d.disabled,
-            'current-date': d.currentMonth,
-            'prev-date': d.prevMonth,
-            'next-date': d.nextMonth
-            }" v-for="d in prevMonthDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="d in prevMonthDates" track-by="$index">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month current-month">
-          <div v-bind:class="{
-            date: true,
-            selected: d.selected,
-            'today': d.today,
-            'disabled': d.disabled,
-            'current-date': d.currentMonth,
-            'prev-date': d.prevMonth,
-            'next-date': d.nextMonth
-            }" v-for="d in currentMonthDates" track-by="$index" @click="select(d)">
+          <div v-bind:class="_dateClass(d)" v-for="d in currentMonthDates" track-by="$index" @click="select(d)">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month next-month" v-show="!changeyear">
-          <div v-bind:class="{
-            date: true,
-            selected: d.selected,
-            'today': d.today,
-            'disabled': d.disabled,
-            'current-date': d.currentMonth,
-            'prev-date': d.prevMonth,
-            'next-date': d.nextMonth
-            }" v-for="d in nextMonthDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="d in nextMonthDates" track-by="$index">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month next-year-month" v-if="changeyear">
-          <div v-bind:class="{
-            date: true,
-            selected: d.selected,
-            'today': d.today,
-            'disabled': d.disabled,
-            'current-date': d.currentMonth,
-            'prev-date': d.prevMonth,
-            'next-date': d.nextMonth
-            }" v-for="d in nextYearDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="d in nextYearDates" track-by="$index">
             <span>{{d.d}}</span>
           </div>
         </div>
@@ -96,6 +56,9 @@
 
 <script>
 import Store from './store'
+import moment from 'moment'
+
+const FORMAT = 'YYYY-MM-DD'
 
 export default {
   props: {
@@ -218,6 +181,20 @@ export default {
       this.toSelectDate = undefined
       this.diff = 0
       this.changeyear = false
+    },
+    _sameDate (a, b) {
+      return moment(a).format(FORMAT) === moment(b).format(FORMAT)
+    },
+    _dateClass (d) {
+      return {
+        date: true,
+        selected: this._sameDate(d.date, this.selectedDate),
+        'today': this._sameDate(d.date, this.today),
+        'disabled': d.disabled,
+        'current-date': d.currentMonth,
+        'prev-date': d.prevMonth,
+        'next-date': d.nextMonth
+      }
     }
   },
   ready () {
@@ -233,12 +210,12 @@ export default {
       this.store.select(this.date)
     }
 
-    this.date = this.store.data.selectedDate.format(this.format)
+    this.date = moment(this.store.data.selectedDate).format(this.format)
     this.width = this.$el.getBoundingClientRect().width
   },
   watch: {
     selectedDate (v, ov) {
-      this.date = v.format(this.format)
+      this.date = moment(v).format(this.format)
     }
   }
 }

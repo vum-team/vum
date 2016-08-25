@@ -31,9 +31,15 @@ const Store = class {
   select (d) {
     if (!this._isValid(d)) return false
     d = moment(d || this.today)
+    const s = this.selectedDate
     this.selectedDate = d.clone()
     this.currentMonth = d.clone()
-    this.update()
+    if (s && d.year() === s.year() && d.month() === s.month()) {
+      // when select date of same month, no need to update all data
+      this.updateData()
+    } else {
+      this.update()
+    }
   }
 
   update () {
@@ -63,8 +69,8 @@ const Store = class {
     var d = this.data
     d.currentYear = this.currentMonth.year()
     d.currentMonth = this.currentMonth.month()
-    d.selectedDate = this.selectedDate
-    d.today = this.today
+    d.selectedDate = this.selectedDate.format(FORMAT)
+    d.today = this.today.format(FORMAT)
     d.currentMonthDates = this.currentMonthDates
     d.prevMonthDates = this.prevMonthDates
     d.nextMonthDates = this.nextMonthDates
@@ -74,22 +80,20 @@ const Store = class {
     d.reachMin = this.reachMin()
     d.reachMaxYear = this.reachMaxYear()
     d.reachMinYear = this.reachMinYear()
+    console.log(this.data)
   }
 
   genDates (year, month) {
     const dates = []
-    const selected = this.selectedDate.clone()
-    const today = this.today.clone()
     const current = moment().year(year).month(month).clone()
     let i
     const self = this
 
     const add = (d, unshift) => {
-      d.today = self.sameDate(today, d.date)
-      d.selected = self.sameDate(selected, d.date)
       d.disabled = !self._isValid(d.date)
       d.d = d.date.date()
       d.date = d.date.format(FORMAT) // for performance
+      Object.freeze(d)
       dates[unshift ? 'unshift' : 'push'](d)
     }
 
