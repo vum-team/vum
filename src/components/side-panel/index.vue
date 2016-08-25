@@ -1,6 +1,6 @@
 <template>
   <div class="slide-wrap {{ touching ? 'touching' : '' }}" v-show="showWrap" v-swipe:start="slideStart" v-swipe:move="slideMove" v-swipe:end="slideEnd">
-    <div class="side-overlay" v-show="show" transition="side-overlay" @click="show = false"></div>
+    <overlay :show.sync="show" :click="close" :opacity="opacity"></overlay>
     <div class="side" v-show="show" transition="side">
       <div class="panel" v-bind:style="{ transform: 'translate3d('+x+'px, 0, 0)' }">
         <slot></slot>
@@ -10,7 +10,12 @@
 </template>
 
 <script>
+import Overlay from '../overlay'
+
 export default {
+  components: {
+    Overlay
+  },
   props: {
     show: {
       type: Boolean,
@@ -20,9 +25,11 @@ export default {
   },
   data () {
     return {
+      width: 0,
       showWrap: false,
       touching: false,
-      x: 0
+      x: 0,
+      opacity: 1
     }
   },
   watch: {
@@ -39,12 +46,14 @@ export default {
   },
   methods: {
     slideStart (point) {
+      this.width = this.$el.querySelector('.side').getBoundingClientRect().width
       this.touching = true
     },
     slideMove (point, diff, time) {
       if (diff.x > 0) {
       } else {
         this.x = -Math.pow(-diff.x, 0.9)
+        this.opacity = (this.width - Math.abs(this.x)) / this.width
       }
     },
     slideEnd (point, diff, time) {
@@ -54,6 +63,10 @@ export default {
       } else {
         this.x = 0
       }
+      this.opacity = 1
+    },
+    close () {
+      this.show = false
     }
   },
   ready () {

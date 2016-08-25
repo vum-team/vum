@@ -1,5 +1,5 @@
 <template>
-  <div class="popwindow-overlay" transition="popwindow-overlay" v-if="show" @click="close()"></div>
+  <overlay :show.sync="show" :click="close"></overlay>
   <div transition="popwindow-modal"
        v-if="show"
        class="popwindow-modal {{className}} {{full ? 'full' : ''}}">
@@ -10,7 +10,11 @@
 </template>
 
 <script>
+import Overlay from '../overlay'
 export default {
+  components: {
+    Overlay
+  },
   props: {
     show: {
       type: Boolean,

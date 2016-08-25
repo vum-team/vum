@@ -1,5 +1,5 @@
 <template>
-  <div class="toast-overlay" v-if="show && overlay" transition="toast-overlay"></div>
+  <overlay :show.sync="show" :transparent="true" v-if="overlay"></overlay>
   <div class="toast-modal" v-if="show" transition="toast-modal">
     <div class="icon-wrap"><i class="icon icon-{{type}}"></i></div>
     <div class="text">{{text}}</div>
@@ -7,7 +7,11 @@
 </template>
 
 <script>
+import Overlay from '../overlay'
 export default {
+  components: {
+    Overlay
+  },
   props: {
     show: {
       type: Boolean,

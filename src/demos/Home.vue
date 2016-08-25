@@ -172,6 +172,14 @@
           SidePanel
         </p>
       </a>
+      <a v-link="{ path: 'menu' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/slide.png" alt="">
+        </div>
+        <p class="grid_label">
+          Menu
+        </p>
+      </a>
     </div>
   </content>
 </template>

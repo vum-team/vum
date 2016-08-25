@@ -29,6 +29,7 @@ import Calendar from './demos/Calendar'
 import Result from './demos/result'
 import Slide from './demos/Slide'
 import SidePanel from './demos/SidePanel'
+import Menu from './demos/Menu'
 
 Vue.config.debug = true
 
@@ -112,6 +113,10 @@ router.map({
   '/side-panel': {
     name: 'side-panel',
     component: SidePanel
+  },
+  '/menu': {
+    name: 'menu',
+    component: Menu
   }
 })
 
