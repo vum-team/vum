@@ -3,9 +3,9 @@
     <simple-header title="Popup" :back-link="true"></simple-header>
     <content>
       <div class='demos-content-padded'>
-        <p><m-button v-on:click="showPopup()">Show Popup</m-button></p>
-        <p><m-button v-on:click="showFullPopup()">Show Full Screen Popup</m-button></p>
-        <p><m-button v-on:click="showCustomPopup()">Show Custom Popup</m-button></p>
+        <p><m-button v-on:click="show = true">Show Popup</m-button></p>
+        <p><m-button v-on:click="showFull = true">Show Full Screen Popup</m-button></p>
+        <p><m-button v-on:click="showCustom = true">Show Custom Popup</m-button></p>
       </div>
     </content>
     <popup :show.sync="show">
@@ -82,17 +82,6 @@ export default {
       show: false,
       showFull: false,
       showCustom: false
-    }
-  },
-  methods: {
-    showPopup () {
-      this.show = true
-    },
-    showFullPopup () {
-      this.showFull = true
-    },
-    showCustomPopup () {
-      this.showCustom = true
     }
   }
 }

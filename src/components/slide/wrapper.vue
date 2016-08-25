@@ -32,7 +32,7 @@ export default {
     },
     lazy: { // lazy load content
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data () {
