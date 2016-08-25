@@ -1,0 +1,39 @@
+@import '../mixins.less';
+
+@border-color: rgba(0, 0, 0, .2);
+.menu {
+  .hairline-border(@border-color, .25rem);
+  position: absolute;
+  width: auto;
+  padding: 1px .3rem; // 1px for border not be hide by inner div
+}
+
+.item {
+  width: auto;
+  padding: .3rem;
+
+  + .item {
+    position: relative;
+    .hairline(top, @border-color);
+  }
+}
+
+.angle {
+  width: .5rem;
+  height: .5rem;
+  .hairline-border(@border-color, 0);
+  background-color: white;
+  position: absolute;
+  bottom: -.25rem;
+  left: 50%;
+  margin-left: -.25rem;
+  z-index: 1;
+  transform: rotate(45deg);
+  transform-origin: center center;
+}
+
+.inner {
+  position: relative;
+  z-index: 10;
+  background-color: white;
+}

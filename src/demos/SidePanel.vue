@@ -1,7 +1,7 @@
 <template>
   <div class="view">
     <div class="page">
-      <simple-header title="Slide" :back-link="true"></simple-header>
+      <simple-header title="Side Panel" :back-link="true"></simple-header>
       <content>
         <div class="content-padded">
           <m-button @click="show = true">open side panel</m-button>
