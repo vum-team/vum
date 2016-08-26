@@ -1,0 +1,12 @@
+@import '../mixins.less';
+@border-color: rgba(0, 0, 0, .2);
+
+.item {
+  width: auto;
+  padding: .3rem;
+
+  + .item {
+    position: relative;
+    .hairline(top, @border-color);
+  }
+}

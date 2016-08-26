@@ -1,15 +1,9 @@
-<template>
-  <div class="menu">
-    <div class="angle"></div>
-    <div class="inner">
-      <div class="item">机票预订</div>
-      <div class="item">机票预订</div>
-      <div class="item">机票预订</div>
-      <div class="item">机票预订</div>
-    </div>
-  </div>
-</template>
+<script>
+import Menu from './menu'
+import MenuItem from './item'
 
-<style lang="less" scoped>
-@import './menu.less';
-</style>
+export default {
+  Menu,
+  MenuItem
+}
+</script>

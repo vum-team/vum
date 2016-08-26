@@ -6,16 +6,11 @@
   position: absolute;
   width: auto;
   padding: 1px .3rem; // 1px for border not be hide by inner div
-}
-
-.item {
-  width: auto;
-  padding: .3rem;
-
-  + .item {
-    position: relative;
-    .hairline(top, @border-color);
-  }
+  background-color: white;
+  text-align: center;
+  font-size: .8rem;
+  min-width: 3rem;
+  max-width: 6rem;
 }
 
 .angle {
@@ -30,6 +25,11 @@
   z-index: 1;
   transform: rotate(45deg);
   transform-origin: center center;
+}
+
+.bottom .angle {
+  bottom: initial;
+  top: -.25rem;
 }
 
 .inner {
