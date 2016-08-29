@@ -88,6 +88,11 @@ And vui-mobile could never be completed without these:
 - [Less](http://lesscss.org/)
 - [Webpack](https://webpack.github.io/)
 
+# Stay In Touch
+
+Please make sure that you have some knowledge about vue.js before join QQ group:
+
+- QQ Group: 581532614
 
 # Screenshot
 
