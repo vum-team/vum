@@ -3,10 +3,10 @@
   <div transition="popup-modal"
        v-if="show"
        class="popup-modal {{className}} {{full ? 'full' : ''}}">
-    <header class="bar bar-nav bar-standard" v-if="showTitleBar">
-      <a class="button button-link pull-right" @click="close()">{{closeButtonText}}</a>
-      <h1 class="title">{{title}}</h1>
-    </header>
+    <page-header v-if="showTitleBar">
+      <header-title>{{title}}</header-title>
+      <header-link @click="close()">{{closeButtonText}}</header-link>
+    </page-header>
     <div class="modal-content">
       <slot></slot>
     </div>
@@ -14,11 +14,15 @@
 </template>
 
 <script>
+import { Header, Link, Title } from '../header'
 import Overlay from '../overlay'
 
 export default {
   components: {
-    Overlay
+    Overlay,
+    'page-header': Header,
+    'header-link': Link,
+    'header-title': Title
   },
   props: {
     show: {
