@@ -1,0 +1,42 @@
+@import '../variables.less';
+@import '../mixins.less';
+@import './variables.less';
+
+.nav .button {
+  position: relative;
+  top: 0.35rem;
+  z-index: 20; // position the buttons on top of .title
+  margin-top: 0;
+  font-weight: @font-weight-light;
+  background: transparent;
+  color: @color-primary;
+
+  &:active {
+    background: transparent;
+  }
+}
+
+// bars with link buttons (line the text up with page-content)
+.nav .button-link {
+  top: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  line-height: @nav-height;
+  height: @nav-height;
+  color: @color-primary;
+  border: 0;
+
+  &:active,
+  &.active {
+    color: darken(@color-primary, 10%);
+  }
+}
+
+// bars with block buttons
+//
+// add proper padding
+.nav .button-block {
+  top: 0.35rem;
+  font-size: 0.8rem; // scale down font size to fit in bar.
+  width: 100%;
+}

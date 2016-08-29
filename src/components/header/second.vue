@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">
+  <nav class="nav-secondary">
     <slot></slot>
   </nav>
 </template>
@@ -10,5 +10,5 @@ export default {
 </script>
 
 <style lang="less">
-@import './header.less';
+@import './second.less';
 </style>

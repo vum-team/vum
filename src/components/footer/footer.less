@@ -1,0 +1,104 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+@footer-height:   2.8rem;
+
+// modifier class for footer bars
+.footer {
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  .hairline(top, @border-default-color);
+  .hairline-remove(bottom);
+}
+
+// footer bar margin
+.footer ~ .page-content {
+  bottom: @footer-height;
+}
+// bar docked to bottom and used for primary app navigation
+.tab {
+  bottom: 0;
+  width: 100%;
+  height: @footer-height;
+  padding: 0;
+  .hairline(top, @border-default-color);
+  .hairline-remove(bottom);
+  z-index: 9000;  //less than popup
+  transition-duration: 400ms;
+  display: flex;
+
+  // navigational tab (nested to be more specific for the icons in tab-items)
+  .tab-item {
+    position: relative;
+    height: @footer-height;
+    color: #929292;
+    text-align: center;
+    flex: 1;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    // active states for the tab bar
+    &.active,
+    &:active {
+      color: @color-primary;
+    }
+
+    // activity badge on an icon
+    .badge {
+      position: absolute;
+      top: .1rem;
+      left: 50%;
+      z-index: 100;
+      height: .9rem;
+      min-width: .9rem;
+      padding: 0 .2rem;
+      font-size: .6rem;
+      line-height: .9rem;
+      color: white;
+      vertical-align: top;
+      background: red;
+      border-radius: .5rem;
+      margin-left: .1rem;
+    }
+
+    // tab icon
+    .icon {
+      top: .1rem;
+      width: 1.3rem;
+      height: 1.3rem;
+      font-size: 1.3rem;
+      line-height: 1.3rem;
+      padding-top: 0;
+      padding-bottom: 0;
+      display: inline-block;
+      vertical-align: middle;
+
+      // make the text smaller if it's used with an icon '
+      ~ label {
+        display: block;
+        font-size: 0.65rem;
+        position: relative;
+        top: 0.15rem;
+      }
+    }
+  }
+}
+
+.footer .icon {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+// bars for search forms
+// --------------------------------------------------
+
+// position/size search bar within the bar
+.bar input[type="search"] {
+  height: 1.45rem;
+  margin: 0.3rem 0;
+}

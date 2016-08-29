@@ -1,0 +1,19 @@
+@import '../variables.less';
+@import '../mixins.less';
+@import './variables.less';
+
+.nav-secondary ~ .page-content {
+  top: (@nav-height*2);
+}
+
+// modifier class to dock any bar below .nav
+.nav-secondary {
+  top: @nav-height;
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  .hairline(bottom, @border-default-color);
+  backface-visibility: hidden;
+  height: @nav-height;
+}

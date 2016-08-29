@@ -1,0 +1,20 @@
+@import '../variables.less';
+@import './variables.less';
+
+.title {
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: @font-size-default;
+  font-weight: @font-weight;
+  line-height: @nav-height;
+  color: @color-text;
+  text-align: center;
+  white-space: nowrap;
+}
+// retain specified title color
+.title a {
+  color: inherit;
+}

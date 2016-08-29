@@ -2,8 +2,7 @@
   <div class="page">
     <page-header>
       <header-link :left="true" v-back-link>
-        <icon icon="back"></icon>
-        Back
+        <icon icon="back"></icon>Back
       </header-link>
       <page-title id='title'>Menu(click me)</page-title>
       <header-link id="edit">Edit</header-link>

@@ -1,9 +1,9 @@
 <template>
-  <footer class="footer tab">
+  <footer class="footer-secondary">
     <slot></slot>
   </footer>
 </template>
 
 <style lang="less">
-@import "./footer.less";
+@import "./second.less";
 </style>

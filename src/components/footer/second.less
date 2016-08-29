@@ -1,0 +1,21 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+@footer-height:   2.8rem;
+
+@height: 2.8rem;
+
+// modifier class to dock any bar above a standard bar
+.footer-secondary {
+  padding: .4rem;
+  height: @height;
+  position: absolute;
+  width: 100%;
+  bottom: @footer-height;
+  .hairline(top, @border-default-color);
+  .hairline-remove(bottom);
+}
+
+.footer-secondary ~ .page-content {
+  bottom: (@footer-height + @height);
+}

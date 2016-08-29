@@ -1,8 +1,7 @@
 <template>
   <page-header>
     <header-link v-if="backLink" :left="true" v-back-link>
-      <icon icon="back"></icon>
-      {{backText}}
+      <icon icon="back"></icon>{{backText}}
     </header-link>
     <page-title>{{title}}</page-title>
   </page-header>

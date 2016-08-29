@@ -9,6 +9,7 @@ import Base from './components/'
 
 // demos
 import Index from './demos/Index'
+import Page from './demos/Page'
 import Buttons from './demos/Buttons'
 import Column from './demos/Column'
 import Grid from './demos/Grid'
@@ -48,6 +49,9 @@ router.map({
   '/': {
     name: 'index',
     component: Index
+  },
+  '/page': {
+    component: Page
   },
   '/buttons': {
     component: Buttons

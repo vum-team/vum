@@ -1,5 +1,5 @@
 <template>
-  <a class="button button-link button-nav {{ left ? 'pull-left' : 'pull-right' }}">
+  <a class="button button-link {{ left ? 'pull-left' : 'pull-right' }}">
     <slot></slot>
   </a>
 </template>
@@ -14,3 +14,7 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+@import './link.less';
+</style>
