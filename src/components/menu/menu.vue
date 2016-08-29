@@ -10,6 +10,7 @@
 
 <script>
 import Overlay from '../overlay'
+import util from '../../util'
 
 // menu's offsetparent should be the same to trigger's
 
@@ -33,7 +34,7 @@ export default {
     },
     overlay: {
       type: Boolean,
-      default: true
+      default: false
     },
     width: {
       type: Number,
@@ -65,6 +66,12 @@ export default {
       this.triggerElement.addEventListener('click', this.toggle)
       this.parentElement = this.triggerElement.offsetParent
       this.parentElement.addEventListener('scroll', this.locate)
+
+      document.addEventListener('click', (e) => {
+        if (!util.isParent(e.target, this.$els.menu) && !util.isParent(e.target, this.triggerElement)) {
+          this.show = false
+        }
+      })
     })
   },
 
