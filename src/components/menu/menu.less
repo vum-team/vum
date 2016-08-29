@@ -11,6 +11,17 @@
   font-size: .8rem;
   min-width: 3rem;
   max-width: 6rem;
+  transition: opacity .3s;
+
+  &.menu-transition {
+    opacity: 1;
+    display: block;
+  }
+
+  &.menu-enter,
+  &.menu-leave {
+    opacity: 0;
+  }
 }
 
 .angle {

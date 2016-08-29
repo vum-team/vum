@@ -1,6 +1,6 @@
 <template>
   <overlay :show.sync="show" :transparent="true" :click="toggle" v-if="overlay"></overlay>
-  <div class="menu {{computedPosition}}" v-bind:style="{ top: top+'px', left: left+'px'}" v-show="show" v-el:menu @click="show = false">
+  <div class="menu {{computedPosition}}" v-bind:style="{ top: top+'px', left: left+'px'}" v-show="show" v-el:menu @click="show = false" transition="menu">
     <div class="angle" v-bind:style="{ transform : 'translate3d(' + angleOffset+'px, 0, 0) rotate(45deg)' }"></div>
     <div class="inner">
       <slot></slot>
