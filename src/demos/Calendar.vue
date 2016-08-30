@@ -4,24 +4,19 @@
     <content>
       <calendar :date.sync="date" min="1990-12-12" max="2020-12-01"></calendar>
       <p>Inline Calendar：{{date}}</p>
-      <div class="list-block">
-        <ul>
-          <!-- Text inputs -->
-          <li>
-            <div class="item-content">
-              <div class="item-media">
-                <img src="../assets/images/form/i-form-name.png" alt="" width="30" />
-              </div>
-              <div class="item-inner">
-                <div class="item-title label">Popup Calendar</div>
-                <div class="item-input">
-                  <input type="text" v-model="date2" @click="showCalendar2 = true" readonly>
-                </div>
-              </div>
+      <form-list>
+        <form-item>
+          <div class="item-media">
+            <img src="../assets/images/form/i-form-name.png" alt="" width="30" />
+          </div>
+          <div class="item-content">
+            <div class="item-title label">Popup</div>
+            <div class="item-input">
+              <input type="text" v-model="date2" @click="showCalendar2 = true" readonly>
             </div>
-          </li>
-        </ul>
-      </div>
+          </div>
+        </form-item>
+      </form-list>
     </content>
     <popup :show.sync="showCalendar2" :show-title-bar="false">
       <calendar :date.sync="date2"></calendar>
@@ -34,12 +29,15 @@ import Content from '../components/content'
 import { SimpleHeader } from '../components/header'
 import Popup from '../components/popup'
 import { Calendar } from '../components/calendar'
+import { Form, FormItem } from '../components/form'
 
 export default {
   components: {
     Content,
     SimpleHeader,
     Calendar,
+    'form-list': Form,
+    FormItem,
     Popup
   },
   methods: {
