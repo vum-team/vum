@@ -84,6 +84,19 @@
     color: @color-text-secondary;
     font-size: .75rem;
   }
+
+  .list-group-title {
+    padding: 0 15px;
+    background: #f7f7f7;
+    color: #000;
+    font-weight: 500;
+    line-height: 1.1rem;
+    height: 1.1rem;
+
+    + li .item-content {
+      .hairline-remove(top);
+    }
+  }
 }
 
 // Checkboxes
