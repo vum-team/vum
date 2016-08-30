@@ -10,7 +10,7 @@
     <div class="grids grids-small">
       <a v-link="{ path: 'page' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/home/button.png" alt="">
+          <img src="../assets/images/home/page.png" alt="">
         </div>
         <p class="grid_label">
           Page
@@ -74,7 +74,7 @@
       </a>
       <a v-link="{ name: 'result' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/home/toast.png" alt="">
+          <img src="../assets/images/home/result.png" alt="">
         </div>
         <p class="grid_label">
           Result
@@ -174,7 +174,7 @@
       </a>
       <a v-link="{ path: 'side-panel' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/home/slide.png" alt="">
+          <img src="../assets/images/home/side.png" alt="">
         </div>
         <p class="grid_label">
           SidePanel
@@ -182,7 +182,7 @@
       </a>
       <a v-link="{ path: 'menu' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/home/slide.png" alt="">
+          <img src="../assets/images/home/menu.png" alt="">
         </div>
         <p class="grid_label">
           Menu
