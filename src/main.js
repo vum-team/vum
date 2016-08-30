@@ -4,9 +4,6 @@ import FastClick from 'fastclick'
 
 import Vum from './vum.js'
 
-// Base
-import Base from './components/'
-
 // demos
 import Index from './demos/Index'
 import Page from './demos/Page'
@@ -37,11 +34,7 @@ Vue.config.debug = true
 Vue.use(Router)
 Vue.use(Vum)
 
-let App = Vue.extend({
-  components: {
-    Base
-  }
-})
+let App = Vue.extend()
 
 let router = new Router()
 

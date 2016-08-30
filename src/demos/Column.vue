@@ -31,13 +31,15 @@
 </template>
 
 <script>
+import Column from '../components/column'
 import { SimpleHeader } from '../components/header'
 import Content from '../components/content'
 
 export default {
   components: {
     SimpleHeader,
-    Content
+    Content,
+    Column
   }
 }
 </script>

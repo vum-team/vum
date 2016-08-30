@@ -2,7 +2,7 @@
   <div class="page">
     <simple-header title="List" :back-link="true"></simple-header>
     <content>
-      <div class="list-block">
+      <list>
         <ul>
           <li>
             <div class="item-content">
@@ -25,8 +25,8 @@
             </div>
           </li>
         </ul>
-      </div>
-      <div class="list-block">
+      </list>
+      <list>
         <ul>
           <li>
             <div class="item-content">
@@ -58,17 +58,14 @@
                   <div class="item-title">Title</div>
                 </div>
                 <div class="item-after">
-                  <label class="label-switch">
-                    <input type="checkbox">
-                    <div class="checkbox"></div>
-                  </label>
+                  <switch></switch>
                 </div>
               </div>
             </div>
           </li>
         </ul>
-      </div>
-      <div class="list-block">
+      </list>
+      <list>
         <ul>
           <li>
             <a class="item-content item-link">
@@ -93,8 +90,8 @@
             </a>
           </li>
         </ul>
-      </div>
-      <div class="list-block media-list">
+      </list>
+      <list>
         <ul>
           <li>
             <a class="item-content item-link">
@@ -121,8 +118,8 @@
             </a>
           </li>
         </ul>
-      </div>
-      <div class="list-block media-list">
+      </list>
+      <list>
         <ul>
           <li>
             <a class="item-content item-link">
@@ -151,8 +148,8 @@
             </a>
           </li>
         </ul>
-      </div>
-      <div class="list-block media-list">
+      </list>
+      <list>
         <ul>
           <li>
             <label class="item-content label-radio">
@@ -183,8 +180,8 @@
             </label>
           </li>
         </ul>
-      </div>
-      <div class="list-block media-list">
+      </list>
+      <list>
         <ul>
           <li>
             <label class="item-content label-checkbox">
@@ -215,7 +212,7 @@
             </label>
           </li>
         </ul>
-      </div>
+      </list>
     </content>
   </div>
 </template>
@@ -223,11 +220,15 @@
 <script>
 import { SimpleHeader } from '../components/header'
 import Content from '../components/content'
+import List from '../components/list'
+import Switch from '../components/switch'
 
 export default {
   components: {
     SimpleHeader,
-    Content
+    Content,
+    List,
+    Switch
   }
 }
 </script>

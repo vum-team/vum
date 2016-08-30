@@ -192,6 +192,7 @@
   </content>
 </template>
 <script>
+import Grid from '../components/grid'
 import { Header, Link, Title } from '../components/header'
 import Content from '../components/content'
 
@@ -200,7 +201,8 @@ export default {
     'page-header': Header,
     'header-title': Title,
     'header-link': Link,
-    Content
+    Content,
+    Grid
   }
 }
 </script>

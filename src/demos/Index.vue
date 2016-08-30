@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import Page from '../components/page'
 import { Footer, Item } from '../components/footer'
 import Home from './Home'
 import Search from './Search'
@@ -32,6 +33,7 @@ import About from './About'
 
 export default {
   components: {
+    Page,
     'page-footer': Footer,
     'footer-item': Item,
     'home': Home,

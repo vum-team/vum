@@ -86,10 +86,7 @@
               <div class="item-inner">
                 <div class="item-title label">Switch</div>
                 <div class="item-input">
-                  <label class="label-switch">
-                    <input type="checkbox">
-                    <div class="checkbox"></div>
-                  </label>
+                  <switch></switch>
                 </div>
               </div>
             </div>
@@ -123,12 +120,16 @@
 import { SimpleHeader } from '../components/header'
 import { Button } from '../components/buttons'
 import Content from '../components/content'
+import MForm from '../components/form'
+import Switch from '../components/switch'
 
 export default {
   components: {
     SimpleHeader,
     Content,
-    'm-button': Button
+    'm-button': Button,
+    Switch,
+    MForm
   }
 }
 </script>
