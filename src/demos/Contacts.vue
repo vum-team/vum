@@ -1,9 +1,12 @@
 <template>
   <div class="page">
     <simple-header title="Contacts" :back-link="true"></simple-header>
+    <second-header>
+      <searchbar :input.sync="input"></searchbar>
+    </second-header>
     <content>
       <list style="margin-top: 0;">
-        <template v-for="p in list">
+        <template v-for="p in filtedList">
           <li class="list-group-title" v-if="p.title">{{p.name}}</li>
           <list-item v-if="!p.title">
             <div class="item-media"><img src="../assets/images/avatar/1.png" width="30"></div>
@@ -18,19 +21,23 @@
 </template>
 
 <script>
-import { SimpleHeader } from '../components/header'
+import { SimpleHeader, SecondHeader } from '../components/header'
 import Content from '../components/content'
 import { List, ListItem } from '../components/list'
+import Searchbar from '../components/searchbar'
 
 export default {
   components: {
     SimpleHeader,
+    SecondHeader,
+    Searchbar,
     Content,
     List,
     ListItem
   },
   data () {
     return {
+      input: '',
       list: [
         { title: true, name: 'A' },
         { name: 'Albert Bernard', avatar: '1.png' },
@@ -56,6 +63,15 @@ export default {
         { title: true, name: 'Z' },
         { name: 'Zhang xiaoqi', avatar: 'gf.png' }
       ]
+    }
+  },
+  computed: {
+    filtedList () {
+      return this.list.filter((d) => {
+        if (!this.input) return true
+        if (d.title) return false
+        return d.name.toUpperCase().indexOf(this.input.toUpperCase()) !== -1
+      })
     }
   }
 }
