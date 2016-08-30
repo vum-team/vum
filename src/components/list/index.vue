@@ -1,8 +1,12 @@
-<template>
-  <div class="list-block">
-    <slot></slot>
-  </div>
-</template>
+<script>
+import List from './list'
+import ListItem from './item'
+
+export default {
+  List,
+  ListItem
+}
+</script>
 
 <style lang="less">
 @import 'list.less';

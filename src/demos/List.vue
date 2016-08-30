@@ -3,215 +3,167 @@
     <simple-header title="List" :back-link="true"></simple-header>
     <content>
       <list>
-        <ul>
-          <li>
-            <div class="item-content">
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                </div>
-                <div class="item-after">Subtitle</div>
+        <list-item>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+          </div>
+        </list-item>
+        <list-item>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+          </div>
+        </list-item>
+      </list>
+      <list>
+        <list-item>
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+          </div>
+        </list-item>
+        <list-item>
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+          </div>
+        </list-item>
+        <list-item>
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">
+                <switch></switch>
               </div>
             </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                </div>
-                <div class="item-after"><span class="badge">24</span></div>
-              </div>
+          </div>
+        </list-item>
+      </list>
+      <list>
+        <list-item :link="true">
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
             </div>
-          </li>
-        </ul>
-      </list>
-      <list>
-        <ul>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                </div>
-                <div class="item-after">Subtitle</div>
-              </div>
+            <div class="item-subtitle">
+              Subtitle
             </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                </div>
-                <div class="item-after"><span class="badge">24</span></div>
-              </div>
+          </div>
+        </list-item>
+        <list-item :link="true">
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
             </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                </div>
-                <div class="item-after">
-                  <switch></switch>
-                </div>
-              </div>
+            <div class="item-subtitle">
+              Subtitle
             </div>
-          </li>
-        </ul>
+          </div>
+        </list-item>
       </list>
       <list>
-        <ul>
-          <li>
-            <a class="item-content item-link">
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                </div>
-                <div class="item-after">Subtitle</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="item-content item-link">
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                </div>
-                <div class="item-after"><span class="badge">24</span></div>
-              </div>
-            </a>
-          </li>
-        </ul>
+        <list-item>
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="88"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+            <div class="item-subtitle">
+              Subtitle
+            </div>
+            <div class="item-text">
+              Text Text Text Text Text Text Text Text Text 
+            </div>
+          </div>
+        </list-item>
+        <list-item>
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="88"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+            <div class="item-subtitle">
+              Subtitle
+            </div>
+            <div class="item-text">
+              Text Text Text Text Text Text Text Text Text 
+            </div>
+          </div>
+        </list-item>
       </list>
       <list>
-        <ul>
-          <li>
-            <a class="item-content item-link">
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                  <div class="item-after">After</div>
-                </div>
-                <div class="item-subtitle">Subtitle</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="item-content item-link">
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                  <div class="item-after">After</div>
-                </div>
-                <div class="item-subtitle">Subtitle</div>
-              </div>
-            </a>
-          </li>
-        </ul>
+        <list-item :checkbox="true">
+          <input type="checkbox" name="name" value="A">
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+            <div class="item-subtitle">
+              Subtitle
+            </div>
+          </div>
+        </list-item>
+        <list-item :checkbox="true">
+          <input type="checkbox" name="name" value="B">
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+            <div class="item-subtitle">
+              Subtitle
+            </div>
+          </div>
+        </list-item>
       </list>
       <list>
-        <ul>
-          <li>
-            <a class="item-content item-link">
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="88"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                  <div class="item-after">After</div>
-                </div>
-                <div class="item-subtitle">Subtitle</div>
-                <div class="item-text">some description some description some description some description </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="item-content item-link">
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="88"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                  <div class="item-after">After</div>
-                </div>
-                <div class="item-subtitle">Subtitle</div>
-                <div class="item-text">some description some description some description some description </div>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </list>
-      <list>
-        <ul>
-          <li>
-            <label class="item-content label-radio">
-              <input type="radio" name="my-radio" checked>
-              <i class="icon icon-form-radio"></i>
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                  <div class="item-after">After</div>
-                </div>
-                <div class="item-subtitle">Subtitle</div>
-              </div>
-            </label>
-          </li>
-          <li>
-            <label class="item-content label-radio">
-              <input type="radio" name="my-radio">
-              <i class="icon icon-form-radio"></i>
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                  <div class="item-after">After</div>
-                </div>
-                <div class="item-subtitle">Subtitle</div>
-              </div>
-            </label>
-          </li>
-        </ul>
-      </list>
-      <list>
-        <ul>
-          <li>
-            <label class="item-content label-checkbox">
-              <input type="checkbox" name="my-checkbox" checked>
-              <i class="icon icon-form-checkbox"></i>
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                  <div class="item-after">After</div>
-                </div>
-                <div class="item-subtitle">Subtitle</div>
-              </div>
-            </label>
-          </li>
-          <li>
-            <label class="item-content label-checkbox">
-              <input type="checkbox" name="my-checkbox">
-              <i class="icon icon-form-checkbox"></i>
-              <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">Title</div>
-                  <div class="item-after">After</div>
-                </div>
-                <div class="item-subtitle">Subtitle</div>
-              </div>
-            </label>
-          </li>
-        </ul>
+        <list-item :radio="true">
+          <input type="radio" name="gender" value="1">
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+            <div class="item-subtitle">
+              Subtitle
+            </div>
+          </div>
+        </list-item>
+        <list-item :radio="true">
+          <input type="radio" name="gender" value="2" checked>
+          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
+          <div class="item-content">
+            <div class="item-title-row">
+              <div class="item-title">Title</div>
+              <div class="item-after">After</div>
+            </div>
+            <div class="item-subtitle">
+              Subtitle
+            </div>
+          </div>
+        </list-item>
       </list>
     </content>
   </div>
@@ -220,7 +172,7 @@
 <script>
 import { SimpleHeader } from '../components/header'
 import Content from '../components/content'
-import List from '../components/list'
+import { List, ListItem } from '../components/list'
 import Switch from '../components/switch'
 
 export default {
@@ -228,6 +180,7 @@ export default {
     SimpleHeader,
     Content,
     List,
+    ListItem,
     Switch
   }
 }

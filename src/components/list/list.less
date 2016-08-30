@@ -2,324 +2,93 @@
 @import "../variables.less";
 @import "../mixins.less";
 
-@listBlockBorderColor: @color-split;
-@listBlockBg: #fff;
-@dividerBg: #F7F7F7;
-@dividerColor: @color-split;
-.list-block {
+@border-color: @color-split;
+.list {
   margin: 1.75rem 0;
   font-size: 0.85rem;
+  position: relative;
+  .hairline(top, @border-color);
+  .hairline(bottom, @border-color);
+
   ul {
-    background: @listBlockBg;
     list-style: none;
-    padding: 0;
     margin: 0;
-    position: relative;
-    .hairline(top, @listBlockBorderColor);
-    .hairline(bottom, @listBlockBorderColor);
-    ul {
-      .hairline-remove(top);
-      .hairline-remove(bottom);
-      padding-left: 2.25rem;
+    padding: 0;
+  }
+
+  li + li {
+    .item-content {
+      .hairline(top, @border-color);
     }
   }
 
-  .align-top, .align-top .item-content, .align-top .item-inner {
-    .align-items(flex-start);
-  }
-
-  .inset() {
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-    border-radius: 0.35rem;
-    .content-block-title {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    ul {
-      border-radius: 0.35rem;
-      .hairline-remove(top);
-      .hairline-remove(bottom);
-    }
-    li:first-child > a{
-      border-radius: 0.35rem 0.35rem 0 0;
-    }
-    li:last-child > a{
-      border-radius: 0 0 0.35rem 0.35rem;
-    }
-    li:first-child:last-child > a {
-      border-radius: 0.35rem;
-    }
-  }
-  &.inset {
-    .inset()
-  }
-  &.tablet-inset {
-    @media all and (min-width:768px) {
-      .inset();
-    }
-  }
-
-  // List items
-  li {
-    box-sizing: border-box;
+  .item-inner {
+    width: 100%;
+    display: flex;
+    padding: 0 0 0 .75rem;
     position: relative;
   }
 
   .item-media {
-    .flexbox();
-    .flex-shrink(0);
-    .flex-wrap(nowrap);
-    box-sizing: border-box;
-    .align-items(center);
-    padding-top: 0.35rem;
-    padding-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .25rem 0;
+  }
 
-    i + i {
-      margin-left: 0.25rem;
-    }
-    i + img {
-      margin-left: 0.25rem;
-    }
-  }
-  .item-media + .item-inner {
-    margin-left: 0.75rem;
-  }
-  .item-inner {
-    padding-right: 0.75rem;
-    position: relative;
-    .hairline(bottom, @listBlockBorderColor);
-    width: 100%;
-    padding-top: 0.4rem;
-    padding-bottom: 0.35rem;
-    min-height: 2.2rem;
-    box-sizing: border-box;
-    .flexbox();
-    -webkit-box-flex:1;
-    -ms-flex:1;
-    .justify-content(space-between);
-    .align-items(center);
-  }
-  .item-title {
-    .flex-shrink(1);
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-
-    &.label {
-      width: 35%;
-      .flex-shrink(0);
-      margin: 4px 0;
-    }
-  }
-  .item-input {
-    width: 100%;
-    margin-top: -0.4rem;
-    margin-bottom: -0.35rem;
-    -webkit-box-flex:1;
-    -ms-flex:1;
-    .flex-shrink(1);
-  }
-  .item-after {
-    white-space: nowrap;
-    color: @color-text-gray;
-    .flex-shrink(0);
-    margin-left: 0.25rem;
-    .flexbox();
-    max-height: 1.4rem;
-
-    .button {
-      height: 1.4rem;
-      line-height: 1.4rem;
-    }
-  }
-  .smart-select .item-after {
-    max-width: 70%;
-    overflow: hidden;
-    text-overflow:ellipsis;
-    position: relative;
-  }
-  .item-link {
-    transition-duration: 300ms;
-    display: block;
-    color: inherit;
-
-    &:after {
-      content: " ";
-      .encoded-svg-background("<svg viewBox='0 0 60 120' xmlns='http://www.w3.org/2000/svg'><path d='m60 61.5-38.25 38.25-9.75-9.75 29.25-28.5-29.25-28.5 9.75-9.75z' fill='#c7c7cc'/></svg>");
-      width: 1rem;
-      height: 100%;
-      background-size: 0.6rem;
-      background-repeat: no-repeat;
-      background-position: center;
-      position: absolute;
-      top: 0;
-      right: .25rem;
-    }
-
-    .item-inner {
-      padding-right: 1.5rem;
-    }
-
-    html:not(.watch-active-state) &:active, &.active-state {
-      transition-duration: 0ms;
-      background-color: #d9d9d9;
-      .item-inner {
-        .hairline-color(bottom, transparent);
-      }
-    }
-    &.list-button {
-      padding: 0 0.75rem;
-      text-align: center;
-      color: @color-primary;
-      display: block;
-      .hairline(bottom, @listBlockBorderColor);
-      line-height: 2.15rem;
-    }
-  }
   .item-content {
-    box-sizing: border-box;
-    padding-left: 0.75rem;
-    min-height: 2.2rem;
-    .flexbox();
-    .justify-content(space-between);
-    .align-items(center);
+    width: 100%;
+    position: relative;
+    padding: .4rem .75rem .4rem 0;
   }
-  // Label after List block
-  .list-block-label {
-    margin: 0.5rem 0 1.75rem;
-    padding: 0 0.75rem;
-    font-size: 0.7rem;
-    color: @color-text-secondary;
+
+  .item-link .item-content {
+    padding-right: 1.4rem;
+  }
+
+  .item-link .link-arrow {
+    font-size: .7rem;
+    position: absolute;
+    right: .3rem;
+    top: 50%;
+    height: 1rem;
+    width: .8rem;
+    color: #c7c7c7;
+    margin-top: -.5rem;
+  }
+
+  .item-media + .item-content {
+    margin-left: .75rem;
+  }
+
+  .item-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .label-switch {
+    display: block;
+  }
+
+  .item-after {
+    color: @color-text-gray;
   }
 
   .item-subtitle {
-    font-size: 0.75rem;
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 100%;
-    text-overflow: ellipsis;
+    font-size: .75rem;
   }
+
   .item-text {
-    font-size: 0.75rem;
     color: @color-text-secondary;
-    line-height: 1.05rem;
-    position: relative;
-    overflow: hidden;
-    max-height: 2.1rem;
-    text-overflow:ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-  }
-  &.media-list, li.media-item {
-    .item-title {
-      font-weight: 500;
-    }
-    .item-inner {
-      display: block;
-      padding-top: 0.5rem;
-      padding-bottom: 0.45rem;
-      .align-self(stretch);
-    }
-    .item-media {
-      padding-top: 0.45rem;
-      padding-bottom: 0.5rem;
-      img {
-        display: block;
-      }
-    }
-    .item-title-row {
-      .flexbox();
-      .justify-content(space-between);
-    }
-  }
-  .list-group {
-    ul {
-      &:after, &:before {
-        z-index: 11;
-      }
-    }
-    + .list-group ul {
-      .hairline-remove(top);   
-    }
-  }
-  .item-divider, .list-group-title {
-    background: @dividerBg;
-    .hairline(top, @listBlockBorderColor);
-    margin-top: -1px;
-    padding: 0.2rem 0.75rem;
-    white-space: nowrap;
-    position: relative;
-    max-width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: @dividerColor;
-  }
-  .list-group-title {
-    position: relative;
-    position: -webkit-sticky;
-    position: -moz-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    margin-top: 0;
-    .hairline-remove(top);
-  }
-
-  // Last-childs
-  li {
-    &:last-child {
-      .list-button {
-        .hairline-remove(bottom);
-      }
-    }
-    &:last-child, &:last-child li:last-child {
-      .item-inner {
-        .hairline-remove(bottom);
-      }
-    }
-    li:last-child, &:last-child li {
-      .item-inner {
-        .hairline(bottom, @listBlockBorderColor);
-      }
-    }
-  }
-}
-
-//contacts
-
-.contacts-content {
-  background: #fff;
-}
-.contacts-block {
-  margin: 0;
-  .list-group-title {
-    padding: 0 15px;
-    background: #f7f7f7;
-    color:#000;
-    font-weight: 500;
-    line-height: 22px;
-    height: 22px;
-    html.ios-gt-8 & {
-      font-weight: 600;
-    }
-  }
-  .list-group:first-child ul {
-    .hairline-remove(top);
-  }
-  .list-group:last-child ul {
-    .hairline-remove(bottom);
+    font-size: .75rem;
   }
 }
 
 // Checkboxes
 label.label-checkbox {
   cursor: pointer;
-  .item-inner {
+  .item-content {
     padding-right: 2rem;
   }
   i.icon-form-checkbox {
@@ -364,7 +133,7 @@ label.label-radio {
   cursor: pointer;
   input[type="checkbox"], input[type="radio"] {
     display: none;
-    ~ .item-inner {
+    ~ .item-content {
       padding-right: 2rem;
     }
     &:checked ~ .icon-form-radio{
@@ -381,12 +150,12 @@ label.label-radio {
     }
   }
 }
-label.label-checkbox, label.label-radio {
+label.label-checkbox, label.label-radio, .item-link {
   transition: 300ms;
-  html:not(.watch-active-state) &:active, &.active-state {
+  &:active {
     transition: 0ms;
     background-color: #d9d9d9;
-    .item-inner {
+    .item-content {
       .hairline-color(bottom, transparent);
     }
   }
