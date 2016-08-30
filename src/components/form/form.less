@@ -2,7 +2,15 @@
 @import "../mixins.less";
 
 // Inputs
-.list-block {
+.form-list {
+  .item-media {
+    padding: .35rem 0;
+    align-items: flex-start;
+  }
+  .item-content {
+    display: flex;
+    min-height: 2.2rem;
+  }
   input[type="text"], input[type="password"], input[type="search"], input[type="email"], input[type="tel"], input[type="url"], input[type="date"], input[type="datetime-local"], input[type="time"], input[type="number"], select, textarea {
     appearance: none;
     box-sizing: border-box;
@@ -22,6 +30,7 @@
   }
   .item-title.label {
     vertical-align: top;
+    line-height: 1.4rem;
     + .item-input {
       margin-left: 5px;
     }
@@ -47,8 +56,8 @@
   }
   .item-input {
     width: 100%;
-    margin-top: -8px;
-    margin-bottom: -7px;
+    margin-top: -.4rem;
+    margin-bottom: -.4rem;
     -webkit-box-flex:1;
     -ms-flex:1;
     .flex-shrink(1);
@@ -56,6 +65,15 @@
   .item-title.label {
     width: 35%;
     .flex-shrink(0);
+  }
+
+  .button {
+    height: 1.4rem;
+    line-height: 1.4rem;
+  }
+
+  .label-switch {
+    margin-top: .3rem;
   }
 }
 
