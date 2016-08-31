@@ -1,5 +1,5 @@
 <template>
-  <a class="button button-link {{ left ? 'pull-left' : 'pull-right' }}">
+  <a class="button button-link {{ left ? 'left' : 'right' }} {{ edge ? 'edge' : ''}}">
     <slot></slot>
   </a>
 </template>
@@ -7,7 +7,11 @@
 <script>
 export default {
   props: {
-    left: {
+    left: { // pull left
+      type: Boolean,
+      default: false
+    },
+    edge: { // edge
       type: Boolean,
       default: false
     }

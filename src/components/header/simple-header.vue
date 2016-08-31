@@ -1,9 +1,10 @@
 <template>
   <page-header>
-    <header-link v-if="backLink" :left="true" v-back-link>
+    <header-link v-if="backLink" :left="true" :edge="true" v-back-link>
       <icon icon="back"></icon>{{backText}}
     </header-link>
     <page-title>{{title}}</page-title>
+    <slot></slot>
   </page-header>
 </template>
 
