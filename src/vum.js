@@ -1,6 +1,8 @@
 import BackLink from './directives/back-link'
 import Swipe from './directives/swipe'
 import Transitionend from './directives/transitionend'
+import db from './db'
+import Vue from 'vue'
 
 /**
  * vue-router does not support reverse transition
@@ -9,22 +11,35 @@ import Transitionend from './directives/transitionend'
 class RouterConfig {
   constructor (router) {
     this.router = router
-    this.history = window.sessionStorage
   }
   config () {
-    const history = this.history
     const router = this.router
     this.router.beforeEach(function (t) {
       const to = t.to.path
       const from = t.from.path
-      if (history.getItem(to) || (from && from.indexOf(to) === 0)) {
+      const scrollTop = t.from.router.app.$el.querySelector('.page-content').scrollTop
+      const h = db.get(to)
+      if (h && h.history || (from && from.indexOf(to) === 0)) {
         router.app.$el.className = 'transition-reverse'
-        history.removeItem(to)
+        h.history = false
+        db.set(to, h)
       } else {
-        history.setItem(from, 1)
+        db.set(from, {
+          scrollTop: scrollTop,
+          history: true
+        })
         router.app.$el.className = ''
       }
       t.next()
+    })
+    this.router.afterEach(function (t) {
+      const h = db.get(t.to.path)
+      if (h && h.scrollTop) {
+        Vue.nextTick(() => {
+          console.log('should scroll to' + h.scrollTop)
+          t.to.router.app.$el.querySelectorAll('.page-content')[1].scrollTop = h.scrollTop  // TODO:
+        })
+      }
     })
   }
 }
