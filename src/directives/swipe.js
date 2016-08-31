@@ -39,7 +39,6 @@ export default {
   },
   start (e) {
     this.touching = true
-    e.preventDefault()
     const point = this._point(e)
     this.startPoint = point
     this.startTime = +new Date()
@@ -61,7 +60,6 @@ export default {
     if (this.swipeMove) this.swipeMove(point, this.diff, +new Date() - this.startTime)
   },
   end (e) {
-    e.preventDefault()
     if (this.swipeEnd) this.swipeEnd(this.movePoint, this.diff, +new Date() - this.startTime)
     this.touching = false
   }
