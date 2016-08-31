@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <page-header>
-      <header-link :left="true" v-back-link>
+      <header-link :left="true" :edge="true" v-back-link>
         <icon icon="back"></icon>Back
       </header-link>
       <page-title id='title'>Menu(click me)</page-title>
