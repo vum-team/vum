@@ -4,7 +4,7 @@
 
 vue-mobile is in development now, `V0.1.0` version will be released before `2016-8-31`. * delay to `2016-09-11` *
 
-Click [http://demo.vuem.io/#!/](http://demo.vuem.io/#!/)  or scan vcode to see live demos:
+Click [http://demo.getvum.com/#!/](http://demo.getvum.com/#!/)  or scan vcode to see live demos:
 
 <img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/vcode.png"/>
 
