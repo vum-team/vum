@@ -4,9 +4,17 @@
     <content>
       <div class='demos-content-padded'>
       <div class="icons">
-        <i class="icon icon-success"></i>
-        <i class="icon icon-error"></i>
-        <i class="icon icon-back"></i>
+        <icon icon="success"></icon>
+        <icon icon="error"></icon>
+        <icon icon="back"></icon>
+        <icon icon="search"></icon>
+        <icon icon="clear"></icon>
+        <icon icon="error-fill"></icon>
+        <icon icon="success-fill"></icon>
+        <icon icon="forbidden-fill"></icon>
+        <icon icon="link"></icon>
+        <icon icon="star"></icon>
+        <icon icon="star-fill"></icon>
       </div>
     </content>
   </div>
@@ -15,11 +23,13 @@
 <script>
 import { SimpleHeader } from '../components/header'
 import Content from '../components/content'
+import Icon from '../components/icons'
 
 export default {
   components: {
     SimpleHeader,
-    Content
+    Content,
+    Icon
   }
 }
 </script>
