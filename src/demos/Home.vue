@@ -82,7 +82,7 @@
       </a>
       <a v-link="{ name: 'stars' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/home/result.png" alt="">
+          <img src="../assets/images/home/star.png" alt="">
         </div>
         <p class="grid_label">
           Stars

@@ -3,12 +3,12 @@
   "version": "0.0.2",
   "description": "A UI Framework build with Vue.js",
   "author": "lihongxun945 <lihongxun945@gmail.com>",
-  keywords: {
-    'vum',
-    'vue mobile',
-    'vue ui',
-    'weui'
-  },
+  "keywords": [
+    "vum",
+    "vue mobile",
+    "vue ui",
+    "weui"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/lihongxun945/vum"
