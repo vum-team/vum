@@ -37,7 +37,8 @@ class RouterConfig {
       if (h && h.scrollTop) {
         Vue.nextTick(() => {
           console.log('should scroll to' + h.scrollTop)
-          t.to.router.app.$el.querySelectorAll('.page-content')[1].scrollTop = h.scrollTop  // TODO:
+          const to = t.to.router.app.$el.querySelectorAll('.page-content')[1]
+          if (to) to.scrollTop = h.scrollTop  // TODO:
         })
       }
     })
