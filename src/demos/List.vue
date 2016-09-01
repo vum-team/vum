@@ -3,6 +3,7 @@
     <simple-header title="List" :back-link="true"></simple-header>
     <content>
       <list>
+        <div slot="title">Simple List</div>
         <list-item>
           <div class="item-content">
             <div class="item-title-row">
@@ -19,8 +20,15 @@
             </div>
           </div>
         </list-item>
+        <div slot="append">
+          Append some message here.
+          Append some message here.
+          Append some message here.
+          Append some message here.
+        </div>
       </list>
       <list>
+        <div slot="title">List with different After Item</div>
         <list-item>
           <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
           <div class="item-content">
@@ -110,6 +118,7 @@
         </list-item>
       </list>
       <list>
+        <div slot="title">Checkbox List</div>
         <list-item :checkbox="true">
           <input type="checkbox" name="name" value="A">
           <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
@@ -138,6 +147,7 @@
         </list-item>
       </list>
       <list>
+        <div slot="title">Radio List</div>
         <list-item :radio="true">
           <input type="radio" name="gender" value="1">
           <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>

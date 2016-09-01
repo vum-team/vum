@@ -4,16 +4,27 @@
 
 @border-color: @color-split;
 .list {
-  margin: 1.75rem 0;
+  margin: 1rem 0;
   font-size: 0.85rem;
-  position: relative;
-  .hairline(top, @border-color);
-  .hairline(bottom, @border-color);
 
   ul {
+    .hairline(top, @border-color);
+    .hairline(bottom, @border-color);
     list-style: none;
     margin: 0;
     padding: 0;
+    position: relative;
+  }
+
+  .list-title, .list-append {
+    font-size: .8rem;
+    color: @color-text-gray;
+    padding: .2rem .75rem;
+  }
+
+  .list-append {
+    padding: .3rem .75rem;
+    font-size: .7rem;
   }
 
   li + li {

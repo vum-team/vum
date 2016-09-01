@@ -2,9 +2,8 @@
   <div class="page">
     <simple-header title="Stars" :back-link="true"></simple-header>
     <content>
-      <div class='demos-content-padded'>
-      </div>
       <list>
+        <div slot="title">Read Only Stars</div>
         <list-item>
           <div class="item-content">
             <div class="item-title-row">
@@ -15,6 +14,9 @@
             </div>
           </div>
         </list-item>
+      </list>
+      <list>
+        <div slot="title">Click Star!</div>
         <list-item>
           <div class="item-content">
             <div class="item-title-row">
