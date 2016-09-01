@@ -1,2 +1,4 @@
 build/
+config/
 test/
+node_modules/

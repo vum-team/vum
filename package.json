@@ -3,6 +3,21 @@
   "version": "0.0.2",
   "description": "A UI Framework build with Vue.js",
   "author": "lihongxun945 <lihongxun945@gmail.com>",
+  keywords: {
+    'vum',
+    'vue mobile',
+    'vue ui',
+    'weui'
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lihongxun945/vum"
+  },
+  "homepage": "http://demo.getvum.com",
+  "bugs": {
+    "url": "https://github.com/lihongxun945/vum/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
