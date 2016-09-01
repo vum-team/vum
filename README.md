@@ -38,7 +38,7 @@ Vue is the best View Layer Framework I have ever seen:
 - [ ] Cards
 - [x] Contacts
 - [x] Form
-- [ ] Icons
+- [x] Icons
 
 - [x] Modal
 - [x] Preloader
@@ -50,7 +50,7 @@ Vue is the best View Layer Framework I have ever seen:
 - [x] Search Bar
 - [x] Calendar
 - [ ] Photo Browser
-- [ ] Swiper
+- [x] Swiper
 
 ## Build Setup
 
@@ -69,6 +69,27 @@ npm run unit
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## How to use
+
+How to create a project with vum?
+
+### clone source code directly
+
+1. Clone this repo to your work dir
+2. `npm install` to install dependences
+3. `npm run dev` to run dev server with hot reload.
+4. Open `http://localhost:8088` in your browser, then you can see the demos
+5. Change to dir `src/demos`, modify what you want, and remove unused pages
+
+That's all! You can do it :) Do not forget to reinit git.
+
+
+### use npm
+
+1. Create your project, [vue-cli](https://github.com/vuejs/vue-cli) is recommend
+2. `npm install vum` in the root of your project
+3. Import the components you wanted in `src`
 
 ## Thanks
 
