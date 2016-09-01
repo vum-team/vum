@@ -35,7 +35,7 @@
           <div class="item-content">
             <div class="item-title-row">
               <div class="item-title">Title</div>
-              <div class="item-after">After</div>
+              <div class="item-after"><div class="badge">32</div></div>
             </div>
           </div>
         </list-item>
