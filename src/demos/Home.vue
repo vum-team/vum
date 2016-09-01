@@ -80,6 +80,14 @@
           Result
         </p>
       </a>
+      <a v-link="{ name: 'stars' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/result.png" alt="">
+        </div>
+        <p class="grid_label">
+          Stars
+        </p>
+      </a>
     </div>
 
     <h2 class="demos-title">Components</h2>

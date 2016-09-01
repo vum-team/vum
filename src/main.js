@@ -28,6 +28,7 @@ import Result from './demos/result'
 import Slide from './demos/Slide'
 import SidePanel from './demos/SidePanel'
 import Menu from './demos/Menu'
+import Stars from './demos/Stars'
 
 Vue.config.debug = true
 
@@ -114,6 +115,10 @@ router.map({
   '/menu': {
     name: 'menu',
     component: Menu
+  },
+  '/stars': {
+    name: 'stars',
+    component: Stars
   }
 })
 

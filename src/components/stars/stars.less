@@ -1,0 +1,11 @@
+@import '../variables.less';
+.stars {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: @color-primary;
+
+  .star + .star {
+    margin-left: .2rem;
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <simple-header title="buttons" :back-link="true"></simple-header>
+    <simple-header title="Icons" :back-link="true"></simple-header>
     <content>
       <div class='demos-content-padded'>
       <div class="icons">
