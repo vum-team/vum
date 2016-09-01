@@ -70,9 +70,9 @@ npm run unit
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-## How to use
+## Get Start
 
-How to create a project with vum?
+Two way to create a project with vum?
 
 ### clone source code directly
 
@@ -90,6 +90,7 @@ That's all! You can do it :) Do not forget to reinit git.
 1. Create your project, [vue-cli](https://github.com/vuejs/vue-cli) is recommend
 2. `npm install vum` in the root of your project
 3. Import the components you wanted in `src`
+
 
 ## Thanks
 
