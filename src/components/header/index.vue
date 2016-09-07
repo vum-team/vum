@@ -9,7 +9,7 @@ export default {
   Header,
   SecondHeader,
   HeaderLink: Link,
-  headerTitle: Title,
+  HeaderTitle: Title,
   SimpleHeader,
 
   // for old version
