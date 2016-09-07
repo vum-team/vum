@@ -8,8 +8,12 @@ import SimpleHeader from './simple-header'
 export default {
   Header,
   SecondHeader,
+  HeaderLink: Link,
+  headerTitle: Title,
+  SimpleHeader,
+
+  // for old version
   Link,
-  Title,
-  SimpleHeader
+  Title
 }
 </script>

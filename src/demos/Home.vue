@@ -201,14 +201,14 @@
 </template>
 <script>
 import Grid from '../components/grid'
-import { Header, Link, Title } from '../components/header'
+import { Header, HeaderLink, HeaderTitle } from '../components/header'
 import Content from '../components/content'
 
 export default {
   components: {
     'page-header': Header,
-    'header-title': Title,
-    'header-link': Link,
+    HeaderLink,
+    HeaderTitle,
     Content,
     Grid
   }

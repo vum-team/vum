@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import { Header, Link, Title, SecondHeader } from '../components/header'
+import { Header, HeaderLink, HeaderTitle, SecondHeader } from '../components/header'
 import Content from '../components/content'
-import { Footer, SecondFooter, Item } from '../components/footer'
+import { Footer, SecondFooter, FooterItem } from '../components/footer'
 import Icon from '../components/icons'
 import { Button } from '../components/buttons'
 import Searchbar from '../components/searchbar'
@@ -63,12 +63,12 @@ export default {
   components: {
     'page-header': Header,
     SecondHeader,
-    'header-link': Link,
-    'header-title': Title,
+    HeaderLink,
+    HeaderTitle,
     Content,
     'page-footer': Footer,
     SecondFooter,
-    'footer-item': Item,
+    FooterItem,
     'btn': Button,
     Icon,
     Searchbar

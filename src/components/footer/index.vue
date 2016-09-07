@@ -6,6 +6,9 @@ import Item from './item'
 export default {
   Footer,
   SecondFooter,
+  FooterItem: Item,
+
+  // for old version
   Item
 }
 </script>
