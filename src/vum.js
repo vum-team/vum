@@ -15,20 +15,25 @@ class RouterConfig {
   config () {
     const router = this.router
     this.router.beforeEach(function (t) {
-      const to = t.to.path
-      const from = t.from.path
-      const scrollTop = t.from.router.app.$el.querySelector('.page-content').scrollTop
-      const h = db.get(to)
-      if (h && h.history || (from && from.indexOf(to) === 0)) {
-        router.app.$el.className = 'transition-reverse'
-        h.history = false
-        db.set(to, h)
-      } else {
-        db.set(from, {
-          scrollTop: scrollTop,
-          history: true
-        })
-        router.app.$el.className = ''
+      try {
+        const to = t.to.path
+        const from = t.from.path
+        const scrollTop = t.from.router.app.$el.querySelector('.page-content').scrollTop
+        const h = db.get(to)
+        if (h && h.history || (from && from.indexOf(to) === 0)) {
+          router.app.$el.className = 'transition-reverse'
+          h.history = false
+          db.set(to, h)
+        } else {
+          db.set(from, {
+            scrollTop: scrollTop,
+            history: true
+          })
+          router.app.$el.className = ''
+        }
+      } catch (e) {
+        // swallo error
+        console.log(e)
       }
       t.next()
     })
