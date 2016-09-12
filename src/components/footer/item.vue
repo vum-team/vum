@@ -1,5 +1,5 @@
 <template>
-  <a class="tab-item">
+  <a class="footer-item">
     <slot></slot>
   </a>
 </template>

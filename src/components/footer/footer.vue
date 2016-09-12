@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer tab">
+  <footer class="footer">
     <slot></slot>
   </footer>
 </template>
