@@ -1,6 +1,6 @@
 {
   "name": "vum",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A UI Framework build with Vue.js",
   "author": "lihongxun945 <lihongxun945@gmail.com>",
   "keywords": [
@@ -25,6 +25,7 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
+  "main": "src/vum.js",
   "dependencies": {
     "babel-runtime": "^6.0.0",
     "moment": "^2.14.1",
