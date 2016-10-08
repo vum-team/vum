@@ -65,13 +65,14 @@ export default {
   methods: {
     touchStart (e) {
       this.startY = e.targetTouches[0].pageY
+      this.startScroll = this.$el.scrollTop || 0
       this.touching = true
     },
     touchMove (e) {
       if (this.$el.scrollTop > 0 || !this.touching) {
         return
       }
-      let diff = e.targetTouches[0].pageY - this.startY
+      let diff = e.targetTouches[0].pageY - this.startY - this.startScroll
       if (diff > 0) e.preventDefault()
       this.top = Math.pow(diff, 0.8) + (this.state === 2 ? this.offset : 0)
 
