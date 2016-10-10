@@ -3,6 +3,7 @@
     <simple-header title="Form" :back-link="true"></simple-header>
     <content>
       <form-list>
+        <div slot="title">Form List</div>
         <form-item>
           <div class="item-media">
             <img src="../assets/images/form/i-form-name.png" alt="" width="30" />
@@ -88,7 +89,7 @@
             </div>
           </div>
         </form-item>
-        </ul>
+        <div slot="append">The usage of Form is just the same as List.</div>
       </form-list>
       <div class="content-block content-padded">
         <div class="row">
