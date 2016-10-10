@@ -3,7 +3,16 @@
     <simple-header title="Columns" :back-link="true"></simple-header>
     <content>
       <circle-progress :percent="c1"></circle-progress>
-      <circle-progress :percent="c2" foreground-color="#f60"></circle-progress>
+      <circle-progress :percent="c2" foreground-color="#f60" text-format="{percent}%"></circle-progress>
+      <div class="row">
+        <div class="col-50">
+          <circle-progress :percent="c3" :diameter="100" :text-size="20"></circle-progress>
+        </div>
+        <div class="col-50">
+          <circle-progress :percent="c4" :diameter="100" :text-size="20" text-color="#f60" foreground-color="#f60" text-format="{percent}%"></circle-progress>
+        </div>
+      </div>
+
     </content>
   </div>
 </template>
@@ -22,19 +31,26 @@ export default {
   data () {
     return {
       c1: 30,
-      c2: 70
+      c2: 70,
+      c3: 15,
+      c4: 55
     }
   },
   ready () {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.c1 = this.rand()
       this.c2 = this.rand()
+      this.c3 = this.rand()
+      this.c4 = this.rand()
     }, 3000)
   },
   methods: {
     rand () {
       return parseInt(Math.random() * 100)
     }
+  },
+  beforeDestroy () {
+    clearInterval(this.interval)
   }
 }
 </script>

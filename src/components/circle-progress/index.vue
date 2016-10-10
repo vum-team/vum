@@ -29,8 +29,9 @@
     </svg>
     <div class="text"
          v-bind:style="{
-           color: textColor
-         }">{{percent}}</div>
+           color: textColor,
+           'font-size': textSize+'px'
+         }">{{textFormat.replace('{percent}', percent)}}</div>
   </div>
 </template>
 
@@ -58,9 +59,17 @@ export default {
       type: String,
       default: 'rgba(0, 0, 0, .3)'
     },
+    textFormat: {
+      type: String,
+      default: '{percent}'
+    },
     textColor: {
       type: String,
       default: '#999'
+    },
+    textSize: {
+      type: Number,
+      default: 24
     }
   },
   computed: {
@@ -90,7 +99,6 @@ svg circle {
   left: 0;
   margin-top: -16px;
   text-align: center;
-  font-size: 24px;
   width: 100%;
 }
 </style>
