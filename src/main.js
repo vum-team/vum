@@ -29,6 +29,7 @@ import Slide from './demos/Slide'
 import SidePanel from './demos/SidePanel'
 import Menu from './demos/Menu'
 import Stars from './demos/Stars'
+import CircleProgress from './demos/CircleProgress'
 
 Vue.config.debug = true
 
@@ -119,6 +120,10 @@ router.map({
   '/stars': {
     name: 'stars',
     component: Stars
+  },
+  '/circle': {
+    name: 'circle',
+    component: CircleProgress
   }
 })
 

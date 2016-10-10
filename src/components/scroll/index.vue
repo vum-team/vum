@@ -6,9 +6,9 @@
          refreshing: (state === 2),
          touching: touching
        }"
-      @touchstart="onRefresh ? touchStart($event) : undefined"
-      @touchmove="onRefresh ? touchMove($event) : undefined"
-      @touchend="onRefresh ? touchEnd($event) : undefined"
+      @touchstart="touchStart($event)"
+      @touchmove="touchMove($event)"
+      @touchend="touchEnd($event)"
       @scroll="(onInfinite || infiniteLoading) ? onScroll($event) : undefined"
        >
     <div class="scroll-inner"

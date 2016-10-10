@@ -196,6 +196,14 @@
           Menu
         </p>
       </a>
+      <a v-link="{ path: 'circle' }" class="grid">
+        <div class="grid_icon">
+          <img src="../assets/images/home/menu.png" alt="">
+        </div>
+        <p class="grid_label">
+          Circle
+        </p>
+      </a>
     </div>
   </content>
 </template>

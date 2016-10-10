@@ -62,35 +62,37 @@
       </menu>
     </page-footer>
     <content>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.<a id="link0">Menu</a></p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.<a id="link1">Menu</a></p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
-      <menu trigger="#link0">
-        <menu-item>Menu Item</menu-item>
-        <menu-item>Menu Item</menu-item>
-        <menu-item>Menu Item</menu-item>
-        <menu-item>Menu Item</menu-item>
-      </menu>
-      <menu trigger="#link1">
-        <menu-item>Menu Item</menu-item>
-        <menu-item>Menu Item</menu-item>
-        <menu-item>Menu Item</menu-item>
-        <menu-item>Menu Item</menu-item>
-      </menu>
+      <div class="content-padded">
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.<a id="link0">Menu</a></p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.<a id="link1">Menu</a></p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
+        <menu trigger="#link0">
+          <menu-item>Menu Item</menu-item>
+          <menu-item>Menu Item</menu-item>
+          <menu-item>Menu Item</menu-item>
+          <menu-item>Menu Item</menu-item>
+        </menu>
+        <menu trigger="#link1">
+          <menu-item>Menu Item</menu-item>
+          <menu-item>Menu Item</menu-item>
+          <menu-item>Menu Item</menu-item>
+          <menu-item>Menu Item</menu-item>
+        </menu>
+      </div>
     </content>
   </div>
 </template>
