@@ -24,7 +24,7 @@
         </slot>
       </div>
       <slot></slot>
-      <div class="infinite-layer" v-if="onInfinite">
+      <div class="infinite-layer" v-if="enableInfinite">
         <slot name="infinite">
           <div class="infinite-preloader"></div>
           <div>Loading...</div>
@@ -40,6 +40,14 @@ export default {
     offset: {
       type: Number,
       default: 44
+    },
+    enableInfinite: {
+      type: Boolean,
+      default: true
+    },
+    enableRefresh: {
+      type: Boolean,
+      default: true
     },
     onRefresh: {
       type: Function,
@@ -69,7 +77,7 @@ export default {
       this.touching = true
     },
     touchMove (e) {
-      if (this.$el.scrollTop > 0 || !this.touching) {
+      if (!this.enableRefresh || this.$el.scrollTop > 0 || !this.touching) {
         return
       }
       let diff = e.targetTouches[0].pageY - this.startY - this.startScroll
@@ -86,6 +94,7 @@ export default {
       }
     },
     touchEnd (e) {
+      if (!this.enableRefresh) return
       this.touching = false
       if (this.state === 2) { // in refreshing
         this.state = 2
@@ -119,7 +128,7 @@ export default {
     },
 
     onScroll (e) {
-      if (this.infiniteLoading) {
+      if (!this.enableInfinite || this.infiniteLoading) {
         return
       }
       let outerHeight = this.$el.clientHeight
