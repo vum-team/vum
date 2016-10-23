@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <simple-header title="Columns" :back-link="true"></simple-header>
+    <simple-header title="Circle" :back-link="true"></simple-header>
     <content>
       <circle-progress :percent="c1"></circle-progress>
       <circle-progress :percent="c2" foreground-color="#f60" text-format="{percent}%"></circle-progress>
