@@ -198,7 +198,7 @@
       </a>
       <a v-link="{ path: 'circle' }" class="grid">
         <div class="grid_icon">
-          <img src="../assets/images/home/menu.png" alt="">
+          <img src="../assets/images/home/circle.png" alt="">
         </div>
         <p class="grid_label">
           Circle
