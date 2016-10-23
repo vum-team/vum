@@ -24,14 +24,17 @@
         :stroke="foregroundColor"
         :stroke-width="lineWidth"
         :stroke-dasharray="dasharray"
-        :stroke-dashoffset="(100-percent)/100*(diameter-lineWidth*2)*3.141592658 + 'px'"
+        :stroke-dashoffset="(100-circlePercent)/100*(diameter-lineWidth*2)*3.141592658 + 'px'"
+        v-bind:style="{
+          'transition-duration': (duration/1000)+'s'
+        }"
         ></circle>
     </svg>
     <div class="text"
          v-bind:style="{
            color: textColor,
            'font-size': textSize+'px'
-         }">{{textFormat.replace('{percent}', percent)}}</div>
+         }">{{textFormat.replace('{percent}', textPercent)}}</div>
   </div>
 </template>
 
@@ -71,6 +74,16 @@ export default {
     textSize: {
       type: Number,
       default: 24
+    },
+    duration: {
+      type: Number,
+      default: 600 // duration of animation
+    }
+  },
+  data () {
+    return {
+      textPercent: 0, // the really percent used in text
+      circlePercent: 0 // the really percent used in circle
     }
   },
   computed: {
@@ -80,13 +93,50 @@ export default {
     radius () {
       return this.diameter / 2
     }
+  },
+  watch: {
+    percent (v, ov) {
+      this.percent = v
+      this.$nextTick(this.sync)
+    }
+  },
+  methods: {
+    sync () { // sync p with percent in 'duration' time
+      let t = this.textPercent
+      let i = 0
+      clearInterval(this.interval)
+      // increase text percent with interval
+      this.interval = setInterval(() => {
+        if (i >= this.duration) {
+          clearInterval(this.interval)
+          this.textPercent = this.percent
+          return
+        }
+        t += (this.percent - this.textPercent) / 10 // increase t
+        this.textPercent = parseInt(t)
+        i += 20
+      }, 20)
+      // increase circle
+      this.circlePercent = this.percent
+    }
+  },
+  ready () {
+    clearTimeout(this.timeout)
+    this.timeout = setTimeout(() => {
+      this.sync()
+    }, 200) // delay for initial value
+  },
+  destroy () {
+    // do clear
+    clearTimeout(this.timeout)
+    clearInterval(this.interval)
   }
 }
 </script>
 
 <style lang="less" scoped>
-svg circle {
-  transition: stroke-dashoffset .6s;
+svg .circle {
+  transition-property: stroke-dashoffset;
 }
 .circle {
   position: relative;
