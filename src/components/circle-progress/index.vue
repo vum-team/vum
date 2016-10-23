@@ -4,27 +4,27 @@
          width: diameter + 'px',
          height: diameter + 'px'
        }">
-    <svg width="{{diameter}}" height="{{diameter}}" viewPort="0 0 {{diameter}} {{diameter}}" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <svg :width="diameter" :height="diameter" :viewPort="'0 0 ' + diameter + ' ' + diameter" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <circle
-        r="{{radius-lineWidth}}"
-        cx="{{radius}}"
-        cy="{{radius}}"
+        :r="radius-lineWidth"
+        :cx="radius"
+        :cy="radius"
         fill="transparent"
-        stroke="{{backgroundColor}}"
-        stroke-width="{{lineWidth}}"
-        stroke-dasharray="dasharray"
+        :stroke="backgroundColor"
+        :stroke-width="lineWidth"
+        :stroke-dasharray="dasharray"
         stroke-dashoffset="0"
         ></circle>
       <circle
         class="bar"
-        r="{{radius-lineWidth}}"
-        cx="{{radius}}"
-        cy="{{radius}}"
+        :r="radius-lineWidth"
+        :cx="radius"
+        :cy="radius"
         fill="transparent"
-        stroke="{{foregroundColor}}"
-        stroke-width="{{lineWidth}}"
-        stroke-dasharray="{{dasharray}}"
-        stroke-dashoffset="{{(100-percent)/100*(diameter-lineWidth*2)*3.141592658 + 'px'}}"
+        :stroke="foregroundColor"
+        :stroke-width="lineWidth"
+        :stroke-dasharray="dasharray"
+        :stroke-dashoffset="(100-percent)/100*(diameter-lineWidth*2)*3.141592658 + 'px'"
         ></circle>
     </svg>
     <div class="text"
@@ -41,6 +41,7 @@ export default {
   props: {
     percent: { // percent of hight, 0 ~ 100
       type: Number,
+      default: 0,
       required: true
     },
     diameter: { // the diameter of circle, include line width
@@ -61,7 +62,7 @@ export default {
     },
     textFormat: {
       type: String,
-      default: '{percent}'
+      default: '{percent}' // format the text in circle
     },
     textColor: {
       type: String,
