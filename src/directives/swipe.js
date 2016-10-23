@@ -23,6 +23,9 @@ export default {
     this.el.removeEventListener('touchstart', this._start)
     this.el.removeEventListener('touchmove', this._move)
     this.el.removeEventListener('touchend', this._end)
+    this.el.removeEventListener('mousedown', this._start)
+    this.el.removeEventListener('mousemove', this._move)
+    this.el.removeEventListener('mouseup', this._end)
   },
   _point (e) {
     if (e.touches) {
