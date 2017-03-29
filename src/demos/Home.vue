@@ -8,14 +8,14 @@
       <h1 class="demos-title">CSS</h1>
     </header>
     <div class="grids grids-small">
-      <a v-link="{ path: 'page' }" class="grid">
+      <router-link :to="{ path: 'page' }" class="grid">
         <div class="grid_icon">
           <img src="../assets/images/home/page.png" alt="">
         </div>
         <p class="grid_label">
           Page
         </p>
-      </a>
+      </router-link>
       <a v-link="{ path: 'buttons' }" class="grid">
         <div class="grid_icon">
           <img src="../assets/images/home/button.png" alt="">

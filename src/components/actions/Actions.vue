@@ -1,5 +1,5 @@
 <template>
-  <popup :show.sync="show" :show-title-bar="false" class-name="actions-modal">
+  <popup :show="_show" :show-title-bar="false" class-name="actions-modal">
     <slot></slot>
     <action-group v-if="showCancelButton">
       <action-button class="color-gray" @click="cancel()">Cancel</action-button>
@@ -24,14 +24,22 @@ export default {
       default: true
     }
   },
+  data () {
+    return {
+      _show: false
+    }
+  },
   components: {
     Popup,
     ActionGroup,
     ActionButton
   },
+  mounted () {
+    this._show = this.show
+  },
   methods: {
     cancel () {
-      this.show = false
+      this._show = false
     }
   }
 }
