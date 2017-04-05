@@ -4,7 +4,7 @@
       <header-link>About</header-link>
       <header-title>VUM</header-title>
     </page-header>
-    <content>
+    <page-content>
       <header class='demos-header'>
         <h1 class="demos-title">CSS</h1>
       </header>
@@ -206,7 +206,7 @@
           </p>
         </router-link>
       </div>
-    </content>
+    </page-content>
   </div>
 </template>
 <script>
@@ -219,7 +219,7 @@ export default {
     'page-header': Header,
     HeaderLink,
     HeaderTitle,
-    Content,
+    'page-content': Content,
     Grid
   }
 }

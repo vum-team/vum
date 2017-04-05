@@ -4,7 +4,7 @@
     <second-header>
       <searchbar :input.sync="input"></searchbar>
     </second-header>
-    <content>
+    <page-content>
       <list style="margin-top: 0;">
         <template v-for="p in filtedList">
           <li class="list-group-title" v-if="p.title">{{p.name}}</li>
@@ -16,7 +16,7 @@
           </list-item>
         </template>
       </list>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
     SimpleHeader,
     SecondHeader,
     Searchbar,
-    Content,
+    'page-content': Content,
     List,
     ListItem
   },

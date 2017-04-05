@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Result" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <result type="success">
         <div slot="title">Commit Success</div>
         <div slot="text">
@@ -15,7 +15,7 @@
           <a>About This Page</a>
         </div>
       </result>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ import Result from '../components/result'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     Result,
     'm-button': Button
   }

@@ -1,13 +1,13 @@
 <template>
   <div class="page">
     <simple-header title="Toast" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class='demos-content-padded'>
         <p><m-button v-on:click="showToast(1)">Show Toast Success</m-button></p>
         <p><m-button v-on:click="showToast(2)">Show Toast Error</m-button></p>
       </div>
 
-    </content>
+    </page-content>
     <toast :show.sync="showSuccess" text="Done!"></toast>
     <toast :show.sync="showError" text="Failed!" type="error"></toast>
   </div>
@@ -22,7 +22,7 @@ import Toast from '../components/toast'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     Toast,
     'm-button': Button
   },

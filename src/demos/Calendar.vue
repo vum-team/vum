@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Calendar" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <calendar :date.sync="date" min="1990-12-12" max="2020-12-01"></calendar>
       <p>Inline Calendar：{{date}}</p>
       <form-list>
@@ -17,7 +17,7 @@
           </div>
         </form-item>
       </form-list>
-    </content>
+    </page-content>
     <popup :show.sync="showCalendar2" :show-title-bar="false">
       <calendar :date.sync="date2"></calendar>
     </popup>
@@ -33,7 +33,7 @@ import { Form, FormItem } from '../components/form'
 
 export default {
   components: {
-    Content,
+    'page-content': Content,
     SimpleHeader,
     Calendar,
     'form-list': Form,

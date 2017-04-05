@@ -1,14 +1,14 @@
 <template>
   <div class="page">
     <simple-header title="Modal" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class='demos-content-padded'>
         <p><m-button v-on:click="showAlert()">Show Alert</m-button></p>
         <p><m-button v-on:click="showConfirm()">Show Custom Confirm</m-button></p>
         <p><m-button v-on:click="showPrompt()">Show Prompt</m-button></p>
         <p><m-button v-on:click="showModal()">Show Custom Modal</m-button></p>
       </div>
-    </content>
+    </page-content>
 
     <alert :show.sync="alert" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></alert>
     <confirm :show.sync="confirm" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></confirm>
@@ -34,7 +34,7 @@ import { Alert, Confirm, Prompt, Modal } from '../components/modal'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     Alert,
     Confirm,
     Modal,

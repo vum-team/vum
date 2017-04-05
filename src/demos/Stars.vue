@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Stars" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <list>
         <div slot="title">Read Only Stars</div>
         <list-item>
@@ -38,7 +38,7 @@
           </div>
         </list-item>
       </list>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -51,7 +51,7 @@ import Stars from '../components/stars'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     List,
     ListItem,
     Stars

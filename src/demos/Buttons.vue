@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Buttons" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class='content-padded'>
         <h1 class="demos-title">Default Buttons</h1>
         <div class="content-block">
@@ -103,7 +103,7 @@
           </div>
         </div>
       </div>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -115,7 +115,7 @@ import Content from '../components/content'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     ButtonGroup,
     'm-button': Button
   }

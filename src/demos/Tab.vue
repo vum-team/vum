@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Tab" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <tab :active="0">
         <tab-item title="All">
           <div class="content-padded">
@@ -36,7 +36,7 @@
           <h1 class="demos-title">Girls</h1>
         </tab-item>
       </tab>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -48,7 +48,7 @@ import { Tab, TabItem } from '../components/tab'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     Tab,
     TabItem
   },

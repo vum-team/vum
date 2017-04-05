@@ -1,11 +1,11 @@
 <template>
   <div class="page">
     <simple-header title="PopWindow" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class='demos-content-padded'>
         <p><m-button v-on:click="show = true">Show PopWindow</m-button></p>
       </div>
-    </content>
+    </page-content>
     <pop-window :show.sync="show">
       <h2 class="demos-sub-title">PopWindow Content</h2>
       <div class="content-padded">
@@ -33,7 +33,7 @@ import PopWindow from '../components/popwindow'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     PopWindow,
     'm-button': Button
   },

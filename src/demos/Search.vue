@@ -1,8 +1,8 @@
 <template>
   <div class="page">
     <simple-header title="Search"></simple-header>
-    <content>
-    </content>
+    <page-content>
+    </page-content>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import Content from '../components/content'
 export default {
   components: {
     SimpleHeader,
-    Content
+    'page-content': Content
   }
 }
 </script>

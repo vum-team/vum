@@ -61,7 +61,7 @@
         <menu-item>Menu Item</menu-item>
       </menu>
     </page-footer>
-    <content>
+    <page-content>
       <div class="content-padded">
         <p>Write some HTML, grab some JSON, create a Vue instance, that's it.<a id="link0">Menu</a></p>
         <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
@@ -93,7 +93,7 @@
           <menu-item>Menu Item</menu-item>
         </menu>
       </div>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -112,7 +112,7 @@ export default {
     'page-footer': Footer,
     'footer-item': Item,
     Icon,
-    Content,
+    'page-content': Content,
     Menu,
     MenuItem
   }

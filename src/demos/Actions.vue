@@ -1,11 +1,11 @@
 <template>
   <div class="page">
     <simple-header title="Actions" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class='demos-content-padded'>
         <p><m-button v-on:click="showActions()">Show Actions</m-button></p>
       </div>
-    </content>
+    </page-content>
     <actions :show.sync="show">
       <action-group>
         <action-button @click="publish()">Publish</action-button>
@@ -24,7 +24,7 @@ import { Actions, ActionButton, ActionGroup } from '../components/actions'
 
 export default {
   components: {
-    Content,
+    'page-content': Content,
     SimpleHeader,
     'm-button': Button,
     Actions,

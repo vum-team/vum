@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Form" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <form-list>
         <div slot="title">Form List</div>
         <form-item>
@@ -97,7 +97,7 @@
           <div class="col-50"><m-button size="large">Submit</m-button></div>
         </div>
       </div>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -111,7 +111,7 @@ import Switch from '../components/switch'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     'm-button': Button,
     Switch,
     'form-list': Form,

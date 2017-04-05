@@ -1,13 +1,13 @@
 <template>
   <div class="page">
     <simple-header title="Popup" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class='demos-content-padded'>
         <p><m-button v-on:click="show = true">Show Popup</m-button></p>
         <p><m-button v-on:click="showFull = true">Show Full Screen Popup</m-button></p>
         <p><m-button v-on:click="showCustom = true">Show Custom Popup</m-button></p>
       </div>
-    </content>
+    </page-content>
     <popup :show.sync="show">
       <h2 class="demos-sub-title">Popup Content</h2>
       <div class="content-padded">
@@ -73,7 +73,7 @@ import Popup from '../components/popup'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     Popup,
     'm-button': Button
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Icons" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class='demos-content-padded'>
         <div class="icons">
           <icon icon="success"></icon>
@@ -17,7 +17,7 @@
           <icon icon="star-fill"></icon>
         </div>
       </div>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ import Icon from '../components/icons'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     Icon
   }
 }
