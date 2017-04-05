@@ -25,27 +25,27 @@
     <div :class="'months ' + (transition ? 'transition' : '')" v-swipe:start="_start" v-swipe:move="_move" v-swipe:end="_end">
       <div class="months-inner" v-bind:style="{ transform: 'translate3d(' + diff + 'px, 0, 0)' }" v-transitionend="_transitionend">
         <div class="month prev-year-month" v-if="changeyear">
-          <div v-bind:class="_dateClass(d)" v-for="d in prevYearDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in prevYearDates" track-by="index">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month prev-month" v-show="!changeyear">
-          <div v-bind:class="_dateClass(d)" v-for="d in prevMonthDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in prevMonthDates" track-by="index">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month current-month">
-          <div v-bind:class="_dateClass(d)" v-for="d in currentMonthDates" track-by="$index" @click="select(d)">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in currentMonthDates" track-by="index" @click="select(d)">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month next-month" v-show="!changeyear">
-          <div v-bind:class="_dateClass(d)" v-for="d in nextMonthDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in nextMonthDates" track-by="index">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month next-year-month" v-if="changeyear">
-          <div v-bind:class="_dateClass(d)" v-for="d in nextYearDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in nextYearDates" track-by="index">
             <span>{{d.d}}</span>
           </div>
         </div>
