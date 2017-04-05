@@ -2,7 +2,7 @@
 
 > An UI Framework build with Vue.js
 
-*Upgrade to Vue2.0 is in progress, please checkout to `upgrade-vue2` branch to see more.*
+**Upgrade to Vue2.0 is in progress, please checkout to `upgrade-vue2` branch to see more.**
 
 vue-mobile is in development now, `V0.1.0` has been released at `2016-09-11`
 
