@@ -15,10 +15,11 @@ class RouterConfig {
   config () {
     const router = this.router
     this.router.beforeEach(function (to, from, next) {
+      console.log(to, from, next)
       try {
         const _to = to.path
         const _from = from.path
-        const scrollTop = from.router.app.$el.querySelector('.page-content').scrollTop
+        const scrollTop = router.app.$el.querySelector('.page-content').scrollTop
         const h = db.get(_to)
         if (h && h.history || (_from && _from.indexOf(_to) === 0)) {
           router.app.$el.className = 'transition-reverse'
@@ -42,7 +43,7 @@ class RouterConfig {
       if (h && h.scrollTop) {
         Vue.nextTick(() => {
           console.log('should scroll to' + h.scrollTop)
-          const _to = to.router.app.$el.querySelectorAll('.page-content')[1]
+          const _to = router.app.$el.querySelectorAll('.page-content')[1]
           if (_to) _to.scrollTop = h.scrollTop  // TODO:
         })
       }
