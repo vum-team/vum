@@ -1,7 +1,9 @@
 <template>
-  <overlay :show.sync="show" :transparent="true"></overlay>
-  <div class="preloader-modal" v-if="show" transition="preloader-modal">
-    <span class="preloader preloader-white"></span>
+  <div>
+    <overlay :show.sync="show" :transparent="true"></overlay>
+    <div class="preloader-modal" v-if="show" transition="preloader-modal">
+      <span class="preloader preloader-white"></span>
+    </div>
   </div>
 </template>
 

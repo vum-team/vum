@@ -1,16 +1,18 @@
 <template>
-  <overlay :show.sync="show" :click="overlayClick"></overlay>
-  <div class="modal" v-if="show" transition="modal">
-    <div class="modal-inner">
-      <div class="modal-title">
-        <slot name="title">Confirm</slot>
+  <div>
+    <overlay :show.sync="show" :click="overlayClick"></overlay>
+    <div class="modal" v-if="show" transition="modal">
+      <div class="modal-inner">
+        <div class="modal-title">
+          <slot name="title">Confirm</slot>
+        </div>
+        <div class="modal-text">
+          <slot name="content"></slot>
+        </div>
       </div>
-      <div class="modal-text">
-        <slot name="content"></slot>
-      </div>
+      <slot name="buttons">
+      </slot>
     </div>
-    <slot name="buttons">
-    </slot>
   </div>
 </template>
 

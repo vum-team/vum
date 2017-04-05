@@ -1,5 +1,5 @@
 <template>
-  <a class="button button-link {{ left ? 'left' : 'right' }} {{ edge ? 'edge' : ''}}">
+  <a :class="'button button-link ' + (left ? 'left' : 'right') + ' ' + (edge ? 'edge' : '')">
     <slot></slot>
   </a>
 </template>

@@ -1,13 +1,13 @@
 <template>
-  <a href="javascript:;" class="
-    button
-    button-{{type}}
-    button-{{size}}
-    {{large ? 'button-large' : ''}}
-    {{round ? 'button-round' : ''}}
-    {{bordered ? 'button-bordered' : ''}}
-    {{active ? 'active' : ''}}
-    {{disabled ? 'disabled' : ''}}">
+  <a href="javascript:;" :class="
+    'button ' +
+    ' button-' + type + 
+    ' button-' + size +
+    (large ? ' button-large' : '') +
+    (round ? ' button-round' : '') +
+    (bordered ? ' button-bordered' : '') +
+    (active ? ' active' : '') +
+    (disabled ? ' disabled' : '')">
     <slot></slot>
   </a>
 </template>

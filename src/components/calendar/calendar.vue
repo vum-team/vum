@@ -2,14 +2,14 @@
   <div class="calendar">
     <div class="toolbar">
       <div class="year-picker">
-        <div class="icon icon-prev {{ reachMinYear ? 'disabled' : '' }}" @click="prevYear()"></div>
+        <div :class="'icon icon-prev ' + (reachMinYear ? 'disabled' : '')" @click="prevYear()"></div>
         <div class="year-value">{{currentYear}}</div>
-        <div class="icon icon-next {{ reachMaxYear ? 'disabled' : '' }}" @click="nextYear()"></div>
+        <div :class="'icon icon-next ' + (reachMaxYear ? 'disabled' : '')" @click="nextYear()"></div>
       </div>
       <div class="month-picker">
-        <div class="icon icon-prev {{ reachMin ? 'disabled' : '' }}" @click="prevMonth()"></div>
+        <div :class="'icon icon-prev ' + (reachMin ? 'disabled' : '')" @click="prevMonth()"></div>
         <div class="month-value">{{currentMonth+1}}</div>
-        <div class="icon icon-next {{ reachMax ? 'disabled' : '' }}" @click="nextMonth()"></div>
+        <div :class="'icon icon-next ' + (reachMax ? 'disabled' : '')" @click="nextMonth()"></div>
       </div>
     </div>
     <div class="weekdays">
@@ -22,7 +22,7 @@
       <div class="weekday">周日</div>
     </div>
 
-    <div class="months {{ transition ? 'transition' : ''}}" v-swipe:start="_start" v-swipe:move="_move" v-swipe:end="_end">
+    <div :class="'months ' + (transition ? 'transition' : '')" v-swipe:start="_start" v-swipe:move="_move" v-swipe:end="_end">
       <div class="months-inner" v-bind:style="{ transform: 'translate3d(' + diff + 'px, 0, 0)' }" v-transitionend="_transitionend">
         <div class="month prev-year-month" v-if="changeyear">
           <div v-bind:class="_dateClass(d)" v-for="d in prevYearDates" track-by="$index">

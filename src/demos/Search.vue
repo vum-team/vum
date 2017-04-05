@@ -1,7 +1,9 @@
 <template>
-  <simple-header title="Search"></simple-header>
-  <content>
-  </content>
+  <div class="page">
+    <simple-header title="Search"></simple-header>
+    <content>
+    </content>
+  </div>
 </template>
 
 <script>

@@ -1,10 +1,12 @@
 <template>
-  <overlay :show.sync="show" :click="close"></overlay>
-  <div transition="popwindow-modal"
-       v-if="show"
-       class="popwindow-modal {{className}} {{full ? 'full' : ''}}">
-    <div class="modal-content">
-      <slot></slot>
+  <div>
+    <overlay :show.sync="show" :click="close"></overlay>
+    <div transition="popwindow-modal"
+         v-if="show"
+         :class="'popwindow-modal ' + className + (full ? ' full' : '')">
+      <div class="modal-content">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>

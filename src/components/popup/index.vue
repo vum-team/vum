@@ -1,14 +1,16 @@
 <template>
-  <overlay :show.sync="show" :click="close"></overlay>
-  <div transition="popup-modal"
-       v-if="show"
-       class="popup-modal {{className}} {{full ? 'full' : ''}}">
-    <page-header v-if="showTitleBar">
-      <header-title>{{title}}</header-title>
-      <header-link @click="close()">{{closeButtonText}}</header-link>
-    </page-header>
-    <div class="modal-content">
-      <slot></slot>
+  <div>
+    <overlay :show.sync="show" :click="close"></overlay>
+    <div transition="popup-modal"
+         v-if="show"
+         :class="'popup-modal ' + className + (full ? ' full' : '')">
+      <page-header v-if="showTitleBar">
+        <header-title>{{title}}</header-title>
+        <header-link @click="close()">{{closeButtonText}}</header-link>
+      </page-header>
+      <div class="modal-content">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>

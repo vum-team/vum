@@ -1,5 +1,5 @@
 <template>
-  <div class="slide-wrap {{ touching ? 'touching' : '' }}" v-show="showWrap" v-swipe:start="slideStart" v-swipe:move="slideMove" v-swipe:end="slideEnd">
+  <div :class="'slide-wrap ' + (touching ? 'touching' : '')" v-show="showWrap" v-swipe:start="slideStart" v-swipe:move="slideMove" v-swipe:end="slideEnd">
     <overlay :show.sync="show" :click="close" :opacity="opacity"></overlay>
     <div class="side" v-show="show" transition="side">
       <div class="panel" v-bind:style="{ transform: 'translate3d('+x+'px, 0, 0)' }">

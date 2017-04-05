@@ -1,16 +1,16 @@
 <template>
-  <div class="slide-wrap {{ transition && !touching ? 'transition' : '' }}" v-swipe:start="_swipeStart" v-swipe:move="_swipeMove" v-swipe:end="_swipeEnd">
+  <div :class="'slide-wrap ' + (transition && !touching ? ' transition' : '')" v-swipe:start="_swipeStart" v-swipe:move="_swipeMove" v-swipe:end="_swipeEnd">
     <div class="slide-inner" v-bind:style="{ transform: 'translate3d('+(-this.activeIndex*100+diff/width*100)+'%, 0, 0)' }" v-transitionend="end">
       <slide class="shadow-slide-first" :show.sync="true">
-        {{{ shadowSlideFirst }}}
+        <div v-html="shadowSlideFirst"></div>
       </slide>
       <slot></slot>
       <slide class="shadow-slide-last" :show.sync="true">
-        {{{ shadowSlideLast }}}
+        <div v-html="shadowSlideLast"></div>
       </slide>
     </div>
     <div class="bullets">
-      <div class="bullet {{ activeIndex === i || (activeIndex === amount - 1 && i === 1) || (activeIndex === 0 && i === amount - 2) ? 'active' : ''}}" v-for="i in bullets"></div>
+      <div :class="'bullet ' + (activeIndex === i || (activeIndex === amount - 1 && i === 1) || (activeIndex === 0 && i === amount - 2) ? 'active' : '')" v-for="i in bullets"></div>
     </div>
   </div>
 </template>
