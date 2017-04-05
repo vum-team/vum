@@ -3,17 +3,17 @@
     <simple-header title="Modal" :back-link="true"></simple-header>
     <page-content>
       <div class='demos-content-padded'>
-        <p><m-button v-on:click="showAlert()">Show Alert</m-button></p>
-        <p><m-button v-on:click="showConfirm()">Show Custom Confirm</m-button></p>
-        <p><m-button v-on:click="showPrompt()">Show Prompt</m-button></p>
-        <p><m-button v-on:click="showModal()">Show Custom Modal</m-button></p>
+        <p><m-button @click.native="showAlert()">Show Alert</m-button></p>
+        <p><m-button @click.native="showConfirm()">Show Custom Confirm</m-button></p>
+        <p><m-button @click.native="showPrompt()">Show Prompt</m-button></p>
+        <p><m-button @click.native="showModal()">Show Custom Modal</m-button></p>
       </div>
     </page-content>
 
-    <alert :show.sync="alert" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></alert>
-    <confirm :show.sync="confirm" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></confirm>
-    <prompt :show.sync="prompt" :title="'Name'" :content="'Enter your name please!'" :input.sync="input" :on-ok="onPrompt"></prompt>
-    <modal :show.sync="modal">
+    <alert :show="alert" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></alert>
+    <confirm :show="confirm" :title="'Hello'" :content="'Hello there!'" :on-ok="onOk"></confirm>
+    <prompt :show="prompt" :title="'Name'" :content="'Enter your name please!'" :input="input" :on-ok="onPrompt"></prompt>
+    <modal :show="modal" @show="log('show')" @hide="log('hide')">
       <div slot="title">Payment</div>
       <div slot="content">Choose your payment!</div>
       <div slot="buttons" class="modal-buttons">
@@ -62,6 +62,7 @@ export default {
       this.prompt = true
     },
     showModal () {
+      console.log(1)
       this.modal = true
     },
     onOk () {
@@ -73,6 +74,9 @@ export default {
     onClick (index) {
       console.log('click' + index)
       this.modal = false
+    },
+    log (m) {
+      console.log(m)
     }
   }
 }

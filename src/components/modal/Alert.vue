@@ -1,5 +1,5 @@
 <template>
-  <modal :show.sync='show'>
+  <modal :show='show'>
     <div slot="title">{{title}}</div>
     <div slot="content">{{content}}</div>
     <div slot="buttons" class="modal-buttons">

@@ -8,7 +8,7 @@
   height: 100%;
   z-index: 10;
   transition: opacity .3s;
-  display: none;
+  opacity: 1;
 
   .inner {
     position: absolute;
@@ -25,13 +25,8 @@
     background-color: transparent;
   }
 
-  &.overlay-transition {
-    display: block;
-    opacity: 1;
-  }
-
   &.overlay-enter,
-  &.overlay-leave {
+  &.overlay-leave-active {
     opacity: 0;
   }
 }
