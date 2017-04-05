@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-container">
+  <div>
     <overlay :show="mutableShow" :click="overlayClick"></overlay>
     <transition name="modal">
       <div class="modal" v-if="mutableShow">
