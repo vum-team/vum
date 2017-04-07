@@ -1,13 +1,14 @@
 <template>
   <div>
-    <overlay :show.sync="show" :click="close"></overlay>
-    <div transition="popwindow-modal"
-         v-if="show"
-         :class="'popwindow-modal ' + className + (full ? ' full' : '')">
-      <div class="modal-content">
-        <slot></slot>
+    <overlay :show="mutableShow" :click="close"></overlay>
+    <transition name="popwindow-modal">
+      <div v-if="mutableShow"
+           class="popwindow-modal">
+        <div class="modal-content">
+          <slot></slot>
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -20,18 +21,26 @@ export default {
   props: {
     show: {
       type: Boolean,
-      required: true,
-      default: false,
-      twoWay: true
+      default: false
     },
     className: {
       type: String,
       default: ''
     }
   },
+  data () {
+    return {
+      mutableShow: this.show
+    }
+  },
   methods: {
+    open () {
+      this.mutableShow = true
+      this.$emit('open', this)
+    },
     close () {
-      this.show = false
+      this.mutableShow = false
+      this.$emit('close', this)
     }
   }
 }

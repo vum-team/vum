@@ -18,16 +18,12 @@
   overflow-x: hidden;
   overflow-y: auto;
 
-  display: none;
-
-  &.popwindow-modal-transition {
-    opacity: 1;
-    display: block;
-    transform: translate3d(0, -50%, 0) scale(1);
-  }
+  opacity: 1;
+  display: block;
+  transform: translate3d(0, -50%, 0) scale(1);
 
   &.popwindow-modal-enter,
-  &.popwindow-modal-leave {
+  &.popwindow-modal-leave-active {
     transform: scale(.6);
     transform: translate3d(0, -50%, 0) scale(.6);
     opacity: 0;
