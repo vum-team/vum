@@ -3,11 +3,11 @@
     <simple-header title="Preloader" :back-link="true"></simple-header>
     <page-content>
       <div class='demos-content-padded'>
-        <p><m-button v-on:click="showPreloader()">Show Preloader</m-button></p>
+        <p><m-button @click.native="showPreloader()">Show Preloader</m-button></p>
       </div>
 
     </page-content>
-    <preloader :show.sync="show"></preloader>
+    <preloader ref="preloader"></preloader>
   </div>
 </template>
 
@@ -31,11 +31,10 @@ export default {
   },
   methods: {
     showPreloader () {
-      this.show = true
-      let self = this
+      this.$refs.preloader.open()
       clearTimeout(this.timeout)
-      this.timeout = setTimeout(function () {
-        self.show = false
+      this.timeout = setTimeout(() => {
+        this.$refs.preloader.close()
       }, 3000)
     }
   }
