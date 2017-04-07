@@ -26,7 +26,7 @@ export default {
     Overlay
   },
   props: {
-    show: {
+    show: { // init status
       type: Boolean,
       default: false
     },
@@ -41,16 +41,16 @@ export default {
     }
   },
   methods: {
+    open () {
+      this.mutableShow = true
+      this.$emit('open', this)
+    },
+    close () {
+      this.mutableShow = false
+      this.$emit('close', this)
+    },
     overlayClick () {
       this.mutableShow = false
-    }
-  },
-  watch: {
-    show (v, ov) {
-      this.mutableShow = v
-    },
-    mutableShow (v, ov) {
-      this.$emit(v ? 'show' : 'hide')
     }
   }
 }

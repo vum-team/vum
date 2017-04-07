@@ -1,15 +1,15 @@
 <template>
-  <modal :show.sync='show'>
+  <modal :show='show' ref="modal">
     <div slot="title">{{title}}</div>
     <div slot="content">
       {{content}}
       <p>
-        <input class="modal-input" type="text" v-model="input" />
+        <input class="modal-input" type="text" v-model="mutableInput" />
       </p>
     </div>
     <div slot="buttons" class="modal-buttons">
       <span class="modal-button modal-button-cancel" v-on:click="_onCancel()">{{cancelText}}</span>
-      <span class="modal-button" :class="{ 'modal-button-disabled' : !input }" v-on:click="_onOk()">{{okText}}</span>
+      <span class="modal-button" :class="{ 'modal-button-disabled' : !mutableInput}" v-on:click="_onOk()">{{okText}}</span>
     </div>
   </modal>
 </template>
@@ -61,19 +61,32 @@ export default {
   components: {
     Modal
   },
+  data () {
+    return {
+      mutableInput: this.input
+    }
+  },
   methods: {
+    open () {
+      this.$refs.modal.open()
+      this.$emit('open', this)
+    },
+    close () {
+      this.$refs.modal.close()
+      this.$emit('close', this)
+    },
     _onOk () {
-      if (!this.input) return false
+      if (!this.mutableInput) return false
       if (this.onOk) {
-        this.onOk(this.input)
+        this.onOk(this.mutableInput)
       }
-      this.show = false
+      this.close()
     },
     _onCancel () {
-      this.show = false
       if (this.onCancel) {
         this.onCancel()
       }
+      this.close()
     }
   }
 }

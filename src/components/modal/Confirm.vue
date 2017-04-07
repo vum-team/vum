@@ -1,10 +1,10 @@
 <template>
-  <modal :show.sync='show'>
+  <modal :show='show' ref="modal">
     <div slot="title">{{title}}</div>
     <div slot="content">{{content}}</div>
     <div slot="buttons" class="modal-buttons">
       <span class="modal-button modal-button-cancel" v-on:click="_onCancel()">{{cancelText}}</span>
-      <span class="modal-button" v-on:click="_onOk()">{{okText}}</span>
+      <span class="modal-button" @click="_onOk()">{{okText}}</span>
     </div>
   </modal>
 </template>
@@ -16,53 +16,54 @@ export default {
   props: {
     show: {
       type: Boolean,
-      required: true,
       default: false
     },
     title: {
       type: String,
-      required: false,
       default: 'Alert'
     },
     content: {
       type: String,
-      required: false,
       default: ''
     },
     okText: {
       type: String,
-      required: false,
       default: 'OK'
     },
     cancelText: {
       type: String,
-      required: false,
       default: 'Cancel'
     },
     onOk: {
-      type: Function,
-      required: false
+      type: Function
     },
     onCancel: {
-      type: Function,
-      required: false
+      type: Function
     }
   },
   components: {
     Modal
   },
   methods: {
+    open () {
+      this.$refs.modal.open()
+      this.$emit('open', this)
+    },
+    close () {
+      this.$refs.modal.close()
+      this.$emit('close', this)
+    },
     _onOk () {
-      this.show = false
       if (this.onOk) {
         this.onOk()
       }
+      this.close()
     },
     _onCancel () {
-      this.show = false
       if (this.onCancel) {
         this.onCancel()
       }
+      this.close()
     }
   }
 }
