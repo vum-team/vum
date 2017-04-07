@@ -1,10 +1,12 @@
 <template>
   <div>
-    <overlay :show.sync="show" :transparent="true" v-if="overlay"></overlay>
-    <div class="toast-modal" v-if="show" transition="toast-modal">
-      <div class="icon-wrap"><i :class="'icon icon-' + type"></i></div>
-      <div class="text">{{text}}</div>
-    </div>
+    <overlay :show="mutableShow" :transparent="true" v-if="overlay"></overlay>
+    <transition name="toast-modal">
+      <div class="toast-modal" v-if="mutableShow">
+        <div class="icon-wrap"><i :class="'icon icon-' + type"></i></div>
+        <div class="text">{{text}}</div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -17,9 +19,7 @@ export default {
   props: {
     show: {
       type: Boolean,
-      default: false,
-      twoWay: true,
-      required: true
+      default: false
     },
     text: {
       type: String,
@@ -38,14 +38,23 @@ export default {
       default: true
     }
   },
-  watch: {
-    show (val, oldVal) {
-      if (val) {
-        const self = this
-        setTimeout(function () {
-          self.show = false
-        }, this.duration)
-      }
+  data () {
+    return {
+      mutableShow: this.show
+    }
+  },
+  methods: {
+    open () {
+      this.mutableShow = true
+      this.$emit('open', this)
+      clearTimeout(this.timeout)
+      setTimeout(() => {
+        this.close()
+      }, this.duration)
+    },
+    close () {
+      this.mutableShow = false
+      this.$emit('close', this)
     }
   }
 }
