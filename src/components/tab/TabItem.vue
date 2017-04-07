@@ -29,16 +29,16 @@ export default {
       title: this.title
     })
   },
-  events: {
-    'change': function (active) {
-      this.show = this.$parent.active === this.index
-    }
-  },
   watch: {
     show (v, ov) {
       if (v === true && this.onShow) {
         this.onShow.call()
       }
+    }
+  },
+  methods: {
+    setShow (v) {
+      this.show = v
     }
   },
   beforeDestroy () {

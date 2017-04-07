@@ -3,7 +3,6 @@
     'button ' +
     ' button-' + type + 
     ' button-' + size +
-    (large ? ' button-large' : '') +
     (round ? ' button-round' : '') +
     (bordered ? ' button-bordered' : '') +
     (active ? ' active' : '') +
