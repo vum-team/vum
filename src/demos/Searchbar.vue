@@ -2,7 +2,7 @@
   <div class="page">
     <simple-header title="SearchBar" :back-link="true"></simple-header>
     <page-content>
-      <searchbar :input.sync="searchInput"></searchbar>
+      <searchbar @input="input"></searchbar>
     </page-content>
   </div>
 </template>
@@ -22,8 +22,8 @@ export default {
       searchInput: ''
     }
   },
-  watch: {
-    searchInput (v, ov) {
+  methods: {
+    input (v) {
       console.log(v)
     }
   }
