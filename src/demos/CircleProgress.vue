@@ -36,7 +36,7 @@ export default {
       c4: 55
     }
   },
-  ready () {
+  mounted () {
     this.interval = setInterval(() => {
       this.c1 = this.rand()
       this.c2 = this.rand()

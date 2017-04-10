@@ -120,13 +120,13 @@ export default {
       this.circlePercent = this.percent
     }
   },
-  ready () {
+  mounted () {
     clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {
       this.sync()
     }, 200) // delay for initial value
   },
-  destroy () {
+  destroyed () {
     // do clear
     clearTimeout(this.timeout)
     clearInterval(this.interval)
