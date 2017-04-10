@@ -1,11 +1,13 @@
 <template>
   <div :class="'slide-wrap ' + (touching ? 'touching' : '')" v-show="showWrap" v-swipe:start="slideStart" v-swipe:move="slideMove" v-swipe:end="slideEnd">
-    <overlay :show.sync="show" :click="close" :opacity="opacity"></overlay>
-    <div class="side" v-show="show" transition="side">
-      <div class="panel" v-bind:style="{ transform: 'translate3d('+x+'px, 0, 0)' }">
-        <slot></slot>
+    <overlay :show="mutableShow" :click="close" :opacity="opacity"></overlay>
+    <transition name="side">
+      <div class="side" v-show="mutableShow">
+        <div class="panel" v-bind:style="{ transform: 'translate3d('+x+'px, 0, 0)' }">
+          <slot></slot>
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -19,12 +21,12 @@ export default {
   props: {
     show: {
       type: Boolean,
-      required: true,
-      twoWay: true
+      default: false
     }
   },
   data () {
     return {
+      mutableShow: false,
       width: 0,
       showWrap: false,
       touching: false,
@@ -33,7 +35,7 @@ export default {
     }
   },
   watch: {
-    show (v, ov) {
+    mutableShow (v, ov) {
       if (v === true) {
         this.x = 0
         this.showWrap = v
@@ -59,17 +61,22 @@ export default {
     slideEnd (point, diff, time) {
       this.touching = false
       if (this.x < 0 && (Math.abs(this.x) > 80 || Math.abs(this.x) > 20 && time < 200)) {
-        this.show = false
+        this.mutableShow = false
       } else {
         this.x = 0
       }
       this.opacity = 1
     },
+    open () {
+      this.mutableShow = true
+      this.$emit('open', this)
+    },
     close () {
-      this.show = false
+      this.mutableShow = false
+      this.$emit('close', this)
     }
   },
-  ready () {
+  mounted () {
   }
 }
 </script>
