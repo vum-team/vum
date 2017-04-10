@@ -2,14 +2,14 @@
   <div class="calendar">
     <div class="toolbar">
       <div class="year-picker">
-        <div :class="'icon icon-prev ' + (reachMinYear ? 'disabled' : '')" @click="prevYear()"></div>
+        <div :class="'icon icon-prev ' + (reachMinYear ? 'disabled' : '')" @click.native="prevYear()"></div>
         <div class="year-value">{{currentYear}}</div>
-        <div :class="'icon icon-next ' + (reachMaxYear ? 'disabled' : '')" @click="nextYear()"></div>
+        <div :class="'icon icon-next ' + (reachMaxYear ? 'disabled' : '')" @click.native="nextYear()"></div>
       </div>
       <div class="month-picker">
-        <div :class="'icon icon-prev ' + (reachMin ? 'disabled' : '')" @click="prevMonth()"></div>
+        <div :class="'icon icon-prev ' + (reachMin ? 'disabled' : '')" @click.native="prevMonth()"></div>
         <div class="month-value">{{currentMonth+1}}</div>
-        <div :class="'icon icon-next ' + (reachMax ? 'disabled' : '')" @click="nextMonth()"></div>
+        <div :class="'icon icon-next ' + (reachMax ? 'disabled' : '')" @click.native="nextMonth()"></div>
       </div>
     </div>
     <div class="weekdays">
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="month current-month">
-          <div v-bind:class="_dateClass(d)" v-for="(d, index) in currentMonthDates" :key="index" @click="select(d)">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in currentMonthDates" :key="index" @click.native="select(d)">
             <span>{{d.d}}</span>
           </div>
         </div>

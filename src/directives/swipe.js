@@ -1,5 +1,6 @@
 export default {
   inserted (el) {
+    console.log(this)
     this._start = (e) => this.start(e)
     this._move = (e) => this.move(e)
     this._end = (e) => this.end(e)
