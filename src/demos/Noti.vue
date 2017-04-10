@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="my-page">
     <simple-header title="Noti"></simple-header>
     <page-content>
       <div class="content-padded">

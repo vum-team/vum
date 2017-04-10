@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="my-page">
     <page-header>
       <header-link>About</header-link>
       <header-title>VUM</header-title>

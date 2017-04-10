@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="my-page">
     <simple-header title="Search"></simple-header>
     <page-content>
     </page-content>
