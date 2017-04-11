@@ -72,9 +72,9 @@
             <img src="../assets/images/form/i-form-toggle.png" alt="" width="30" />
           </div>
           <div class="item-content">
-            <div class="item-title label">Switch</div>
+            <div class="item-title label">Switcher</div>
             <div class="item-input">
-              <switch></switch>
+              <switcher></switcher>
             </div>
           </div>
         </form-item>
@@ -106,14 +106,14 @@ import { SimpleHeader } from '../components/header'
 import { Button } from '../components/buttons'
 import Content from '../components/content'
 import { Form, FormItem } from '../components/form'
-import Switch from '../components/switch'
+import Switcher from '../components/switcher'
 
 export default {
   components: {
     SimpleHeader,
     'page-content': Content,
     'm-button': Button,
-    Switch,
+    Switcher,
     'form-list': Form,
     FormItem
   }
