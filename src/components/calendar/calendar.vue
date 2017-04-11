@@ -22,7 +22,7 @@
       <div class="weekday">周日</div>
     </div>
 
-    <div :class="'months ' + (transition ? 'transition' : '')" v-swipe:start="_start" v-swipe:move="_move" v-swipe:end="_end">
+    <div :class="'months ' + (transition ? 'transition' : '')" v-swipe:move="_move" v-swipe:end="_end">
       <div class="months-inner" v-bind:style="{ transform: 'translate3d(' + diff + 'px, 0, 0)' }" v-transitionend="_transitionend">
         <div class="month prev-year-month" v-if="changeyear">
           <div v-bind:class="_dateClass(d)" v-for="(d, index) in prevYearDates" :key="index">
@@ -138,9 +138,8 @@ export default {
         this.store.select(d.date)
       }
     },
-    _start (point) {
-    },
     _move (point, diff, time) {
+      console.log(arguments)
       const x = diff.x
       if (this.reachMax && x < 0) {
         this.diff = -Math.pow(-x, 0.7)
