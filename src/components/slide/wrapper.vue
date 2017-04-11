@@ -88,8 +88,9 @@ export default {
         c.show = !this.lazy || c.show || (a === i || a === i - 1 || a === i + 1)
       })
       const children = this.$children
-      this.shadowSlideLast = children[0].$el.innerHTML
-      this.shadowSlideFirst = children[children.length - 3].$el.innerHTML
+      console.log(this.$children)
+      this.shadowSlideLast = children[1].$el.innerHTML
+      this.shadowSlideFirst = children[children.length - 2].$el.innerHTML
     },
     _setAutoPlay () {
       if (this.autoPlay <= 0) return
@@ -125,10 +126,12 @@ export default {
     }
   },
   mounted () {
-    this.width = this.$el.getBoundingClientRect().width
-    this.amount = this.$children.length
-    this._setAutoPlay()
-    this._updateChildren()
+    this.$nextTick(() => {
+      this.width = this.$el.getBoundingClientRect().width
+      this.amount = this.$children.length
+      this._setAutoPlay()
+      this._updateChildren()
+    })
   }
 }
 </script>
