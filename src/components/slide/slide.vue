@@ -11,9 +11,6 @@ export default {
       type: Boolean,
       default: true
     }
-  },
-  ready () {
-    console.log('child', this.$el)
   }
 }
 </script>

@@ -20,9 +20,11 @@ export default {
       showAppend: true
     }
   },
-  ready () {
-    if (this.empty(this.$refs.title.innerHTML)) this.showTitle = false
-    if (this.empty(this.$refs.append.innerHTML)) this.showAppend = false
+  mounted () {
+    this.$nextTick(() => {
+      if (this.empty(this.$refs.title.innerHTML)) this.showTitle = false
+      if (this.empty(this.$refs.append.innerHTML)) this.showAppend = false
+    })
   },
   methods: {
     empty (t) {

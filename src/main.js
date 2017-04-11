@@ -31,8 +31,6 @@ import Popover from './demos/Popover'
 import Stars from './demos/Stars'
 import CircleProgress from './demos/CircleProgress'
 
-Vue.config.debug = true
-
 Vue.use(Router)
 Vue.use(Vum)
 

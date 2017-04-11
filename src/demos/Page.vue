@@ -6,7 +6,7 @@
       <header-title>VUM</header-title>
     </page-header>
     <second-header>
-      <searchbar :input.sync="input"></searchbar>
+      <searchbar></searchbar>
     </second-header>
     <second-footer>
       <btn>dadsa</btn>
@@ -72,11 +72,6 @@ export default {
     'btn': Button,
     Icon,
     Searchbar
-  },
-  data () {
-    return {
-      input: ''
-    }
   }
 }
 </script>
