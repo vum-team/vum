@@ -1,6 +1,11 @@
-# upgrade to vue2
+# v2.0.0-beta
 
-important change:
+VUM has been upgrade to vue@2.0 !
+
+**note: v2.x is not compatable with v0.x**
+
+important change from Vue@1.0 to Vue@2.0:
+
 - two way props bind is not support in vue2, use instance method and custom event instead, so all 'modal' like components usage is changed!
 - only one root element!
 - `this === undefined` in directive

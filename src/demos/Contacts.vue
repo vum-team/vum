@@ -2,7 +2,7 @@
   <div class="page">
     <simple-header title="Contacts" :back-link="true"></simple-header>
     <second-header>
-      <searchbar :input.sync="input"></searchbar>
+      <searchbar @input="onInput"></searchbar>
     </second-header>
     <page-content>
       <list style="margin-top: 0;">
@@ -72,6 +72,11 @@ export default {
         if (d.title) return false
         return d.name.toUpperCase().indexOf(this.input.toUpperCase()) !== -1
       })
+    }
+  },
+  methods: {
+    onInput (v) {
+      this.input = v
     }
   }
 }
