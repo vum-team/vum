@@ -9,6 +9,7 @@
       }">
       <m-button 
          v-for="(item, index) in items" 
+         :key="item.id"
          :active="index === mutableActive"
          @click.native="onClick(index)"
          >{{item.title}}</m-button>

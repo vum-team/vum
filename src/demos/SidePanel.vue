@@ -20,7 +20,7 @@
             </div>
           </div>
         </list-item>
-        <list-item :link="true" v-for="i in [1,2,3,4,5]">
+        <list-item :link="true" v-for="i in [{id:1}, {id:2}, {id:3}, {id:4}]" :key="i.id">
           <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
           <div class="item-content">
             <div class="item-title-row">
