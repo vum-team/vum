@@ -1,12 +1,14 @@
 <template>
   <div>
-    <overlay :show.sync="show" :transparent="true" :click="toggle" v-if="overlay"></overlay>
-    <div :class="'menu ' + computedPosition" v-bind:style="{ top: top+'px', left: left+'px'}" v-show="show" v-el:menu @click="show = false" transition="menu">
-      <div class="angle" v-bind:style="{ transform : 'translate3d(' + angleOffset+'px, 0, 0) rotate(45deg)' }"></div>
-      <div class="inner">
-        <slot></slot>
+    <overlay :show="mutableShow" :transparent="true" :click="toggle" v-if="overlay"></overlay>
+    <transition name="popover">
+      <div :class="'popover ' + computedPosition" v-bind:style="{ top: top+'px', left: left+'px'}" v-if="mutableShow" ref="popover" @click="toggle">
+        <div class="angle" v-bind:style="{ transform : 'translate3d(' + angleOffset+'px, 0, 0) rotate(45deg)' }"></div>
+        <div class="inner">
+          <slot></slot>
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -14,7 +16,7 @@
 import Overlay from '../overlay'
 import util from '../../util'
 
-// menu's offsetparent should be the same to trigger's
+// popover's offsetparent should be the same to trigger's
 
 const AUTO = 'auto'
 const TOP = 'top'
@@ -41,10 +43,6 @@ export default {
     width: {
       type: Number,
       default: 92
-    },
-    angleOffset: {
-      type: Number,
-      default: 0
     }
   },
 
@@ -54,15 +52,17 @@ export default {
 
   data () {
     return {
+      mutableShow: this.show,
       top: 0,
       left: 0,
+      angleOffset: 0,
       computedPosition: TOP,
       triggerElement: undefined,
       parentElement: undefined
     }
   },
 
-  ready () {
+  mounted () {
     this.$nextTick(() => {
       this.triggerElement = document.querySelector(this.trigger)
       this.triggerElement.addEventListener('click', this.toggle)
@@ -70,16 +70,15 @@ export default {
       this.parentElement.addEventListener('scroll', this.locate)
 
       document.addEventListener('click', (e) => {
-        if (!util.isParent(e.target, this.$els.menu) && !util.isParent(e.target, this.triggerElement)) {
-          this.show = false
+        if (!util.isParent(e.target, this.$refs.popover) && !util.isParent(e.target, this.triggerElement)) {
+          this.mutableShow = false
         }
       })
     })
   },
 
   watch: {
-    show (v, ov) {
-      this.show = v
+    mutableShow (v, ov) {
       if (v === true) {
         this.$nextTick(() => this.locate())
       }
@@ -87,14 +86,23 @@ export default {
   },
 
   methods: {
+    open () {
+      this.mutableShow = true
+      this.$emit('open', this)
+    },
+    close () {
+      this.mutableShow = false
+      this.$emit('close', this)
+    },
+
     toggle () {
-      this.show = !this.show
+      this.mutableShow ? this.close() : this.open()
     },
 
     locate () {
       // compute position
-      if (!this.show || !this.triggerElement) return false
-      const el = this.$els.menu
+      if (!this.mutableShow || !this.triggerElement) return false
+      const el = this.$refs.popover
       const t = this.triggerElement
       const p = this.parentElement
       const top = t.offsetTop - p.scrollTop
@@ -132,5 +140,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import './menu.less';
+@import './popover.less';
 </style>

@@ -189,12 +189,12 @@
             SidePanel
           </p>
         </router-link>
-        <router-link :to="{ path: 'menu' }" class="grid">
+        <router-link :to="{ path: 'popover' }" class="grid">
           <div class="grid_icon">
             <img src="../assets/images/home/menu.png" alt="">
           </div>
           <p class="grid_label">
-            Menu
+            Popover
           </p>
         </router-link>
         <router-link :to="{ path: 'circle' }" class="grid">

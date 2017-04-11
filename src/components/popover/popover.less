@@ -1,7 +1,7 @@
 @import '../mixins.less';
 
 @border-color: rgba(0, 0, 0, .2);
-.menu {
+.popover {
   .hairline-border(@border-color, .25rem);
   position: absolute;
   width: auto;
@@ -13,13 +13,11 @@
   max-width: 6rem;
   transition: opacity .3s;
 
-  &.menu-transition {
-    opacity: 1;
-    display: block;
-  }
+  opacity: 1;
+  display: block;
 
-  &.menu-enter,
-  &.menu-leave {
+  &.popover-enter,
+  &.popover-leave-active {
     opacity: 0;
   }
 }

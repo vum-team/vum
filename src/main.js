@@ -27,7 +27,7 @@ import Calendar from './demos/Calendar'
 import Result from './demos/Result'
 import Slide from './demos/Slide'
 import SidePanel from './demos/SidePanel'
-import Menu from './demos/Menu'
+import Popover from './demos/Popover'
 import Stars from './demos/Stars'
 import CircleProgress from './demos/CircleProgress'
 
@@ -133,9 +133,9 @@ let router = new Router({
       component: SidePanel
     },
     {
-      path: '/menu',
-      name: 'menu',
-      component: Menu
+      path: '/popover',
+      name: 'popover',
+      component: Popover
     },
     {
       path: '/stars',
