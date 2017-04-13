@@ -21,41 +21,33 @@ export default {
   props: {
     show: {
       type: Boolean,
-      required: true,
       default: false
     },
     input: {
       type: String,
-      required: false,
       default: ''
     },
     title: {
       type: String,
-      required: false,
       default: 'Alert'
     },
     content: {
       type: String,
-      required: false,
       default: ''
     },
     okText: {
       type: String,
-      required: false,
       default: 'OK'
     },
     cancelText: {
       type: String,
-      required: false,
       default: 'Cancel'
     },
     onOk: {
-      type: Function,
-      required: false
+      type: Function
     },
     onCancel: {
-      type: Function,
-      required: false
+      type: Function
     }
   },
   components: {
