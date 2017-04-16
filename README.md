@@ -4,9 +4,9 @@
 
 ***vum is update to vue@2.0! checkout to `v0.1.1` for vue@1.x.***
 
-Click [http://demo.getvum.com/#!/](http://demo.getvum.com/#!/)  or scan vcode to see live demos:
+Click [http://demo.getvum.com/](http://demo.getvum.com/)  or scan vcode to see live demos:
 
-<img src="https://raw.githubusercontent.com/lihongxun945/vue-mobile/master/screenshot/vcode.png"/>
+<img src="screenshot/vcode.png"/>
 
 ## What is?
 
