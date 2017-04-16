@@ -1,8 +1,8 @@
-# vue-mobile - V0.1.0
+# vue-mobile - V2.0.0-alpha
 
 > An UI Framework build with Vue.js
 
-vue-mobile is in development now, `V0.1.0` has been released at `2016-09-11`
+vum is update to vue@2.0! checkout to `v0.1.1` for vue@1.x.
 
 Click [http://demo.getvum.com/#!/](http://demo.getvum.com/#!/)  or scan vcode to see live demos:
 
