@@ -6,7 +6,7 @@
 
 Click [http://demo.getvum.com/](http://demo.getvum.com/)  or scan vcode to see live demos:
 
-<img src="screenshot/vcode.png"/>
+<img src="screenshot/vcode.png" width="250"/>
 
 ## What is?
 
