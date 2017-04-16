@@ -8,9 +8,10 @@
       'button-large': size === 'large'
       }">
       <m-button 
-         v-for="item in items" 
-         :active="$index === active"
-         v-on:click="onClick($index)"
+         v-for="(item, index) in items" 
+         :key="item.id"
+         :active="index === mutableActive"
+         @click.native="onClick(index)"
          >{{item.title}}</m-button>
     </div>
     <div class="tabs">
@@ -42,14 +43,17 @@ export default {
   },
   data () {
     return {
+      mutableActive: this.active,
       items: []
     }
   },
   methods: {
     onClick (active) {
-      this.active = active
-      this.$children[active].show = true
-      this.$broadcast('change', active)
+      this.mutableActive = active
+      this.$children.forEach((c) => {
+        c.setShow && c.setShow(false)
+      })
+      this.$children[this.mutableActive].setShow(true)
     }
   }
 }

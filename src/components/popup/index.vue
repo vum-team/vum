@@ -1,15 +1,18 @@
 <template>
-  <overlay :show.sync="show" :click="close"></overlay>
-  <div transition="popup-modal"
-       v-if="show"
-       class="popup-modal {{className}} {{full ? 'full' : ''}}">
-    <page-header v-if="showTitleBar">
-      <header-title>{{title}}</header-title>
-      <header-link @click="close()">{{closeButtonText}}</header-link>
-    </page-header>
-    <div class="modal-content">
-      <slot></slot>
-    </div>
+  <div>
+    <overlay :show="mutableShow" :click="close"></overlay>
+    <transition name="popup-modal">
+      <div v-show="mutableShow"
+           :class="'popup-modal ' + className + (full ? ' full' : '')">
+        <page-header v-if="showTitleBar">
+          <header-title>{{title}}</header-title>
+          <header-link @click.native="close()">{{closeButtonText}}</header-link>
+        </page-header>
+        <div class="modal-content">
+          <slot></slot>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -27,9 +30,7 @@ export default {
   props: {
     show: {
       type: Boolean,
-      required: true,
-      default: false,
-      twoWay: true
+      default: false
     },
     title: {
       type: String,
@@ -52,9 +53,19 @@ export default {
       default: ''
     }
   },
+  data () {
+    return {
+      mutableShow: this.show
+    }
+  },
   methods: {
+    open () {
+      this.mutableShow = true
+      this.$emit('open', this)
+    },
     close () {
-      this.show = false
+      this.mutableShow = false
+      this.$emit('close', this)
     }
   }
 }

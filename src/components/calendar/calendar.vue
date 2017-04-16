@@ -2,14 +2,14 @@
   <div class="calendar">
     <div class="toolbar">
       <div class="year-picker">
-        <div class="icon icon-prev {{ reachMinYear ? 'disabled' : '' }}" @click="prevYear()"></div>
+        <div :class="'icon icon-prev ' + (reachMinYear ? 'disabled' : '')" @click="prevYear()"></div>
         <div class="year-value">{{currentYear}}</div>
-        <div class="icon icon-next {{ reachMaxYear ? 'disabled' : '' }}" @click="nextYear()"></div>
+        <div :class="'icon icon-next ' + (reachMaxYear ? 'disabled' : '')" @click="nextYear()"></div>
       </div>
       <div class="month-picker">
-        <div class="icon icon-prev {{ reachMin ? 'disabled' : '' }}" @click="prevMonth()"></div>
+        <div :class="'icon icon-prev ' + (reachMin ? 'disabled' : '')" @click="prevMonth()"></div>
         <div class="month-value">{{currentMonth+1}}</div>
-        <div class="icon icon-next {{ reachMax ? 'disabled' : '' }}" @click="nextMonth()"></div>
+        <div :class="'icon icon-next ' + (reachMax ? 'disabled' : '')" @click="nextMonth()"></div>
       </div>
     </div>
     <div class="weekdays">
@@ -22,30 +22,30 @@
       <div class="weekday">周日</div>
     </div>
 
-    <div class="months {{ transition ? 'transition' : ''}}" v-swipe:start="_start" v-swipe:move="_move" v-swipe:end="_end">
+    <div :class="'months ' + (transition ? 'transition' : '')" v-swipe:start="_start" v-swipe:move="_move" v-swipe:end="_end">
       <div class="months-inner" v-bind:style="{ transform: 'translate3d(' + diff + 'px, 0, 0)' }" v-transitionend="_transitionend">
         <div class="month prev-year-month" v-if="changeyear">
-          <div v-bind:class="_dateClass(d)" v-for="d in prevYearDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in prevYearDates" :key="index">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month prev-month" v-show="!changeyear">
-          <div v-bind:class="_dateClass(d)" v-for="d in prevMonthDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in prevMonthDates" :key="index">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month current-month">
-          <div v-bind:class="_dateClass(d)" v-for="d in currentMonthDates" track-by="$index" @click="select(d)">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in currentMonthDates" :key="index" @click="select(d)">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month next-month" v-show="!changeyear">
-          <div v-bind:class="_dateClass(d)" v-for="d in nextMonthDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in nextMonthDates" :key="index">
             <span>{{d.d}}</span>
           </div>
         </div>
         <div class="month next-year-month" v-if="changeyear">
-          <div v-bind:class="_dateClass(d)" v-for="d in nextYearDates" track-by="$index">
+          <div v-bind:class="_dateClass(d)" v-for="(d, index) in nextYearDates" :key="index">
             <span>{{d.d}}</span>
           </div>
         </div>
@@ -63,9 +63,7 @@ const FORMAT = 'YYYY-MM-DD'
 export default {
   props: {
     date: {
-      type: String,
-      required: true,
-      twoWay: true
+      type: String
     },
     format: {
       type: String,
@@ -121,6 +119,7 @@ export default {
       this.diff = -this.width
     },
     prevYear () {
+      console.log(1)
       if (this.reachMinYear) return false
       this.store.genYearDates()
       this.transition = true
@@ -139,7 +138,11 @@ export default {
         this.store.select(d.date)
       }
     },
-    _start (point) {
+    updateWidth () {
+      this.width = this.$el.getBoundingClientRect().width
+    },
+    _start () {
+      this.updateWidth() // the calendar may be hidden after inited, for example, the calendar maybe in a popup
     },
     _move (point, diff, time) {
       const x = diff.x
@@ -172,6 +175,7 @@ export default {
       console.log('transitionend')
       this.transition = false
       const store = this.store
+      console.log(this.diff)
       if (this.diff > 0) {
         this.changeyear ? store.prevYear() : store.prevMonth()
       } else if (this.diff < 0) {
@@ -197,7 +201,7 @@ export default {
       }
     }
   },
-  ready () {
+  mounted () {
     this.store.config({
       min: this.min,
       max: this.max,
@@ -210,12 +214,15 @@ export default {
       this.store.select(this.date)
     }
 
-    this.date = moment(this.store.data.selectedDate).format(this.format)
-    this.width = this.$el.getBoundingClientRect().width
+    // this.date = moment(this.store.data.selectedDate).format(this.format)
+    this.$nextTick(() => {
+      this.updateWidth()
+    })
   },
   watch: {
     selectedDate (v, ov) {
-      this.date = moment(v).format(this.format)
+      const date = moment(v).format(this.format)
+      this.$emit('change', date)
     }
   }
 }

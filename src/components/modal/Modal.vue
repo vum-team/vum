@@ -1,16 +1,20 @@
 <template>
-  <overlay :show.sync="show" :click="overlayClick"></overlay>
-  <div class="modal" v-if="show" transition="modal">
-    <div class="modal-inner">
-      <div class="modal-title">
-        <slot name="title">Confirm</slot>
+  <div>
+    <overlay :show="mutableShow" :click="overlayClick"></overlay>
+    <transition name="modal">
+      <div class="modal" v-if="mutableShow">
+        <div class="modal-inner">
+          <div class="modal-title">
+            <slot name="title">Confirm</slot>
+          </div>
+          <div class="modal-text">
+            <slot name="content"></slot>
+          </div>
+        </div>
+        <slot name="buttons">
+        </slot>
       </div>
-      <div class="modal-text">
-        <slot name="content"></slot>
-      </div>
-    </div>
-    <slot name="buttons">
-    </slot>
+    </transition>
   </div>
 </template>
 
@@ -22,19 +26,31 @@ export default {
     Overlay
   },
   props: {
-    show: {
+    show: { // init status
       type: Boolean,
-      required: true,
-      twoWay: true
+      default: false
     },
     overlayClose: {
       type: Boolean,
       default: false
     }
   },
+  data () {
+    return {
+      mutableShow: this.show
+    }
+  },
   methods: {
+    open () {
+      this.mutableShow = true
+      this.$emit('open', this)
+    },
+    close () {
+      this.mutableShow = false
+      this.$emit('close', this)
+    },
     overlayClick () {
-      if (this.overlayClose) this.show = false
+      this.mutableShow = false
     }
   }
 }

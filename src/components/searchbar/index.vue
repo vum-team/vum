@@ -1,10 +1,10 @@
 <template>
-  <div :class="{ 'search-bar' : true, focus: focus }" @click="onClick($event)">
+  <div :class="'search-bar ' + (focus ? 'focus' : '')" @click="onClick">
     <form class="search-outer">
       <div class="search-inner">
         <i class="icon icon-search"></i>
-        <input type="search" class="search-input" id="search-input" placeholder="{{searchText}}" v-model="input" @blur="blur()">
-        <a href="javascript:" class="icon icon-clear" id="search-clear" @click="clear()"></a>
+        <input type="search" class="search-input" id="search-input" :placeholder="searchText" v-model="mutableInput" @blur="blur">
+        <a href="javascript:" class="icon icon-clear" id="search-clear" @click="clear"></a>
       </div>
       <label for="search-input" class="search-text" id="search-text">
         <i class="icon icon-search"></i>
@@ -20,8 +20,7 @@ export default {
   props: {
     input: {
       type: String,
-      required: true,
-      twoWay: true
+      default: ''
     },
     searchText: {
       type: String,
@@ -34,7 +33,14 @@ export default {
   },
   data () {
     return {
-      focus: false
+      focus: false,
+      mutableInput: this.input
+    }
+  },
+  watch: {
+    mutableInput (v, ov) {
+      console.log(1)
+      this.$emit('input', v)
     }
   },
   methods: {
@@ -42,7 +48,7 @@ export default {
       const input = this.$el.querySelectorAll('.search-input')[0]
       if (e.target.className === 'search-cancel') {
         this.focus = false
-        this.input = ''
+        this.mutableInput = ''
         input.blur()
         return
       }
@@ -52,7 +58,7 @@ export default {
     blur () {
     },
     clear () {
-      this.input = ''
+      this.mutableInput = ''
     }
   }
 }

@@ -9,12 +9,8 @@ export default {
   props: {
     show: {
       type: Boolean,
-      default: false,
-      twoWay: true
+      default: true
     }
-  },
-  ready () {
-    console.log('child', this.$el)
   }
 }
 </script>

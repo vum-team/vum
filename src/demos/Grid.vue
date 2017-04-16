@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Grid" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class="grid-demo">
         <div class="grids">
           <a href="javascript:;" class="grid">
@@ -157,7 +157,7 @@
 
         </div>
       </div>
-    </content>
+    </page-content>
   </div>
 </template>
 <script>
@@ -167,7 +167,7 @@ import Content from '../components/content'
 export default {
   components: {
     SimpleHeader,
-    Content
+    'page-content': Content
   }
 }
 </script>

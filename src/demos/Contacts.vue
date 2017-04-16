@@ -2,9 +2,9 @@
   <div class="page">
     <simple-header title="Contacts" :back-link="true"></simple-header>
     <second-header>
-      <searchbar :input.sync="input"></searchbar>
+      <searchbar @input="onInput"></searchbar>
     </second-header>
-    <content>
+    <page-content>
       <list style="margin-top: 0;">
         <template v-for="p in filtedList">
           <li class="list-group-title" v-if="p.title">{{p.name}}</li>
@@ -16,7 +16,7 @@
           </list-item>
         </template>
       </list>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
     SimpleHeader,
     SecondHeader,
     Searchbar,
-    Content,
+    'page-content': Content,
     List,
     ListItem
   },
@@ -72,6 +72,11 @@ export default {
         if (d.title) return false
         return d.name.toUpperCase().indexOf(this.input.toUpperCase()) !== -1
       })
+    }
+  },
+  methods: {
+    onInput (v) {
+      this.input = v
     }
   }
 }

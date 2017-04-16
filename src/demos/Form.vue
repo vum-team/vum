@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Form" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <form-list>
         <div slot="title">Form List</div>
         <form-item>
@@ -72,9 +72,9 @@
             <img src="../assets/images/form/i-form-toggle.png" alt="" width="30" />
           </div>
           <div class="item-content">
-            <div class="item-title label">Switch</div>
+            <div class="item-title label">Switcher</div>
             <div class="item-input">
-              <switch></switch>
+              <switcher></switcher>
             </div>
           </div>
         </form-item>
@@ -97,7 +97,7 @@
           <div class="col-50"><m-button size="large">Submit</m-button></div>
         </div>
       </div>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -106,14 +106,14 @@ import { SimpleHeader } from '../components/header'
 import { Button } from '../components/buttons'
 import Content from '../components/content'
 import { Form, FormItem } from '../components/form'
-import Switch from '../components/switch'
+import Switcher from '../components/switcher'
 
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     'm-button': Button,
-    Switch,
+    Switcher,
     'form-list': Form,
     FormItem
   }

@@ -1,16 +1,16 @@
 <template>
-  <div class="slide-wrap {{ transition && !touching ? 'transition' : '' }}" v-swipe:start="_swipeStart" v-swipe:move="_swipeMove" v-swipe:end="_swipeEnd">
-    <div class="slide-inner" v-bind:style="{ transform: 'translate3d('+(-this.activeIndex*100+diff/width*100)+'%, 0, 0)' }" v-transitionend="end">
-      <slide class="shadow-slide-first" :show.sync="true">
-        {{{ shadowSlideFirst }}}
+  <div :class="'slide-wrap ' + (transition && !touching ? ' transition' : '')" v-swipe:start="_swipeStart" v-swipe:move="_swipeMove" v-swipe:end="_swipeEnd">
+    <div class="slide-inner" v-bind:style="{ transform: 'translate3d('+(-mutableActiveIndex*100+diff/width*100)+'%, 0, 0)' }" v-transitionend="_transitionEnd">
+      <slide class="shadow-slide-first" :show="true">
+        <div v-html="shadowSlideFirst"></div>
       </slide>
       <slot></slot>
-      <slide class="shadow-slide-last" :show.sync="true">
-        {{{ shadowSlideLast }}}
+      <slide class="shadow-slide-last" :show="true">
+        <div v-html="shadowSlideLast"></div>
       </slide>
     </div>
     <div class="bullets">
-      <div class="bullet {{ activeIndex === i || (activeIndex === amount - 1 && i === 1) || (activeIndex === 0 && i === amount - 2) ? 'active' : ''}}" v-for="i in bullets"></div>
+      <div :class="'bullet ' + (mutableActiveIndex === i || (mutableActiveIndex === amount - 1 && i === 1) || (mutableActiveIndex === 0 && i === amount - 2) ? 'active' : '')" v-for="i in bullets"></div>
     </div>
   </div>
 </template>
@@ -20,15 +20,13 @@ import Slide from './slide'
 
 export default {
   props: {
-    activeIndex: {  // the activeindex of real slide index from 1, because of shadow slide
+    activeIndex: {  // the activeIndex of real slide index from 1, because of shadow slide
       type: Number,
-      default: 1,
-      twoWay: true
+      default: 1
     },
     autoPlay: {
       type: Number,
-      default: 0,
-      twoWay: true
+      default: 0
     },
     lazy: { // lazy load content
       type: Boolean,
@@ -37,6 +35,7 @@ export default {
   },
   data () {
     return {
+      mutableActiveIndex: this.activeIndex,
       width: 0,
       amount: 0,
       diff: 0,
@@ -63,11 +62,12 @@ export default {
       clearInterval(this.interval)
     },
     _swipeMove (point, diff, time) {
-      if ((this.activeIndex === 0 && diff.x > 0) || (this.activeIndex === this.amount - 1 && diff.x < 0)) {
+      if ((this.mutableActiveIndex === 0 && diff.x > 0) || (this.mutableActiveIndex === this.amount - 1 && diff.x < 0)) {
         this.diff = Math.pow(Math.abs(diff.x), 0.8) * (diff.x > 0 ? 1 : -1)
       } else {
         this.diff = diff.x
       }
+      console.log(this.diff)
       this.touching = true
     },
     _swipeEnd (point, diff, time) {
@@ -75,8 +75,8 @@ export default {
       if (Math.abs(diff.x) >= this.width / 2 || // move long
         (Math.abs(diff.x) > 20 && time < 200) // or move shot but fast
         ) {
-        if (diff.x < 0 && this.activeIndex < this.amount - 1) this.next()
-        if (diff.x > 0 && this.activeIndex > 0) this.prev()
+        if (diff.x < 0 && this.mutableActiveIndex < this.amount - 1) this.next()
+        if (diff.x > 0 && this.mutableActiveIndex > 0) this.prev()
       }
       this.transition = true
       this.diff = 0
@@ -84,12 +84,13 @@ export default {
     },
     _updateChildren () {
       this.$children.forEach((c, i) => {
-        const a = this.activeIndex
+        const a = this.mutableActiveIndex
         c.show = !this.lazy || c.show || (a === i || a === i - 1 || a === i + 1)
       })
       const children = this.$children
-      this.shadowSlideLast = children[0].$el.innerHTML
-      this.shadowSlideFirst = children[children.length - 3].$el.innerHTML
+      console.log(this.$children)
+      this.shadowSlideLast = children[1].$el.innerHTML
+      this.shadowSlideFirst = children[children.length - 2].$el.innerHTML
     },
     _setAutoPlay () {
       if (this.autoPlay <= 0) return
@@ -98,37 +99,39 @@ export default {
         this.next()
       }, this.autoPlay)
     },
-    end () {
+    _transitionEnd () {
       this.transition = false
       this._updateChildren()
-      if (this.activeIndex === this.amount - 1 || this.activeIndex === 0) {
-        this.activeIndex = this.activeIndex === 0 ? this.amount - 2 : 1
+      if (this.mutableActiveIndex === this.amount - 1 || this.mutableActiveIndex === 0) {
+        this.mutableActiveIndex = this.mutableActiveIndex === 0 ? this.amount - 2 : 1
       }
     },
     next () {
       this.transition = true
-      this.activeIndex++
+      this.mutableActiveIndex++
     },
     prev () {
       this.transition = true
-      this.activeIndex--
+      this.mutableActiveIndex--
     }
   },
   watch: {
-    activeIndex (v, ov) {
-      if (v < 0) this.activeIndex = this.amount - 1
-      else if (v > this.amount - 1) this.activeIndex = 0
-      else this.activeIndex = v
+    mutableActiveIndex (v, ov) {
+      if (v < 0) this.mutableActiveIndex = this.amount - 1
+      else if (v > this.amount - 1) this.mutableActiveIndex = 0
+      else this.mutableActiveIndex = v
     },
     autoPlay (v, ov) {
       this._setAutoPlay()
     }
   },
-  ready () {
-    this.width = this.$el.getBoundingClientRect().width
-    this.amount = this.$children.length
-    this._setAutoPlay()
-    this._updateChildren()
+  mounted () {
+    this.$nextTick(() => {
+      this.width = this.$el.getBoundingClientRect().width
+      this.amount = this.$children.length
+      this._setAutoPlay()
+      this._updateChildren()
+    })
   }
 }
 </script>

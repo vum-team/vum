@@ -1,15 +1,15 @@
 <template>
   <div class="page">
     <simple-header title="Toast" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class='demos-content-padded'>
-        <p><m-button v-on:click="showToast(1)">Show Toast Success</m-button></p>
-        <p><m-button v-on:click="showToast(2)">Show Toast Error</m-button></p>
+        <p><m-button @click.native="$refs.t1.open()">Show Toast Success</m-button></p>
+        <p><m-button @click.native="$refs.t2.open()">Show Toast Error</m-button></p>
       </div>
 
-    </content>
-    <toast :show.sync="showSuccess" text="Done!"></toast>
-    <toast :show.sync="showError" text="Failed!" type="error"></toast>
+    </page-content>
+    <toast text="Done!" ref="t1"></toast>
+    <toast text="Failed!" type="error" ref="t2"></toast>
   </div>
 </template>
 
@@ -22,19 +22,12 @@ import Toast from '../components/toast'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     Toast,
     'm-button': Button
   },
   data () {
     return {
-      showSuccess: false,
-      showError: false
-    }
-  },
-  methods: {
-    showToast (type) {
-      type === 1 ? this.showSuccess = true : this.showError = true
     }
   }
 }

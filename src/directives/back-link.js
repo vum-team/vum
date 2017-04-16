@@ -1,6 +1,6 @@
 export default {
-  bind () {
-    this.el.addEventListener('click', function () {
+  inserted (el) {
+    el.addEventListener('click', function () {
       window.history.back()
     })
   }

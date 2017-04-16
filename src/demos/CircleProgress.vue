@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Circle" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <circle-progress :percent="c1"></circle-progress>
       <circle-progress :percent="c2" foreground-color="#f60" text-format="{percent}%"></circle-progress>
       <div class="row">
@@ -13,7 +13,7 @@
         </div>
       </div>
 
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ import CircleProgress from '../components/circle-progress'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     CircleProgress
   },
   data () {
@@ -36,7 +36,7 @@ export default {
       c4: 55
     }
   },
-  ready () {
+  mounted () {
     this.interval = setInterval(() => {
       this.c1 = this.rand()
       this.c2 = this.rand()

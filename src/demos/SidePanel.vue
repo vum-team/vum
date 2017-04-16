@@ -2,14 +2,14 @@
   <div class="view">
     <div class="page">
       <simple-header title="Side Panel" :back-link="true"></simple-header>
-      <content>
+      <page-content>
         <div class="content-padded">
-          <m-button @click="show = true">open side panel</m-button>
+          <m-button @click.native="$refs.s.open()">open side panel</m-button>
         </div>
-      </content>
+      </page-content>
     </div>
 
-    <side-panel :show.sync="show">
+    <side-panel :show="show" ref="s">
       <list>
         <list-item :link="true">
           <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
@@ -20,7 +20,7 @@
             </div>
           </div>
         </list-item>
-        <list-item :link="true" v-for="i in [1,2,3,4,5]">
+        <list-item :link="true" v-for="i in [{id:1}, {id:2}, {id:3}, {id:4}]" :key="i.id">
           <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
           <div class="item-content">
             <div class="item-title-row">
@@ -31,7 +31,7 @@
         </list-item>
       </list>
       <div class="content-padded">
-        <m-button @click="show = false">Close</m-button>
+        <m-button @click.native="$refs.s.close()">Close</m-button>
       </div>
     </side-panel>
   </div>
@@ -46,17 +46,12 @@ import { List, ListItem } from '../components/list'
 
 export default {
   components: {
-    Content,
+    'page-content': Content,
     SimpleHeader,
     'm-button': Button,
     SidePanel,
     List,
     ListItem
-  },
-  data () {
-    return {
-      show: false
-    }
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Scroll" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <scroll :on-refresh="onRefresh" :on-infinite="onInfinite">
         <div class='content-padded' id="list">
           <h2>current time: {{time}}</h2>
@@ -24,7 +24,7 @@
           <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
         </div>
       </scroll>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -36,7 +36,7 @@ import Scroll from '../components/scroll'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     Scroll
   },
   data () {

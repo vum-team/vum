@@ -1,25 +1,27 @@
 <template>
   <div class="page">
     <page-footer>
-      <footer-item v-bind:class="{ 'active' : currentView === 'home' }" v-on:click="changeView('home')">
+      <footer-item v-bind:class="{ 'active' : currentView === 'home' }" @click.native="changeView('home')">
         <span class="icon demo-icon-home"></span>
         <label>Home</label>
       </footer-item>
-      <footer-item v-bind:class="{ 'active' : currentView === 'search' }" v-on:click="changeView('search')">
+      <footer-item v-bind:class="{ 'active' : currentView === 'search' }" @click.native="changeView('search')">
         <span class="icon demo-icon-search"></span>
         <label>Search</label>
       </footer-item>
-      <footer-item v-bind:class="{ 'active' : currentView === 'noti' }" v-on:click="changeView('noti')">
+      <footer-item v-bind:class="{ 'active' : currentView === 'noti' }" @click.native="changeView('noti')">
         <span class="icon demo-icon-noti"></span>
         <span class="badge">2</span>
         <label>Noti</label>
       </footer-item>
-      <footer-item v-bind:class="{ 'active' : currentView === 'about' }" v-on:click="changeView('about')">
+      <footer-item v-bind:class="{ 'active' : currentView === 'about' }" @click.native="changeView('about')">
         <span class="icon demo-icon-me"></span>
         <label>About</label>
       </footer-item>
     </page-footer>
-    <component :is="currentView" keep-alive></component>
+    <keep-alive>
+      <component :is="currentView"></component>
+    </keep-alive>
   </div>
 </template>
 
@@ -55,6 +57,13 @@ export default {
 </script>
 
 <style lang="less">
+.my-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 2.8rem;
+}
 .demo-icon-home {
   background-image: url("../assets/images/home/home.png");
   background-size: 100%;

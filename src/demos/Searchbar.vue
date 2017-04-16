@@ -1,9 +1,9 @@
 <template>
   <div class="page">
     <simple-header title="SearchBar" :back-link="true"></simple-header>
-    <content>
-      <searchbar :input.sync="searchInput"></searchbar>
-    </content>
+    <page-content>
+      <searchbar @input="input"></searchbar>
+    </page-content>
   </div>
 </template>
 <script>
@@ -14,7 +14,7 @@ import Searchbar from '../components/searchbar'
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     Searchbar
   },
   data () {
@@ -22,8 +22,8 @@ export default {
       searchInput: ''
     }
   },
-  watch: {
-    searchInput (v, ov) {
+  methods: {
+    input (v) {
       console.log(v)
     }
   }

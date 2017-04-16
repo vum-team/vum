@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="List" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <list>
         <div slot="title">Simple List</div>
         <list-item>
@@ -53,7 +53,7 @@
             <div class="item-title-row">
               <div class="item-title">Title</div>
               <div class="item-after">
-                <switch></switch>
+                <switcher></switcher>
               </div>
             </div>
           </div>
@@ -175,7 +175,7 @@
           </div>
         </list-item>
       </list>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -183,15 +183,15 @@
 import { SimpleHeader } from '../components/header'
 import Content from '../components/content'
 import { List, ListItem } from '../components/list'
-import Switch from '../components/switch'
+import Switcher from '../components/switcher'
 
 export default {
   components: {
     SimpleHeader,
-    Content,
+    'page-content': Content,
     List,
     ListItem,
-    Switch
+    Switcher
   }
 }
 </script>

@@ -1,8 +1,8 @@
 <template>
-  <popup :show.sync="show" :show-title-bar="false" class-name="actions-modal">
+  <popup :show="show" :show-title-bar="false" class-name="actions-modal" ref="popup">
     <slot></slot>
     <action-group v-if="showCancelButton">
-      <action-button class="color-gray" @click="cancel()">Cancel</action-button>
+      <action-button class="color-gray" @click.native="close()">Cancel</action-button>
     </action-group>
   </popup>
 </template>
@@ -16,8 +16,7 @@ export default {
   props: {
     show: {
       type: Boolean,
-      default: false,
-      required: true
+      default: false
     },
     showCancelButton: {
       type: Boolean,
@@ -30,8 +29,13 @@ export default {
     ActionButton
   },
   methods: {
-    cancel () {
-      this.show = false
+    open () {
+      this.$refs.popup.open()
+      this.$emit('open', this)
+    },
+    close () {
+      this.$refs.popup.close()
+      this.$emit('close', this)
     }
   }
 }

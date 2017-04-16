@@ -11,7 +11,9 @@
   </head>
   <body ontouchstart="">
     <div id="app">
-      <router-view transition="slide"></router-view>
+      <transition name="slide">
+        <router-view></router-view>
+      </transition>
     </div>
     <!-- built files will be auto injected -->
 

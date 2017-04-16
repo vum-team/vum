@@ -6,7 +6,7 @@
       <header-title>VUM</header-title>
     </page-header>
     <second-header>
-      <searchbar :input.sync="input"></searchbar>
+      <searchbar></searchbar>
     </second-header>
     <second-footer>
       <btn>dadsa</btn>
@@ -30,7 +30,7 @@
         <label>About</label>
       </footer-item>
     </page-footer>
-    <content>
+    <page-content>
       <div class="content-padded">
         <p>Expressions & computed properties with transparent dependency tracking.</p>
         <p>Expressions & computed properties with transparent dependency tracking.</p>
@@ -47,7 +47,7 @@
         <p>Expressions & computed properties with transparent dependency tracking.</p>
         <p>Expressions & computed properties with transparent dependency tracking.</p>
       </div>
-    </content>
+    </page-content>
   </div>
 </template>
 
@@ -65,18 +65,13 @@ export default {
     SecondHeader,
     HeaderLink,
     HeaderTitle,
-    Content,
+    'page-content': Content,
     'page-footer': Footer,
     SecondFooter,
     FooterItem,
     'btn': Button,
     Icon,
     Searchbar
-  },
-  data () {
-    return {
-      input: ''
-    }
   }
 }
 </script>

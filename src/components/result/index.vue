@@ -1,8 +1,8 @@
 <template>
-  <div class="result result-{{type}}">
+  <div :class="'result result-' + type">
     <div class="brand-icon">
       <slot name="icon">
-        <div class="icon icon-{{type}}-fill"></div>
+        <div :class="'icon icon-' + type + '-fill'"></div>
       </slot>
     </div>
 

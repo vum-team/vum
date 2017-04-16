@@ -1,11 +1,5 @@
 export default {
-  bind () {
-    this.el.addEventListener('transitionend', (e) => this.end(e))
-  },
-  update (v, ov) {
-    this.transitionend = v
-  },
-  end () {
-    this.transitionend()
+  bind (el, binding) {
+    el.addEventListener('transitionend', (e) => binding.value(e))
   }
 }

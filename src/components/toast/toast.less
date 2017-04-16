@@ -1,16 +1,5 @@
 @import '../mixins.less';
 
-.toast-overlay {
-  .overlay();
-  &.toast-overlay-transition {
-    opacity: 1;
-  }
-  &.toast-overlay-enter,
-  &.toast-overlay-leave {
-    opacity: 0;
-  }
-}
-
 .toast-modal {
   position: absolute;
   left: 50%;
@@ -24,17 +13,13 @@
   color: white;
   text-align: center;
   min-width: 5.5rem;
-  
-  &.toast-modal-transition {
-    opacity: 1;
-    transform: translate3d(-50%, -50%, 0) scale(1);
-  }
+  opacity: 1;
 
-  &.toast-modal-enter{
+  &.toast-modal-enter {
     opacity: 0;
     transform: translate3d(-50%, -50%, 0) scale(0.8);
   }
-  &.toast-modal-leave {
+  &.toast-modal-leave-active {
     opacity: 0;
     transform: translate3d(-50%, -50%, 0) scale(1.2);
   }

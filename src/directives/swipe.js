@@ -1,69 +1,72 @@
-export default {
-  bind () {
-    this._start = (e) => this.start(e)
-    this._move = (e) => this.move(e)
-    this._end = (e) => this.end(e)
+const _point = (e) => {
+  if (e.touches) {
+    return {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY
+    }
+  } else {
+    return {
+      x: e.pageX,
+      y: e.pageY
+    }
+  }
+}
 
-    if (document.createElement('div').ontouchstart !== undefined) {
-      this.el.addEventListener('touchstart', this._start)
-      this.el.addEventListener('touchmove', this._move)
-      this.el.addEventListener('touchend', this._end)
-    } else {
-      this.el.addEventListener('mousedown', this._start)
-      this.el.addEventListener('mousemove', this._move)
-      this.el.addEventListener('mouseup', this._end)
-    }
-  },
-  update (v, ov) {
-    if (this.arg === 'start') this.swipeStart = v
-    if (this.arg === 'move') this.swipeMove = v
-    if (this.arg === 'end') this.swipeEnd = v
-  },
-  unbind () {
-    this.el.removeEventListener('touchstart', this._start)
-    this.el.removeEventListener('touchmove', this._move)
-    this.el.removeEventListener('touchend', this._end)
-    this.el.removeEventListener('mousedown', this._start)
-    this.el.removeEventListener('mousemove', this._move)
-    this.el.removeEventListener('mouseup', this._end)
-  },
-  _point (e) {
-    if (e.touches) {
-      return {
-        x: e.touches[0].clientX,
-        y: e.touches[0].clientY
-      }
-    } else {
-      return {
-        x: e.pageX,
-        y: e.pageY
+export default {
+  inserted (el, binding) {
+    const arg = binding.arg
+    const v = binding.value
+
+    let touching = false
+    let startPoint, startTime, diff, movePoint
+
+    const start = (e) => {
+      touching = true
+      const point = _point(e)
+      startPoint = point
+      startTime = +new Date()
+      if (arg === 'start') v(startPoint)
+      diff = {
+        x: 0,
+        y: 0
       }
     }
-  },
-  start (e) {
-    this.touching = true
-    const point = this._point(e)
-    this.startPoint = point
-    this.startTime = +new Date()
-    if (this.swipeStart) this.swipeStart(this.startPoint)
-    this.diff = {
-      x: 0,
-      y: 0
+
+    const move = (e) => {
+      if (!touching) return false
+      e.preventDefault()
+      const point = _point(e)
+      movePoint = point
+      diff = {
+        x: point.x - startPoint.x,
+        y: point.y - startPoint.y
+      }
+      if (arg === 'move') v(point, diff, +new Date() - startTime)
     }
-  },
-  move (e) {
-    if (!this.touching) return false
-    e.preventDefault()
-    const point = this._point(e)
-    this.movePoint = point
-    this.diff = {
-      x: point.x - this.startPoint.x,
-      y: point.y - this.startPoint.y
+
+    const end = (e) => {
+      if (arg === 'end') v(movePoint, diff, +new Date() - startTime)
+      touching = false
     }
-    if (this.swipeMove) this.swipeMove(point, this.diff, +new Date() - this.startTime)
+
+    el.addEventListener('touchstart', start)
+    el.addEventListener('touchmove', move)
+    el.addEventListener('touchend', end)
+    el.addEventListener('mousedown', start)
+    el.addEventListener('mousemove', move)
+    el.addEventListener('mouseup', end)
+
+    // for unbind
+    if (arg === 'start') el._start = start
+    if (arg === 'move') el._move = move
+    if (arg === 'end') el._end = end
   },
-  end (e) {
-    if (this.swipeEnd) this.swipeEnd(this.movePoint, this.diff, +new Date() - this.startTime)
-    this.touching = false
+  unbind (el, binding) {
+    el.removeEventListener('touchstart', el._start)
+    el.removeEventListener('touchmove', el._move)
+    el.removeEventListener('touchend', el._end)
+    el.removeEventListener('mousedown', el._start)
+    el.removeEventListener('mousemove', el._move)
+    el.removeEventListener('mouseup', el._end)
   }
 }

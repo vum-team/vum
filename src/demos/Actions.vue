@@ -1,16 +1,16 @@
 <template>
   <div class="page">
     <simple-header title="Actions" :back-link="true"></simple-header>
-    <content>
+    <page-content>
       <div class='demos-content-padded'>
-        <p><m-button v-on:click="showActions()">Show Actions</m-button></p>
+        <p><m-button @click.native="$refs.actions.open()">Show Actions</m-button></p>
       </div>
-    </content>
-    <actions :show.sync="show">
+    </page-content>
+    <actions ref="actions">
       <action-group>
-        <action-button @click="publish()">Publish</action-button>
-        <action-button @click="save()">Save</action-button>
-        <action-button class="color-danger" @click="save()">Delete</action-button>
+        <action-button @click.native="close()">Publish</action-button>
+        <action-button @click.native="close()">Save</action-button>
+        <action-button class="color-danger" @click.native="close()">Delete</action-button>
       </action-group>
     </actions>
   </div>
@@ -24,30 +24,16 @@ import { Actions, ActionButton, ActionGroup } from '../components/actions'
 
 export default {
   components: {
-    Content,
+    'page-content': Content,
     SimpleHeader,
     'm-button': Button,
     Actions,
     ActionButton,
     ActionGroup
   },
-  data () {
-    return {
-      show: false
-    }
-  },
   methods: {
-    showActions () {
-      this.show = true
-    },
-    publish () {
-      this.show = false
-    },
-    save () {
-      this.show = false
-    },
-    delete () {
-      this.show = false
+    close () {
+      this.$refs.actions.close()
     }
   }
 }

@@ -4,7 +4,7 @@
          width: diameter + 'px',
          height: diameter + 'px'
        }">
-    <svg :width="diameter" :height="diameter" :viewPort="'0 0 ' + diameter + ' ' + diameter" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <svg :width="diameter" :height="diameter" :view-port="'0 0 ' + diameter + ' ' + diameter" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <circle
         :r="radius-lineWidth"
         :cx="radius"
@@ -120,13 +120,13 @@ export default {
       this.circlePercent = this.percent
     }
   },
-  ready () {
+  mounted () {
     clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {
       this.sync()
     }, 200) // delay for initial value
   },
-  destroy () {
+  destroyed () {
     // do clear
     clearTimeout(this.timeout)
     clearInterval(this.interval)
