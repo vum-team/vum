@@ -68,7 +68,7 @@ export default {
         { name: 'Xia ran', avatar: images[5] },
         { name: 'Xue dinge', avatar: images[6] },
         { title: true, name: 'Z' },
-        { name: 'Zhang xq', avatar: images[10] }
+        { name: 'Zhang xq', avatar: images[7] }
       ]
     }
   },
