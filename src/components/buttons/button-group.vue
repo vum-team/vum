@@ -3,7 +3,6 @@
     'buttons-group ' +
     ' button-' + type +
     ' button-' + size +
-    (large ? ' button-large' : '') + 
     (round ? ' button-round' : '') +
     (bordered ? ' button-bordered' : '')">
     <slot></slot>
