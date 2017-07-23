@@ -1,4 +1,4 @@
-# vue-mobile - V2.0.0-alpha
+# vue-mobile - V2.0.0-rc.1
 
 > An UI Framework build with Vue.js
 
