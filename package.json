@@ -1,9 +1,8 @@
 {
   "name": "vum2.0",
-  "version": "1.0.0",
+  "version": "2.0.0-rc.1",
   "description": "A Vue.js project",
   "author": "hongxun.li <hongxun.li@ge.com>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
