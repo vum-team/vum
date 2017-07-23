@@ -17,9 +17,9 @@
       <div slot="title">Payment</div>
       <div slot="content">Choose your payment!</div>
       <div slot="buttons" class="modal-buttons">
-        <span class="modal-button modal-button-cancel" v-on:click="$refs.modal.close()">Cancel</span>
-        <span class="modal-button" v-on:click="log(1)">Paypay</span>
-        <span class="modal-button modal-button-bold" v-on:click="log(2)">Bankcard</span>
+        <span class="modal-button modal-button-cancel" @click="$refs.modal.close()">Cancel</span>
+        <span class="modal-button" @click="log(1)">Paypay</span>
+        <span class="modal-button modal-button-bold" @click="log(2)">Bankcard</span>
       </div>
     </modal>
   </div>
