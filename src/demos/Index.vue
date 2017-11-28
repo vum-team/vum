@@ -27,12 +27,13 @@
 
 <script>
 import Page from '../components/page'
-import { Footer, Item } from '../components/footer'
+import { Footer, Item, FooterItem } from '../components/footer'
 import Home from './Home'
 import Search from './Search'
 import Noti from './Noti'
 import About from './About'
 
+console.log(FooterItem)
 export default {
   components: {
     Page,

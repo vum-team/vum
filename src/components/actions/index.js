@@ -1,15 +1,10 @@
-<script>
 import Actions from './Actions'
 import ActionButton from './ActionButton'
 import ActionGroup from './ActionGroup'
+import './actions.less'
 
-export default {
+export {
   Actions,
   ActionButton,
   ActionGroup
 }
-</script>
-
-<style lang="less">
-@import 'actions.less';
-</style>

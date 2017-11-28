@@ -1,14 +1,14 @@
-<script>
 import Footer from './footer'
 import SecondFooter from './second'
 import Item from './item'
 
-export default {
+const FooterItem = Item
+
+export {
   Footer,
   SecondFooter,
-  FooterItem: Item,
+  FooterItem,
 
   // for old version
   Item
 }
-</script>

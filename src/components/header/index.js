@@ -1,19 +1,20 @@
-<script>
 import Header from './header'
 import SecondHeader from './second'
 import Link from './link'
 import Title from './title'
 import SimpleHeader from './simple-header'
 
-export default {
+const HeaderLink = Link
+const HeaderTitle = Title
+
+export {
   Header,
   SecondHeader,
-  HeaderLink: Link,
-  HeaderTitle: Title,
+  HeaderLink,
+  HeaderTitle,
   SimpleHeader,
 
   // for old version
   Link,
   Title
 }
-</script>

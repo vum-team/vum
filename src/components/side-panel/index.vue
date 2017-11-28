@@ -60,7 +60,7 @@ export default {
     },
     slideEnd (point, diff, time) {
       this.touching = false
-      if (this.x < 0 && (Math.abs(this.x) > 80 || Math.abs(this.x) > 20 && time < 200)) {
+      if (((this.x < 0) && Math.abs(this.x) > 80) || (Math.abs(this.x) > 20 && time < 200)) {
         this.mutableShow = false
       } else {
         this.x = 0

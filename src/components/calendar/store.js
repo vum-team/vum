@@ -9,7 +9,7 @@ const Store = class {
     this.currentMonthDates = []
     this.prevMonthDates = []
     this.nextMonthDates = []
-    this.selectedDate
+    this.selectedDate = null
     this.data = {}
 
     this.conf = {
@@ -164,7 +164,7 @@ const Store = class {
   _isInRange (date) {
     date = moment(date).clone().startOf('date')
     const conf = this.conf
-    if (conf.min && date.isBefore(conf.min) || conf.max && date.isAfter(conf.max)) return false
+    if ((conf.min && date.isBefore(conf.min)) || (conf.max && date.isAfter(conf.max))) return false
     return true
   }
 

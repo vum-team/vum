@@ -1,9 +1,7 @@
-<script>
 import Popover from './popover.vue'
 import PopoverItem from './item'
 
-export default {
+export {
   Popover,
   PopoverItem
 }
-</script>

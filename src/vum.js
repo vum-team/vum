@@ -21,7 +21,7 @@ class RouterConfig {
         const _from = from.path
         const scrollTop = router.app.$el.querySelector('.page-content').scrollTop
         const h = db.get(_to)
-        if (h && h.history || (_from && _from.indexOf(_to) === 0)) {
+        if ((h && h.history) || (_from && _from.indexOf(_to) === 0)) {
           router.app.$el.className = 'transition-reverse'
           h.history = false
           db.set(_to, h)

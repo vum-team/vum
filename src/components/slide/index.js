@@ -1,9 +1,8 @@
-<script>
 import Wrapper from './wrapper'
 import Slide from './slide'
 
-export default {
+const SlideWrapper = Wrapper
+export {
   Slide,
-  SlideWrapper: Wrapper
+  SlideWrapper
 }
-</script>

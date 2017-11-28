@@ -1,9 +1,7 @@
-<script>
 import Tab from './Tab'
 import TabItem from './TabItem'
 
-export default {
+export {
   Tab,
   TabItem
 }
-</script>

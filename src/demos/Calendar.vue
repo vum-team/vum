@@ -28,7 +28,7 @@
 import Content from '../components/content'
 import { SimpleHeader } from '../components/header'
 import Popup from '../components/popup'
-import { Calendar } from '../components/calendar'
+import Calendar from '../components/calendar'
 import { Form, FormItem } from '../components/form'
 
 export default {
